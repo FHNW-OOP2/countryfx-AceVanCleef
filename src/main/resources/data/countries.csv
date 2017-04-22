@@ -1,0 +1,207 @@
+ID;NAME;NAME_LONG;CAPITAL;POPULATION;AREA;POPULATION_KM2;FLAG;ISO_3;ISO_2;TLD;NAME_ENGLISH;NAME_LOCAL;CONTINENT
+1;Abchasien;Republik Abchasien;Sochumi;240000;8600.0;37.0;Abchasien;ABC;;;Abkhazia;Aṗsny (Abchasisch), Abchazija (Russisch);Asien, Europa
+2;Afghanistan;Islamische Republik Afghanistan;Kabul;32200000;652230.0;51.0;Afghanistan;AFG;AF;.af;Afghanistan;Afghānestān;Asien
+3;Ägypten;Arabische Republik Ägypten;Kairo;89100000;1001450.0;82.0;Agypten;EGY;EG;.eg;Egypt;Misr;Afrika
+4;Albanien;Republik Albanien;Tirana;2900000;28748.0;97.0;Albanien;ALB;AL;.al;Albania;Shqipëria;Europa
+5;Algerien;Demokratische Volksrepublik Algerien;Algier;39900000;2381741.0;16.0;Algerien;DZA;DZ;.dz;Algeria;al-Dschazā'ir;Afrika
+6;Andorra;Fürstentum Andorra;Andorra la Vella;85000;468.0;182.0;Andorra;AND;AD;.ad;Andorra;Andorra;Europa
+7;Angola;Republik Angola;Luanda;25000000;1246700.0;17.0;Angola;AGO;AO;.ao;Angola;Angola;Afrika
+8;Antigua und Barbuda;Antigua und Barbuda;Saint John’s;87000;443.0;196.0;Antigua und Barbuda;ATG;AG;.ag;Antigua and Barbuda;Antigua and Barbuda;Nordamerika
+9;Äquatorialguinea;Republik Äquatorialguinea;Malabo;800000;28051.0;25.0;Äquatorialguinea;GNQ;GQ;.gq;Equatorial Guinea;Guinea Ecuatorial;Afrika
+10;Argentinien;Argentinische Republik;Buenos Aires;42400000;2780400.0;15.0;Argentinien;ARG;AR;.ar;Argentina;Argentina;Südamerika
+11;Armenien;Republik Armenien;Jerewan;3000000;29743.0;111.0;Armenien;ARM;AM;.am;Armenia;Hayastan;Europa
+12;Aserbaidschan;Republik Aserbaidschan;Baku;9700000;86600.0;107.0;Aserbaidschan;AZE;AZ;.az;Azerbaijan;Azǝrbaycan;Europa
+13;Äthiopien;Demokratische Bundesrepublik Äthiopien;Addis Abeba;98100000;1104300.0;79.0;Athiopien;ETH;ET;.et;Ethiopia;Ityop'iya;Afrika
+14;Australien;Australien;Canberra;23900000;7741220.0;3.0;Australien;AUS;AU;.au;Australia;Australia;Australien/Ozeanien
+15;Bahamas;Commonwealth der Bahamas;Nassau;400000;13880.0;29.0;Bahamas;BHS;BS;.bs;Bahamas;Bahamas;Nordamerika
+16;Bahrain;Königreich Bahrain;Manama;1400000;760.0;1711.0;Bahrain;BHR;BH;.bh;Bahrain;al-Bahrayn;Asien
+17;Bangladesch;Volksrepublik Bangladesch;Dhaka;160400000;143998.0;1062.0;Bangladesch;BGD;BD;.bd;Bangladesh;Bāṃlādeś;Asien
+18;Barbados;Barbados;Bridgetown;300000;430.0;665.0;Barbados;BRB;BB;.bb;Barbados;Barbados;Nordamerika
+19;Belgien;Königreich Belgien;Brüssel;11200000;30528.0;364.0;Belgien;BEL;BE;.be;Belgium;België (Niederländisch), Belgique (Französisch), Belgien (Deutsch);Europa
+20;Belize;Belize;Belmopan;400000;22966.0;14.0;Belize;BLZ;BZ;.bz;Belize;Belize;Nordamerika
+21;Benin;Republik Benin;Porto-Novo;10600000;112622.0;83.0;Benin;BEN;BJ;.bj;Benin;Bénin;Afrika
+22;Bergkarabach;Republik Bergkarabach;Stepanakert;135000;11500.0;13.0;Bergkarabach Republik;;;;Nagorno-Karabakh Republic;Lernayin Gharabaghi Hanrapetut’yun;
+23;Bhutan;Königreich Bhutan;Thimphu;800000;38394.0;18.0;Bhutan;BTN;BT;.bt;Bhutan;Bhutan;Asien
+24;Bolivien;Plurinationaler Staat Bolivien;Sucre;10500000;1098581.0;10.0;Bolivien;BOL;BO;.bo;Bolivia;Bolivia;Südamerika
+25;Bosnien und Herzegowina;Bosnien und Herzegowina;Sarajevo;3700000;51197.0;74.0;Bosnien und Herzegowina;BIH;BA;.ba;Bosnia and Herzegovina;Bosna i Hercegovina;Europa
+26;Botswana;Republik Botsuana;Gaborone;2100000;581730.0;3.0;Botswana;BWA;BW;.bw;Botswana;Botswana;Afrika
+27;Brasilien;Föderative Republik Brasilien;Brasília;204500000;8514877.0;23.0;Brasilien;BRA;BR;.br;Brazil;Brasil;Südamerika
+28;Brunei;Brunei Darussalam;Bandar Seri Begawan;400000;5765.0;69.0;Brunei;BRN;BN;.bn;Brunei Darussalam;Negara Brunei Darussalam;Asien
+29;Bulgarien;Republik Bulgarien;Sofia;7200000;110879.0;65.0;Bulgarien;BGR;BG;.bg;Bulgaria;Bălgarija;Europa
+30;Burkina Faso;Burkina Faso;Ouagadougou;18500000;274200.0;64.0;Burkina Faso;BFA;BF;.bf;Burkina Faso;Burkina Faso;Afrika
+31;Burundi;Republik Burundi;Bujumbura;10700000;27830.0;381.0;Burundi;BDI;BI;.bi;Burundi;Burundi;Afrika
+32;Chile;Republik Chile;Santiago de Chile;18000000;756102.0;23.0;Chile;CHL;CL;.cl;Chile;Chile;Südamerika
+33;Republik China;Republik China (Taiwan);Taipeh;23500000;35980.0;648.0;Taiwan;TWN;TW;.tw;Taiwan oder Republic of China;中華民國 Zhonghua Minguo;Asien
+34;Volksrepublik China mit Hongkong (HK) und Macau (MO);Volksrepublik China;Peking;1380000000;9596961.0;142.0;China Volksrepublik Hongkong Macau;CHN;CN;.cn;China;中华人民共和国 Zhonghua Renmin Gongheguo;Asien
+35;Cookinseln;Cookinseln;Avarua;11500;236.0;49.0;Cookinseln;COK;CK;.ck;Cook Islands;Cook Islands;Australien/Ozeanien
+36;Costa Rica;Republik Costa Rica;San José;4800000;51100.0;88.0;Costa Rica;CRI;CR;.cr;Costa Rica;Costa Rica;Nordamerika
+37;Dänemark mit Färöer (FO) und Grönland (GL);Königreich Dänemark;Kopenhagen;5659715;43094.0;128.0;Danemark Faroer Gronland;DNK;DK;.dk;Denmark;Danmark;Europa
+38;Deutschland;Bundesrepublik Deutschland;Berlin;81100000;357121.0;225.0;Deutschland;DEU;DE;.de;Germany;Deutschland;Europa
+39;Dominica;Commonwealth Dominica;Roseau;73000;751.0;97.0;Dominica;DMA;DM;.dm;Dominica;Dominica;Nordamerika
+40;Dominikanische Republik;Dominikanische Republik;Santo Domingo;10500000;48670.0;208.0;Dominikanische Republik;DOM;DO;.do;Dominican Republic;República Dominicana;Nordamerika
+41;Dschibuti;Republik Dschibuti;Dschibuti-Stadt;900000;23200.0;39.0;Dschibuti;DJI;DJ;.dj;Djibouti;Djibouti;Afrika
+42;Ecuador;Republik Ecuador;Quito;16300000;283561.0;53.0;Ecuador;ECU;EC;.ec;Ecuador;Ecuador;Südamerika
+43;El Salvador;Republik El Salvador;San Salvador;6400000;21041.0;299.0;El Salvador;SLV;SV;.sv;El Salvador;El Salvador;Nordamerika
+44;Elfenbeinküste;Republik Côte d’Ivoire;Yamoussoukro;23300000;322463.0;64.0;Elfenbeinküste;CIV;CI;.ci;Ivory Coast;Côte d’Ivoire;Afrika
+45;Eritrea;Staat Eritrea;Asmara;5200000;117600.0;48.0;Eritrea;ERI;ER;.er;Eritrea;Ertra;Afrika
+46;Estland;Republik Estland;Tallinn;1300000;45228.0;29.0;Estland;EST;EE;.ee;Estonia;Eesti;Europa
+47;Fidschi;Republik Fidschi;Suva;900000;18274.0;44.0;Fidschi;FJI;FJ;.fj;Fiji;Fiji;Australien/Ozeanien
+48;Finnland;Republik Finnland;Helsinki;5500000;338145.0;16.0;Finnland;FIN;FI (SF);.fi;Finland;Suomi (Finnisch), Finland (Schwedisch);Europa
+49;Frankreich ohne Überseegebiete;Französische Republik;Paris;64300000;551500.0;115.0;Frankreich;FRA;FR;.fr;France;France;Europa
+50;Gabun;Gabunische Republik;Libreville;1800000;267667.0;6.0;Gabun;GAB;GA;.ga;Gabon;Gabon;Afrika
+51;Gambia;Republik Gambia;Banjul;2000000;11295.0;159.0;Gambia;GMB;GM;.gm;Gambia, the;Gambia, the;Afrika
+52;Georgien mit Abchasien und Südossetien;Georgien;Tiflis;3800000;69700.0;65.0;Georgien;GEO;GE;.ge;Georgia;Sak'art'velo;Asien
+53;Ghana;Republik Ghana;Accra;27700000;238533.0;107.0;Ghana;GHA;GH;.gh;Ghana;Ghana;Afrika
+54;Grenada;Grenada;St. George’s;108000;344.0;314.0;Grenada;GRD;GD;.gd;Grenada;Grenada;Nordamerika
+55;Griechenland;Hellenische Republik;Athen;11500000;131957.0;82.0;Griechenland;GRC;GR;.gr;Greece;Elláda oder Ellás;Europa
+56;Guatemala;Republik Guatemala;Guatemala-Stadt;16200000;108889.0;138.0;Guatemala;GTM;GT;.gt;Guatemala;Guatemala;Nordamerika
+57;Guinea;Republik Guinea;Conakry;11000000;245857.0;47.0;Guinea;GIN;GN;.gn;Guinea;Guinée;Afrika
+58;Guinea-Bissau;Republik Guinea-Bissau;Bissau;1800000;36125.0;44.0;Guinea-Bissau;GNB;GW;.gw;Guinea-Bissau;Guiné-Bissau;Afrika
+59;Guyana;Kooperative Republik Guyana;Georgetown;700000;214969.0;4.0;Guyana;GUY;GY;.gy;Guyana;Guyana;Südamerika
+60;Haiti;Republik Haiti;Port-au-Prince;10900000;27750.0;371.0;Haiti;HTI;HT;.ht;Haiti;Haïti;Nordamerika
+61;Honduras;Republik Honduras;Tegucigalpa;8300000;112090.0;75.0;Honduras;HND;HN;.hn;Honduras;Honduras;Nordamerika
+62;Indien mit Kaschmir;Republik Indien;Neu-Delhi;1314100000;3287263.0;383.0;Indien;IND;IN;.in;India;India (Englisch), Bharat (Hindi);Asien
+63;Indonesien;Republik Indonesien;Jakarta;255700000;1904569.0;127.0;Indonesien;IDN;ID;.id;Indonesia;Indonesia;Asien
+64;Irak;Republik Irak;Bagdad;37100000;438317.0;77.0;Irak;IRQ;IQ;.iq;Iraq;al-ʿIrāq;Asien
+65;Iran;Islamische Republik Iran;Teheran;78500000;1648195.0;48.0;Iran;IRN;IR;.ir;Iran;Īrān;Asien
+66;Irland;Irland;Dublin;4600000;70273.0;67.0;Irland;IRL;IE;.ie;Ireland;Éire (Irisch), Ireland (Englisch);Europa
+67;Island;Republik Island;Reykjavík;330000;103000.0;3.0;Island;ISL;IS;.is;Iceland;Ísland;Europa
+68;Israel mit Golanhöhen und Ostjerusalem, ohne Gazastreifen und Westjordanland;Staat Israel;Jerusalem;8400000;22380.0;366.0;Israel;ISR;IL;.il;Israel;Yisra'el;Asien
+69;Italien;Italienische Republik;Rom;62500000;301340.0;202.0;Italien;ITA;IT;.it;Italy;Italia;Europa
+70;Jamaika;Jamaika;Kingston;2700000;10991.0;246.0;Jamaika;JAM;JM;.jm;Jamaica;Jamaica;Nordamerika
+71;Japan;Japan;Tokio;126900000;377915.0;338.0;Japan;JPN;JP;.jp;Japan;Nihon oder Nippon;Asien
+72;Jemen;Republik Jemen;Sanaa;26700000;527968.0;48.0;Jemen;YEM;YE;.ye;Yemen;al-Yaman;Asien
+73;Jordanien;Haschemitisches Königreich Jordanien;Amman;8100000;89342.0;71.0;Jordanien;JOR;JO;.jo;Jordan;al-Urdunn;Asien
+74;Kambodscha;Königreich Kambodscha;Phnom Penh;15400000;181035.0;83.0;Kambodscha;KHM;KH;.kh;Cambodia;Kampuchea;Asien
+75;Kamerun;Republik Kamerun;Yaoundé;23700000;475440.0;44.0;Kamerun;CMR;CM;.cm;Cameroon;Cameroun (Französisch), Cameroon (Englisch);Afrika
+76;Kanada;Kanada;Ottawa;35800000;9984670.0;3.0;Kanada;CAN;CA;.ca;Canada;Canada;Nordamerika
+77;Kap Verde;Republik Cabo Verde;Praia;509000;4033.0;126.0;Kap Verde;CPV;CV;.cv;Cape Verde;Cabo Verde;Afrika
+78;Kasachstan;Republik Kasachstan;Astana;17500000;2724900.0;6.0;Kasachstan;KAZ;KZ;.kz;Kazakhstan;Qazaqstan (Kasachisch), Kazahstan (Russisch);Asien
+79;Katar;Staat Katar;Doha;2400000;11586.0;164.0;Katar;QAT;QA;.qa;Qatar;Dawlat Qatar;Asien
+80;Kenia;Republik Kenia;Nairobi;44300000;580367.0;76.0;Kenia;KEN;KE;.ke;Kenya;Kenya;Afrika
+81;Kirgisistan;Kirgisische Republik;Bischkek;6000000;199951.0;29.0;Kirgisistan;KGZ;KG;.kg;Kyrgyzstan;Kyrgyzstan (Kirgisisch), Kirgizija (Russisch);Asien
+82;Kiribati;Republik Kiribati;South Tarawa;100000;811.0;123.0;Kiribati;KIR;KI;.ki;Kiribati;Kiribati oder Kiribas;Australien/Ozeanien
+83;Kolumbien;Republik Kolumbien;Bogotá;48200000;1138910.0;42.0;Kolumbien;COL;CO;.co;Colombia;Colombia;Südamerika
+84;Komoren;Union der Komoren;Moroni;800000;2235.0;358.0;Komoren;COM;KM;.km;Comoros;Comores;Afrika
+85;Kongo, Demokratische Republik;Demokratische Republik Kongo;Kinshasa;73300000;2344858.0;29.0;Kongo Demokratische Republik;COD;CD;.cd;Congo, Democratic Republic of the (Kinshasa);Congo, République Démocratique du;Afrika
+86;Kongo, Republik;Republik Kongo;Brazzaville;4800000;342000.0;12.0;Kongo Republik;COG;CG;.cg;Congo, Republic of (Brazzaville);Congo, République du;Afrika
+87;Korea, Nord;Demokratische Volksrepublik Korea;Pjöngjang;25000000;120538.0;204.0;Korea Nord;PRK;KP;.kp;Korea, Democratic People's Republic of (North Korea);조선민주주의인민공화국, 朝鮮民主主義人民共和國;Asien
+88;Korea, Süd;Republik Korea;Seoul;50700000;99720.0;490.0;Korea Sud;KOR;KR;.kr;Korea, Republic of (South Korea);대한민국, 大韓民國;Asien
+89;Kosovo;Republik Kosovo;Priština (Prishtina);1800000;10887.0;165.0;Kosovo;RKS;;;Kosovo;Kosova (Albanisch), Kosovo (Serbisch);Europa
+90;Kroatien;Republik Kroatien;Zagreb (Agram);4200000;56594.0;76.0;Kroatien;HRV;HR;.hr;Croatia;Hrvatska;Europa
+91;Kuba;Republik Kuba;Havanna;11100000;110860.0;101.0;Kuba;CUB;CU;.cu;Cuba;Cuba;Nordamerika
+92;Kuwait;Staat Kuwait;Kuwait-Stadt;3800000;17818.0;163.0;Kuwait;KWT;KW;.kw;Kuwait;al-Kuwayt;Asien
+93;Laos;Demokratische Volksrepublik Laos;Vientiane;6900000;236800.0;27.0;Laos;LAO;LA;.la;Lao, People’s Democratic Republic of;Lao;Asien
+94;Lesotho;Königreich Lesotho;Maseru;1900000;30355.0;72.0;Lesotho;LSO;LS;.ls;Lesotho;Lesotho;Afrika
+95;Lettland;Republik Lettland;Riga;2000000;64589.0;31.0;Lettland;LVA;LV;.lv;Latvia;Latvija;Europa
+96;Libanon;Libanesische Republik;Beirut;6200000;10400.0;413.0;Libanon;LBN;LB;.lb;Lebanon;Lubnān;Asien
+97;Liberia;Republik Liberia;Monrovia;4500000;111369.0;38.0;Liberia;LBR;LR;.lr;Liberia;Liberia;Afrika
+98;Libyen;Libyen;Tripolis;6300000;1759540.0;4.0;Libyen;LBY;LY;.ly;Libya;Lībiyā;Afrika
+99;Liechtenstein;Fürstentum Liechtenstein;Vaduz;37100;160.0;228.0;Liechtenstein;LIE;LI;.li;Liechtenstein;Liechtenstein;Europa
+100;Litauen;Republik Litauen;Vilnius (Wilna);2900000;65300.0;46.0;Litauen;LTU;LT;.lt;Lithuania;Lietuva;Europa
+101;Luxemburg;Großherzogtum Luxemburg;Luxemburg;600000;2586.0;193.0;Luxemburg;LUX;LU;.lu;Luxembourg;Luxembourg (Französisch), Lëtzebuerg (Luxemburgisch);Europa
+102;Madagaskar;Republik Madagaskar;Antananarivo;23000000;587041.0;37.0;Madagaskar;MDG;MG;.mg;Madagascar;Madagascar;Afrika
+103;Malawi;Republik Malawi;Lilongwe;17200000;118484.0;134.0;Malawi;MWI;MW;.mw;Malawi;Malawi;Afrika
+104;Malaysia;Malaysia;Kuala Lumpur;30800000;329847.0;88.0;Malaysia;MYS;MY;.my;Malaysia;Malaysia;Asien
+105;Malediven;Republik Malediven;Malé;300000;298.0;1102.0;Malediven;MDV;MV;.mv;Maldives;Dhivehi Raajje;Asien
+106;Mali;Republik Mali;Bamako;16700000;1240192.0;13.0;Mali;MLI;ML;.ml;Mali;Mali;Afrika
+107;Malta;Republik Malta;Valletta;413000;316.0;1288.0;Malta;MLT;MT;.mt;Malta;Malta;Europa
+108;Marokko ohne Westsahara (EH);Königreich Marokko;Rabat;34100000;446550.0;73.0;Marokko;MAR;MA;.ma;Morocco;al-Maghrib;Afrika
+109;Marshallinseln;Republik Marshallinseln;Majuro;60000;181.0;304.0;Marshallinseln;MHL;MH;.mh;Marshall Islands;Marshall Islands;Australien/Ozeanien
+110;Mauretanien;Islamische Republik Mauretanien;Nouakchott;3600000;1030700.0;3.0;Mauretanien;MRT;MR;.mr;Mauritania;Mūrītānīya;Afrika
+111;Mauritius;Republik Mauritius;Port Louis;1300000;2040.0;637.0;Mauritius;MUS;MU;.mu;Mauritius;Mauritius;Afrika
+112;Mazedonien;Ehemalige jugoslawische Republik Mazedonien;Skopje;2100000;25713.0;78.0;Mazedonien;MKD;MK;.mk;Macedonia;Makedonija;Europa
+113;Mexiko;Vereinigte Mexikanische Staaten;Mexiko-Stadt;127000000;1964375.0;59.0;Mexiko;MEX;MX;.mx;Mexico;México;Nordamerika
+114;Mikronesien;Föderierte Staaten von Mikronesien;Palikir;107000;702.0;152.0;Mikronesien Foderierte Staaten;FSM;FM;.fm;Micronesia, Federal States of;Micronesia;Australien/Ozeanien
+115;Moldawien mit Transnistrien;Republik Moldau;Chișinău;4100000;33851.0;92.0;Moldawien;MDA;MD;.md;Moldova;Moldova;Europa
+116;Monaco;Fürstentum Monaco;Stadtstaat;37800;2.0;17950.0;Monaco;MCO;MC;.mc;Monaco;Monaco;Europa
+117;Mongolei;Mongolei;Ulaanbaatar;3000000;1564116.0;2.0;Mongolei;MNG;MN;.mn;Mongolia;Mongol Uls;Asien
+118;Montenegro;Montenegro;Podgorica;600000;13812.0;48.0;Montenegro;MNE;ME;.me;Montenegro;Crna Gora;Europa
+119;Mosambik;Republik Mosambik;Maputo;25700000;799380.0;30.0;Mosambik;MOZ;MZ;.mz;Mozambique;Moçambique;Afrika
+120;Myanmar;Republik der Union Myanmar;Naypyidaw;52100000;676578.0;81.0;Myanmar;MMR;MM;.mm;Myanmar oder Burma;Myanma Naingngandaw;Asien
+121;Namibia;Republik Namibia;Windhoek;2500000;824292.0;3.0;Namibia;NAM;NA;.na;Namibia;Namibia;Afrika
+122;Nauru;Republik Nauru;Yaren;10000;21.0;476.0;Nauru;NRU;NR;.nr;Nauru;Nauru;Australien/Ozeanien
+123;Nepal;Demokratische Bundesrepublik Nepal;Kathmandu;28000000;147181.0;210.0;Nepal;NPL;NP;.np;Nepal;Nepal;Asien
+124;Neuseeland;Neuseeland;Wellington;4600000;267710.0;16.0;Neuseeland;NZL;NZ;.nz;New Zealand;New Zealand (Englisch), Aotearoa (Maorisch);Australien/Ozeanien
+125;Nicaragua;Republik Nicaragua;Managua;6300000;130730.0;46.0;Nicaragua;NIC;NI;.ni;Nicaragua;Nicaragua;Nordamerika
+126;Niederlande ohne Aruba (AW), Curaçao (CW) und Sint Maarten (SX);Königreich der Niederlande;Amsterdam;16900000;41543.0;402.0;Niederlande;NLD;NL;.nl;Netherlands;Nederland;Europa
+127;Niger;Republik Niger;Niamey;18900000;1267000.0;13.0;Niger;NER;NE;.ne;Niger;Niger;Afrika
+128;Nigeria;Bundesrepublik Nigeria;Abuja;181800000;923768.0;165.0;Nigeria;NGA;NG;.ng;Nigeria;Nigeria;Afrika
+129;Niue;Niue;Alofi;1229;260.0;5.0;Niue;NIU;NU;.nu;Niue;Niue;Australien/Ozeanien
+130;Nordzypern;Türkische Republik Nordzypern;Lefkoşa;295000;3355.0;79.0;Nordzypern;;;;Turkish Republic of Northern Cyprus;Kuzey Kıbrıs Türk Cumhuriyeti;Europa
+131;Norwegen ohne Svalbard (SJ);Königreich Norwegen;Oslo;5200000;323802.0;15.0;Norwegen;NOR;NO;.no;Norway;Norge (bokmål), Noreg (nynorsk);Europa
+132;Oman;Sultanat Oman;Maskat;4200000;309500.0;10.0;Oman;OMN;OM;.om;Oman;ʿUmān;Asien
+133;Österreich;Republik Österreich;Wien;8600000;83871.0;101.0;Osterreich;AUT;AT;.at;Austria;Österreich;Europa
+134;Osttimor / Timor-Leste;Demokratische Republik Timor-Leste;Dili;1200000;14874.0;74.0;Osttimor;TLS;TL (TP);.tl (.tp);East Timor oder Timor-Leste;Timor-Leste;Asien
+135;Pakistan ohne Kaschmir;Islamische Republik Pakistan;Islamabad;199000000;796095.0;227.0;Pakistan;PAK;PK;.pk;Pakistan;Pākistān;Asien
+136;Palästina;–;Gaza und Ramallah (de facto);4500000;6220.0;685.0;Palastina Autonomiegebiete;PSE;PS;.ps;Palestine;Dawlat Filastīn;Asien
+137;Palau;Republik Palau;Melekeok;21000;459.0;46.0;Palau;PLW;PW;.pw;Palau;Belau;Australien/Ozeanien
+138;Panama;Republik Panama;Panama-Stadt;4000000;75420.0;48.0;Panama;PAN;PA;.pa;Panama;Panamá;Nordamerika
+139;Papua-Neuguinea;Unabhängiger Staat Papua-Neuguinea;Port Moresby;7700000;462840.0;15.0;Papua-Neuguinea;PNG;PG;.pg;Papua New Guinea;Papua Niu Gini;Australien/Ozeanien
+140;Paraguay;Republik Paraguay;Asunción;7000000;406752.0;16.0;Paraguay;PRY;PY;.py;Paraguay;Paraguay (spanisch), Paraguái (Guaraní);Südamerika
+141;Peru;Republik Peru;Lima;31200000;1285216.0;23.0;Peru;PER;PE;.pe;Peru;Perú;Südamerika
+142;Philippinen;Republik der Philippinen;Manila;103000000;299000.0;309.0;Philippinen;PHL;PH;.ph;Philippines;Pilipinas;Asien
+143;Polen;Republik Polen;Warschau;38500000;312685.0;123.0;Polen;POL;PL;.pl;Poland;Polska;Europa
+144;Portugal;Portugiesische Republik;Lissabon;10300000;92090.0;115.0;Portugal;PRT;PT;.pt;Portugal;Portugal;Europa
+145;Ruanda;Republik Ruanda;Kigali;11300000;26338.0;410.0;Ruanda;RWA;RW;.rw;Rwanda;Rwanda;Afrika
+146;Rumänien;Republik Rumänien;Bukarest;19800000;238391.0;84.0;Rumänien;ROU;RO;.ro;Romania;Republică România;Europa
+147;Russland ohne Krim;Russische Föderation;Moskau;144300000;17098242.0;8.0;Russland;RUS;RU;.ru;Russia oder Russian Federation;Россия (Rossija) oder Российская Федерация (Rossijskaja Federacija);Europa, Asien
+148;Salomonen;Salomonen;Honiara;600000;28896.0;19.0;Salomonen;SLB;SB;.sb;Solomon Islands;Solomon Islands;Australien/Ozeanien
+149;Sambia;Republik Sambia;Lusaka;15500000;752618.0;18.0;Sambia;ZMB;ZM;.zm;Zambia;Zambia;Afrika
+150;Samoa;Unabhängiger Staat Samoa;Apia;200000;2831.0;68.0;Samoa;WSM;WS;.ws;Samoa;Samoa;Australien/Ozeanien
+151;San Marino;Republik San Marino;San Marino;32800;61.0;530.0;San Marino;SMR;SM;.sm;San Marino;San Marino;Europa
+152;São Tomé und Príncipe;Demokratische Republik São Tomé und Príncipe;São Tomé;200000;964.0;173.0;Sao Tome und Principe;STP;ST;.st;São Tomé and Príncipe;São Tomé e Príncipe;Afrika
+153;Saudi-Arabien;Königreich Saudi-Arabien;Riad;31600000;2149690.0;13.0;Saudi-Arabien;SAU;SA;.sa;Saudi Arabia;al-ʿArabīya as-Saʿudīya;Asien
+154;Schweden;Königreich Schweden;Stockholm;9800000;450295.0;21.0;Schweden;SWE;SE;.se;Sweden;Sverige;Europa
+155;Schweiz;Schweizerische Eidgenossenschaft;Bern;8300000;41277.0;196.0;Schweiz;CHE;CH;.ch;Switzerland;Schweiz (Deutsch), Suisse (Französisch), Svizzera (Italienisch), Svizra (Bündnerromanisch);Europa
+156;Senegal;Republik Senegal;Dakar;14700000;196722.0;67.0;Senegal;SEN;SN;.sn;Senegal;Sénégal;Afrika
+157;Serbien ohne Kosovo;Republik Serbien;Belgrad;7100000;77474.0;89.0;Serbien;SRB;RS;.rs;Serbia;Srbija;Europa
+158;Seychellen;Republik Seychellen;Victoria;90000;455.0;193.0;Seychellen;SYC;SC;.sc;Seychelles;Seychelles;Afrika
+159;Sierra Leone;Republik Sierra Leone;Freetown;6500000;71740.0;85.0;Sierra Leone;SLE;SL;.sl;Sierra Leone;Sierra Leone;Afrika
+160;Simbabwe;Republik Simbabwe;Harare;17400000;390757.0;32.0;Simbabwe;ZWE;ZW;.zw;Zimbabwe;Zimbabwe;Afrika
+161;Singapur;Republik Singapur;Stadtstaat;5500000;697.0;7604.0;Singapur;SGP;SG;.sg;Singapore;Singapore;Asien
+162;Slowakei;Slowakische Republik;Bratislava (Pressburg);5400000;49035.0;110.0;Slowakei;SVK;SK;.sk;Slovakia;Slovensko;Europa
+163;Slowenien;Republik Slowenien;Ljubljana (Laibach);2100000;20273.0;104.0;Slowenien;SVN;SI;.si;Slovenia;Slovenija;Europa
+164;Somalia mit Somaliland;Bundesrepublik Somalia;Mogadischu;11100000;637657.0;16.0;Somalia;SOM;SO;.so;Somalia;Soomaaliya (Somali), as-Sūmāl (arabisch);Afrika
+165;Somaliland;Republik Somaliland;Hargeysa;3500000;137600.0;25.0;Somaliland;;;;Somaliland;Soomaaliland;Afrika
+166;Spanien;Königreich Spanien;Madrid;46400000;505370.0;91.0;Spanien;ESP;ES;.es;Spain;España;Europa
+167;Sri Lanka;Demokratische Sozialistische Republik Sri Lanka;Colombo;20900000;65610.0;323.0;Sri Lanka;LKA;LK;.lk;Sri Lanka;Sri Lanka;Asien
+168;St. Kitts und Nevis;Föderation St. Kitts und Nevis;Basseterre;50000;261.0;192.0;Saint Kitts Nevis;KNA;KN;.kn;Saint Kitts and Nevis;;Nordamerika
+169;St. Lucia;St. Lucia;Castries;200000;616.0;261.0;Saint Lucia;LCA;LC;.lc;Saint Lucia;Saint Lucia;Nordamerika
+170;St. Vincent und die Grenadinen;St. Vincent und die Grenadinen;Kingstown;104000;389.0;267.0;Saint Vincent Grenadinen;VCT;VC;.vc;Saint Vincent and the Grenadines;;Nordamerika
+171;Südafrika;Republik Südafrika;Pretoria;55000000;1219090.0;42.0;Sudafrika;ZAF;ZA;.za;South Africa;Suid-Afrika (Afrikaans), South Africa (Englisch);Afrika
+172;Sudan;Republik Sudan;Khartum;40900000;1886068.0;20.0;Sudan;SDN;SD;.sd;Sudan;as-Sūdān;Afrika
+173;Südossetien;Südossetien;Zchinwali;51000;3885.0;19.0;Sudossetien;SOS;;;South Ossetia;Južnaja Osetija (Russisch);Asien
+174;Südsudan;Republik Südsudan;Juba;12200000;619745.0;13.0;Sudan Sud;SSD;SS;.ss;South Sudan;South Sudan;Afrika
+175;Suriname;Republik Suriname;Paramaribo;600000;163820.0;3.0;Suriname;SUR;SR;.sr;Suriname;Suriname;Südamerika
+176;Swasiland;Königreich Swasiland;Mbabane;1300000;17364.0;69.0;Swasiland;SWZ;SZ;.sz;Swaziland;Swaziland;Afrika
+177;Syrien mit Golanhöhen;Arabische Republik Syrien;Damaskus;17100000;185180.0;103.0;Syrien;SYR;SY;.sy;Syria;Sūriyā;Asien
+178;Tadschikistan;Republik Tadschikistan;Duschanbe;8500000;143100.0;50.0;Tadschikistan;TJK;TJ;.tj;Tajikistan;Todschikiston;Asien
+179;Tansania;Vereinigte Republik Tansania;Dodoma;52300000;947300.0;50.0;Tansania;TZA;TZ;.tz;Tanzania;Tanzania;Afrika
+180;Thailand;Königreich Thailand;Bangkok;65100000;513120.0;136.0;Thailand;THA;TH;.th;Thailand;Prathet Thai;Asien
+181;Togo;Republik Togo;Lomé;7200000;56785.0;106.0;Togo;TGO;TG;.tg;Togo;Togo;Afrika
+182;Tonga;Königreich Tonga;Nukuʻalofa;123000;747.0;165.0;Tonga;TON;TO;.to;Tonga;Tonga;Australien/Ozeanien
+183;Transnistrien;Transnistrische Moldauische Republik;Tiraspol;555000;3567.0;156.0;Transnistrien;;;;Transnistria;Pridnestrovje;Europa
+184;Trinidad und Tobago;Republik Trinidad und Tobago;Port of Spain;1400000;5128.0;254.0;Trinidad und Tobago;TTO;TT;.tt;Trinidad and Tobago;Trinidad and Tobago;Nordamerika
+185;Tschad;Republik Tschad;N’Djamena;13700000;1284000.0;9.0;Tschad;TCD;TD;.td;Chad;Tchad;Afrika
+186;Tschechien;Tschechische Republik;Prag;10600000;78867.0;133.0;Tschechien;CZE;CZ;.cz;Czech Republic;Česká republika;Europa
+187;Tunesien;Tunesische Republik;Tunis;11000000;163610.0;66.0;Tunesien;TUN;TN;.tn;Tunisia;Tunis;Afrika
+188;Türkei;Republik Türkei;Ankara;78200000;783562.0;96.0;Turkei;TUR;TR;.tr;Turkey;Türkiye;Asien, Europa
+189;Turkmenistan;Turkmenistan;Aschgabad;5400000;488100.0;11.0;Turkmenistan;TKM;TM;.tm;Turkmenistan;Türkmenistan;Asien
+190;Tuvalu;Tuvalu;Funafuti;10000;26.0;404.0;Tuvalu;TUV;TV;.tv;Tuvalu;Tuvalu;Australien/Ozeanien
+191;Uganda;Republik Uganda;Kampala;40100000;241038.0;148.0;Uganda;UGA;UG;.ug;Uganda;Uganda;Afrika
+192;Ukraine mit Krim;Ukraine;Kiew;42800000;603550.0;76.0;Ukraine;UKR;UA;.ua;Ukraine;Ukrajina;Europa
+193;Ungarn;Ungarn;Budapest;9800000;93028.0;106.0;Ungarn;HUN;HU;.hu;Hungary;Magyarország;Europa
+194;Uruguay;Republik Östlich des Uruguay;Montevideo;3600000;176215.0;19.0;Uruguay;URY;UY;.uy;Uruguay;Uruguay;Südamerika
+195;Usbekistan;Republik Usbekistan;Taschkent;31300000;447400.0;67.0;Usbekistan;UZB;UZ;.uz;Uzbekistan;Oʻzbekiston;Asien
+196;Vanuatu;Republik Vanuatu;Port Vila;300000;12189.0;18.0;Vanuatu;VUT;VU;.vu;Vanuatu;Vanuatu;Australien/Ozeanien
+197;Vatikanstadt;Staat Vatikanstadt;Stadtstaat;829;0.4;1884.0;Vatikanstadt;VAT;VA;.va;Vatican City;Status Civitatis Vaticanæ;Europa
+198;Venezuela;Bolivarische Republik Venezuela;Caracas;30600000;912050.0;33.0;Venezuela;VEN;VE;.ve;Venezuela;Venezuela;Südamerika
+199;Vereinigte Arabische Emirate;Vereinigte Arabische Emirate;Abu Dhabi;9600000;83600.0;97.0;Vereinigte Arabische Emirate;ARE;AE;.ae;United Arab Emirates;al-Imārāt al-ʿArabīya al-Muttahida;Asien
+200;Vereinigte Staaten ohne Außengebiete;Vereinigte Staaten von Amerika;Washington, D.C.;321200000;9826675.0;32.0;Vereinigte Staaten;USA;US;.us;United States;United States;Nordamerika
+201;Vereinigtes Königreich ohne Überseegebiete und Kronbesitzungen;Vereinigtes Königreich Großbritannien und Nordirland;London;65100000;243610.0;259.0;Vereinigtes Konigreich;GBR;GB (UK);.uk (.gb);United Kingdom;United Kingdom;Europa
+202;Vietnam;Sozialistische Republik Vietnam;Hanoi;91700000;331210.0;269.0;Vietnam;VNM;VN;.vn;Vietnam;Việt Nam;Asien
+203;Weißrussland;Republik Belarus;Minsk;9500000;207600.0;46.0;Weissrussland;BLR;BY;.by;Belarus;Belarus;Europa
+204;Westsahara;Demokratische Arabische Republik Sahara;El Aaiún;600000;266000.0;2.0;Westsahara;ESH;EH;.eh;Western Sahara oder Sahrawi Arab Democratic Republic;Sahara Occidental;Afrika
+205;Zentralafrikanische Republik;Zentralafrikanische Republik;Bangui;5600000;622984.0;7.0;Zentralafrikanische Republik;CAF;CF;.cf;Central African Republic;République Centrafricaine;Afrika
+206;Zypern mit Nordzypern;Republik Zypern;Nikosia;1200000;9251.0;130.0;Zypern Republik;CYP;CY;.cy;Cyprus;Kýpros (Griechisch), Kıbrıs (Türkisch);Europa
