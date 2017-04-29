@@ -5,14 +5,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import ch.fhnw.oop2.countryfx.presentationmodel.PresentationModel;
+import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
 import ch.fhnw.oop2.countryfx.view.ApplicationUI;
 
 public class AppStarter extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		PresentationModel pm = new PresentationModel();
+		RootPM pm = new RootPM();
 
 		Parent rootPanel = new ApplicationUI(pm);
 

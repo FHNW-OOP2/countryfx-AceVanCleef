@@ -1,16 +1,21 @@
 package ch.fhnw.oop2.countryfx.view;
 
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
-import ch.fhnw.oop2.countryfx.presentationmodel.PresentationModel;
+import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
 
-public class ApplicationUI extends StackPane {
-    private final PresentationModel model;
+public class ApplicationUI extends BorderPane {
+    private final RootPM model;
+
+    private Header menuBar;
+    private Content mainFrame;
+    private Footer continentsInfo;
 
     private Button button;
 
-    public ApplicationUI(PresentationModel model) {
+    public ApplicationUI(RootPM model) {
         this.model = model;
         initializeSelf();
         initializeControls();

@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class PresentationModelTest {
+public class RootPMTest {
 
     @Test
     public void testSetup(){
