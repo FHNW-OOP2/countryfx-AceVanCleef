@@ -29,7 +29,7 @@ public class CountryServiceFileBased implements CountryService {
     public List<CountryDTO> findAll() {
         try (Stream<String> streamOfLines = getStreamOfLines(FILE_NAME)) {        // try-with-resources schliesst automatisch den Stream
             return streamOfLines.skip(1)                                                 // erste Zeile ist die Headerzeile; ueberspringen
-                    .map(s -> new CountryDTO(s.split(DELIMITER, 13)))                // aus jeder Zeile ein DTO machen
+                    .map(s -> new CountryDTO(s.split(DELIMITER, 14)))                // aus jeder Zeile ein DTO machen
                     .collect(Collectors.toList());
         }
     }

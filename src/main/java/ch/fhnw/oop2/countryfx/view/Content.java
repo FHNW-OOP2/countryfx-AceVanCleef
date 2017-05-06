@@ -7,7 +7,7 @@ import javafx.scene.control.SplitPane;
  */
 public class Content extends SplitPane {
 
-    private CountryList allCountries;
+    //private CountryList allCountries;
     //todo: intermediatePane.getchildren().addAll(countryOverview, countryEditor) necessary???
     private Overview countryOverview;
     private Editor countryEditor;

@@ -4,7 +4,9 @@ import ch.fhnw.oop2.countryfx.service.CountryDTO;
 import javafx.beans.property.*;
 
 /**
- * Created by Degonas on 29.04.2017.
+ * 1 CountryPM = 1 CountryDTO = eine Zeile im .csv
+ *
+ * Unterschied: DTO wird weggeschmissen. CountryPM bleibt zur Runtime erhalten.s
  */
 public class CountryPM {
 

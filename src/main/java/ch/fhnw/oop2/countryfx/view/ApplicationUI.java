@@ -9,9 +9,9 @@ import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
 public class ApplicationUI extends BorderPane {
     private final RootPM model;
 
-    private Header menuBar;
-    private Content mainFrame;
-    private Footer continentsInfo;
+    //private Header menuBar;
+    //private Content mainFrame;
+    //private Footer continentsInfo;
 
     private Button button;
 
@@ -45,6 +45,5 @@ public class ApplicationUI extends BorderPane {
     }
 
     private void setupBindings() {
-        button.textProperty().bind(model.greetingProperty());
     }
 }

@@ -1,5 +1,7 @@
 package ch.fhnw.oop2.countryfx;
 
+import ch.fhnw.oop2.countryfx.service.CountryService;
+import ch.fhnw.oop2.countryfx.service.serviceimpl.CountryServiceFileBased;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,7 +14,9 @@ public class AppStarter extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		RootPM pm = new RootPM();
+		CountryService service = new CountryServiceFileBased();
+
+		RootPM pm = new RootPM(service);
 
 		Parent rootPanel = new ApplicationUI(pm);
 
