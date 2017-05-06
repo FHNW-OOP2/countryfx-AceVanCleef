@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
-import ch.fhnw.oop2.countryfx.view.ApplicationUI;
+import ch.fhnw.oop2.countryfx.view.RootPane;
 
 public class AppStarter extends Application {
 
@@ -18,7 +18,7 @@ public class AppStarter extends Application {
 
 		RootPM pm = new RootPM(service);
 
-		Parent rootPanel = new ApplicationUI(pm);
+		Parent rootPanel = new RootPane(pm);
 
 		Scene scene = new Scene(rootPanel);
 

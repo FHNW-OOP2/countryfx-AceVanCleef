@@ -1,7 +1,7 @@
 package ch.fhnw.oop2.countryfx.view.util;
 
 /**
- * Created by Degonas on 29.04.2017.
+ * Interface methods are always public
  */
 public interface ViewMixin {
 
@@ -21,7 +21,7 @@ public interface ViewMixin {
 
     void layoutParts();
 
-    default void addEventHandlers() {
+    default  void addEventHandlers() {
     }
 
     default void addValueChangedListeners() {
