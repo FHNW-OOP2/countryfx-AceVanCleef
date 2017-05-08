@@ -5,5 +5,5 @@ import javafx.scene.layout.GridPane;
 /**
  * Created by Degonas on 29.04.2017.
  */
-public class Editor extends GridPane {
+public class CountryEditor extends GridPane {
 }
