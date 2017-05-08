@@ -9,6 +9,10 @@ import javafx.scene.layout.HBox;
 
 /**
  * Created by Degonas on 29.04.2017.
+ *
+ * Reasonable SplitPane tutorial:
+ * http://fxexperience.com/2011/06/splitpane-in-javafx-2-0/
+ *
  */
 public class Content extends SplitPane implements ViewMixin{
 
@@ -24,22 +28,25 @@ public class Content extends SplitPane implements ViewMixin{
 
     public Content(RootPM pm){
         this.pm = pm;
+        init();         //<--- do NOT forget this!
     }
 
     @Override
     public void initializeSelf() {
-        this.setOrientation(Orientation.VERTICAL);
-        this.setDividerPositions(0.3, 0.6, 0.9);
+        this.setOrientation(Orientation.HORIZONTAL);
+        //this.setDividerPositions(0.7, 0.3);
+        this.setPrefSize(200, 200);
     }
 
     @Override
     public void initializeParts() {
-        test1 = new HBox(new Button("Blah"));
-        test2 = new HBox(new Button("ta"));
-        test1.setTranslateX(20);
-        test1.setTranslateY(20);
-        test2.setTranslateX(20);
-        test2.setTranslateY(20);
+        test1 = new HBox(new Button("Left"));
+        test2 = new HBox(new Button("Right"));
+        test1.setPrefWidth(50);
+        test2.setPrefWidth(50);
+        test1.setMinWidth(50);
+        //Todo: replace HBoxes test1 and test2 with intended Content.
+
     }
 
     @Override
