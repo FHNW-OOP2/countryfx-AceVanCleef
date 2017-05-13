@@ -1,11 +1,21 @@
 package ch.fhnw.oop2.countryfx.view;
 
+import ch.fhnw.oop2.countryfx.presentationmodel.CountryPM;
 import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
 import ch.fhnw.oop2.countryfx.view.util.ViewMixin;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.SplitPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.util.Callback;
+
+// Lessons learned:
+// intermediatePane.getchildren().addAll(countryOverview, countryEditor) necessary??? Yes
+
 
 /**
  * Created by Degonas on 29.04.2017.
@@ -16,15 +26,13 @@ import javafx.scene.layout.HBox;
  */
 public class Content extends SplitPane implements ViewMixin{
 
-    //private CountryList allCountries;
-    //todo: intermediatePane.getchildren().addAll(countryCountryOverview, countryCountryEditor) necessary???
+    private RootPM pm;
+
+    //private CountryList<CountryPM> countryList;
     private CountryOverview countryOverview;
     private CountryEditor countryEditor;
 
-    private RootPM pm;
-
-    private HBox test1;
-    private HBox test2;
+    private VBox infoContainer;
 
     public Content(RootPM pm){
         this.pm = pm;
@@ -40,17 +48,30 @@ public class Content extends SplitPane implements ViewMixin{
 
     @Override
     public void initializeParts() {
-        test1 = new HBox(new Button("Left"));
-        test2 = new HBox(new Button("Right"));
-        test1.setPrefWidth(50);
-        test2.setPrefWidth(50);
-        test1.setMinWidth(50);
-        //Todo: replace HBoxes test1 and test2 with intended Content.
+//        countryList = new CountryList<>();
+//        countryList.setItems(pm.getAllCountries()); //arming the list with data. Bon appetit!
+//        //countryList.setCellFactory(v -> new CountryList.CountryListCell());
+//        countryList.setCellFactory(new Callback<ListView<CountryPM>, CountryList.CountryListCell<CountryPM>>() {
+//            @Override
+//            public CountryList.CountryListCell<CountryPM> call(ListView<CountryPM> studentListView) {
+//                return new CountryList.CountryListCell();
+//            }
+//        });
+
+        countryOverview = new CountryOverview(pm);
+        countryEditor = new CountryEditor(pm);
+
+        //intermediary pane
+        infoContainer = new VBox();
+        VBox.setVgrow(countryOverview, Priority.ALWAYS);
+        VBox.setVgrow(countryEditor, Priority.ALWAYS);
 
     }
 
     @Override
     public void layoutParts() {
-        this.getItems().addAll(test1, test2);
+        infoContainer.getChildren().addAll(countryOverview, countryEditor);
+        //this.getItems().addAll(countryList, infoContainer);
+        this.getItems().addAll(new VBox(new Button("Test")), infoContainer);
     }
 }
