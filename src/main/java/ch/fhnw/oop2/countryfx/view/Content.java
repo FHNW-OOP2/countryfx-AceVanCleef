@@ -6,6 +6,7 @@ import ch.fhnw.oop2.countryfx.view.util.ViewMixin;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -33,6 +34,7 @@ public class Content extends SplitPane implements ViewMixin{
     private CountryEditor countryEditor;
 
     private VBox infoContainer;
+    private ScrollPane editorScroller;
 
     public Content(RootPM pm){
         this.pm = pm;
@@ -66,12 +68,22 @@ public class Content extends SplitPane implements ViewMixin{
         VBox.setVgrow(countryOverview, Priority.ALWAYS);
         VBox.setVgrow(countryEditor, Priority.ALWAYS);
 
+        //intermediary scrollpane
+        editorScroller = new ScrollPane();
     }
 
     @Override
     public void layoutParts() {
-        infoContainer.getChildren().addAll(countryOverview, countryEditor);
+        editorScroller.setContent(countryEditor);
+        editorScroller.setFitToWidth(true);
+        editorScroller.setFitToHeight(true);
+        infoContainer.getChildren().addAll(countryOverview, editorScroller);
         //this.getItems().addAll(countryList, infoContainer);
         this.getItems().addAll(new VBox(new Button("Test")), infoContainer);
+
+        //adjusting size of CountryOverview and CountryEditor to half the height of infoContainer.
+        editorScroller.setMaxHeight(infoContainer.getHeight() / 2);
+        countryOverview.setMaxHeight(infoContainer.getHeight() / 2);
+        //Todo: how to get exactly half sized children without using a SplitPane?
     }
 }

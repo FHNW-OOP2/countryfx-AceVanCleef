@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.RowConstraints;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -38,6 +39,9 @@ public class CountryOverview extends GridPane implements ViewMixin{
     public CountryOverview(RootPM pm){
         this.pm = pm;
         init(); //Bravo Stefan
+
+        //for debuggin
+        this.gridLinesVisibleProperty().set(true);
     }
 
     @Override
@@ -55,11 +59,17 @@ public class CountryOverview extends GridPane implements ViewMixin{
     public void layoutParts() {
         flag.setImage(image);
 
-        //set resizing behavior (H)
+
+        // Growth vertically (Höhe)
+        RowConstraints rc = new RowConstraints();
+        rc.setVgrow(Priority.ALWAYS);
+        //rc.setMaxHeight(Double.MAX_VALUE);
+        getRowConstraints().addAll(rc, rc, rc, rc, rc);
+
+        // Growth horizontally (Breite)
         ColumnConstraints cc = new ColumnConstraints();
         cc.setHgrow(Priority.ALWAYS);
         getColumnConstraints().addAll(cc, cc, cc);
-
 
         //adding labels
         add(country, 0,0);
@@ -71,9 +81,10 @@ public class CountryOverview extends GridPane implements ViewMixin{
         add(flag, 2,0, 1, 4);
         GridPane.setHalignment(flag, HPos.RIGHT);
 
-        this.gridLinesVisibleProperty().set(true);
     }
 
+
+    //Todo: Bindings
 //
 //    @Override
 //    public void setupBindings() {

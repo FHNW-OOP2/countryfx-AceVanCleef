@@ -1,0 +1,10 @@
+Todo list of CountryFX:
+
+        must have:
+        //Todo: how to get exactly half sized children without using a SplitPane?
+        //Todo: Bindings @CountryOverview, CountryEditor (and ListView
+        //Todo: ListView with Custom cells.
+        //Todo: add missing fields to CountryEditor
+
+        nice to have:
+        //Todo: how to get file path from /resouce for flag icons?
