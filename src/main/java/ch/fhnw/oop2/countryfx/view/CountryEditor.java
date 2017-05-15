@@ -147,7 +147,6 @@ public class CountryEditor extends GridPane implements ViewMixin{
             //unbind
             CountryPM previousCountry = pm.getCountry(oldValue.intValue());
             unbind(previousCountry);
-
             //rebinding
             bind();
         });

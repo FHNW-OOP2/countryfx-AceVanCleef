@@ -29,7 +29,7 @@ public class Content extends SplitPane implements ViewMixin{
 
     private RootPM pm;
 
-    //private CountryList<CountryPM> countryList;
+    private CountryList<CountryPM> countryList;
     private CountryOverview countryOverview;
     private CountryEditor countryEditor;
 
@@ -50,8 +50,7 @@ public class Content extends SplitPane implements ViewMixin{
 
     @Override
     public void initializeParts() {
-       // countryList = new CountryList<>(pm);
-
+        countryList = new CountryList<>(pm);
 
         countryOverview = new CountryOverview(pm);
         countryEditor = new CountryEditor(pm);

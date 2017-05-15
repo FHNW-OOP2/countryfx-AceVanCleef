@@ -17,9 +17,9 @@ public class CountryPM {
     private final IntegerProperty   population      = new SimpleIntegerProperty();
     private final DoubleProperty    area            = new SimpleDoubleProperty();
     private final DoubleProperty    population_km2  = new SimpleDoubleProperty();
-    private final StringProperty    flag            = new SimpleStringProperty();
-    private final StringProperty    iso_3           = new SimpleStringProperty();
-    private final StringProperty    iso_2           = new SimpleStringProperty();
+    private final StringProperty    flag            = new SimpleStringProperty();    // nicht benötigt für unser Projekt
+    private final StringProperty    iso_3           = new SimpleStringProperty();   // 3-buchstäbiger Code -> für Flaggen?
+    private final StringProperty    iso_2           = new SimpleStringProperty();   // 2-buchstäbiger Code -> für Flaggen?
     private final StringProperty    tld             = new SimpleStringProperty();
     private final StringProperty    name_english    = new SimpleStringProperty();
     private final StringProperty    name_local      = new SimpleStringProperty();
