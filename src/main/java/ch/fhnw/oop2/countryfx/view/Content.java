@@ -50,15 +50,8 @@ public class Content extends SplitPane implements ViewMixin{
 
     @Override
     public void initializeParts() {
-//        countryList = new CountryList<>();
-//        countryList.setItems(pm.getAllCountries()); //arming the list with data. Bon appetit!
-//        //countryList.setCellFactory(v -> new CountryList.CountryListCell());
-//        countryList.setCellFactory(new Callback<ListView<CountryPM>, CountryList.CountryListCell<CountryPM>>() {
-//            @Override
-//            public CountryList.CountryListCell<CountryPM> call(ListView<CountryPM> studentListView) {
-//                return new CountryList.CountryListCell();
-//            }
-//        });
+       // countryList = new CountryList<>(pm);
+
 
         countryOverview = new CountryOverview(pm);
         countryEditor = new CountryEditor(pm);
@@ -80,10 +73,5 @@ public class Content extends SplitPane implements ViewMixin{
         infoContainer.getChildren().addAll(countryOverview, editorScroller);
         //this.getItems().addAll(countryList, infoContainer);
         this.getItems().addAll(new VBox(new Button("Test")), infoContainer);
-
-        //adjusting size of CountryOverview and CountryEditor to half the height of infoContainer.
-        editorScroller.setMaxHeight(infoContainer.getHeight() / 2);
-        countryOverview.setMaxHeight(infoContainer.getHeight() / 2);
-        //Todo: how to get exactly half sized children without using a SplitPane?
     }
 }

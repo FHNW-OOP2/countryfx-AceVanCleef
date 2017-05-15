@@ -3,7 +3,6 @@ package ch.fhnw.oop2.countryfx.view;
 import ch.fhnw.oop2.countryfx.presentationmodel.CountryPM;
 import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
 import ch.fhnw.oop2.countryfx.view.util.ViewMixin;
-import javafx.beans.binding.Bindings;
 import javafx.geometry.HPos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -12,12 +11,6 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
-
-import java.io.File;
-import java.net.URISyntaxException;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
  * Created by Degonas on 29.04.2017.
@@ -46,10 +39,10 @@ public class CountryOverview extends GridPane implements ViewMixin{
 
     @Override
     public void initializeParts() {
-        country = new Label("title");
-        continent = new Label("continent");
-        capital = new Label("capital");
-        area = new Label("km2");
+        country = new Label();
+        continent = new Label();
+        capital = new Label();
+        area = new Label();
         image = new Image(imagePath+"ch.png");
         flag = new ImageView();
 
@@ -83,24 +76,35 @@ public class CountryOverview extends GridPane implements ViewMixin{
 
     }
 
-
-    //Todo: Bindings
-//
-//    @Override
-//    public void setupBindings() {
-//        PagingList mountains = rootPM.getMountains();
-//
-//        count.textProperty().bind(Bindings.size(mountains).asString());
-//        instances.textProperty().bind(mountains.cacheLevelProperty().asString());
-//        serviceCalls.textProperty().bind(mountains.serviceCallsProperty().asString());
-//        sleep.valueProperty().bindBidirectional(mountains.sleepProperty());
-//        pageSizeFactor.valueProperty().bindBidirectional(mountains.pageSizeFactorProperty());
-//    }
-
     @Override
     public void setupBindings() {
-        //CountryPM theCountry = ;
+        CountryPM currentCountry = pm.getCurrentCountry();
+        //initial binding
+        country.textProperty().bind(currentCountry.nameProperty());
+        continent.textProperty().bind(currentCountry.continentProperty());
+        capital.textProperty().bind(currentCountry.capitalProperty());
+        area.textProperty().bind(currentCountry.areaProperty().asString());
+        //todo: flag
+    }
 
-        //country.textProperty().bind(pm.getAllCountries().);
+    @Override
+    public void addValueChangedListeners() {
+        pm.selectedCountryIdProperty().addListener((observable, oldValue, newValue) -> {
+            //unbding old CountryPM
+            CountryPM previousCountryPM = pm.getCountry(oldValue.intValue());
+            country.textProperty().unbindBidirectional(previousCountryPM.nameProperty());
+            continent.textProperty().unbindBidirectional(previousCountryPM.continentProperty());
+            capital.textProperty().unbindBidirectional(previousCountryPM.capitalProperty());
+            area.textProperty().unbindBidirectional(previousCountryPM.areaProperty());
+            //todo: flag
+
+            //rebinding new CountryPM
+            CountryPM currentCountryPM = pm.getCurrentCountry();
+            country.textProperty().bind(currentCountryPM.nameProperty());
+            continent.textProperty().bind(currentCountryPM.continentProperty());
+            capital.textProperty().bind(currentCountryPM.capitalProperty());
+            area.textProperty().bind(currentCountryPM.areaProperty().asString());
+            //todo: flag
+        });
     }
 }
