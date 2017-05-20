@@ -17,9 +17,13 @@ public class RootPM {
     private final ObservableList<CountryPM> allCountries = FXCollections.observableArrayList(); // Alle PMs in einer Collection/Liste
     private final CountryService service;
 
+    //for TableView<ContinentPM
+    private final ObservableList<ContinentPM> allContinents = FXCollections.observableArrayList();
+
     //#SelectionHandling
     private final IntegerProperty selectedCountryId = new SimpleIntegerProperty(1); //Statusinformation: Welches Country angezeigt wird.
 
+    /************************** Constructors **************************/
 
     public RootPM(CountryService service){
         this.service = service;
@@ -27,8 +31,17 @@ public class RootPM {
         allCountries.addAll(service.findAll().stream()
                 .map(dto -> new CountryPM(dto))         //Mapping von DTOs zu PMs
                 .collect(Collectors.toList()));         //Alle PMs zur ObservableList
-    }
 
+        for(String contName : this.getAllContinentNames()){
+            allContinents.add(new ContinentPM(contName,
+                    getContinentArea(contName),
+                    getContinentPopulation(contName),
+                    getContinentAmountOfCountries(contName)));
+        }
+    }
+    /************************** END of Constructors **************************/
+
+    /************************** #SelectionHandling **************************/
 
     //#SelectionHandling
     public CountryPM getCurrentCountry(){
@@ -46,6 +59,25 @@ public class RootPM {
 
         //Hinweis 1: allCountries.get(int index) könnte auch klappen, WENN die IDs == der Reihenfolge der Elemente wäre.
         //Hinweis 2: man könnte auch mit foreach(), aber gäbe mehr code und erweiterungen sind aufwändiger.
+    }
+
+    /************************** END of #SelectionHandling **************************/
+
+    /************************** TableView continentInfo / ContinentPM **************************/
+
+    public ObservableList<ContinentPM> getAllContinents(){
+        return allContinents;
+    }
+
+    /**
+     * returns each continent name only once as an element of ObservableList<String>.
+     * @return the continent names
+     */
+    public ObservableList<String> getAllContinentNames(){
+        return allCountries.stream()
+                .map(countryPM -> countryPM.getContinent())
+                .distinct()
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
     /**
@@ -90,6 +122,8 @@ public class RootPM {
         return (int)getCountriesOf(continent).stream()
                 .count();
     }
+
+    /************************** END of TableView continentInfo / ContinentPM **************************/
 
 
     /********************* getters and setters ***********************/
