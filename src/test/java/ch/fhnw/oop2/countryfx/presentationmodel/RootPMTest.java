@@ -1,6 +1,7 @@
 package ch.fhnw.oop2.countryfx.presentationmodel;
 
 import ch.fhnw.oop2.countryfx.service.serviceimpl.CountryServiceFileBased;
+import ch.fhnw.oop2.countryfx.service.serviceimpl.CountryServiceFileBasedJunit;
 import javafx.collections.ObservableList;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,12 +13,24 @@ import static org.junit.Assert.*;
 
 public class RootPMTest {
 
+    private static  CountryServiceFileBased service;
+
     private final static String TEST_CONTINENT = "Australien/Ozeanien";
+
+    /**
+     * will be called each time before a testXY() is invoked (Reduces redundant code).
+     */
+    @Before
+    public void setUp(){
+        /* To guarantee always working unit tests (countriesSource.cvs will never be changed by IO save operations) */
+        service = new CountryServiceFileBasedJunit();
+    }
 
     @Test
     public void testSetup(){
         //given
-        CountryServiceFileBased service =  new CountryServiceFileBased();
+        //see @Before setUp()
+        System.out.println(service.findAll().get(0).getNAME()); // == Abchasien$
 
         //when
         RootPM pm = new RootPM(service);
@@ -25,12 +38,14 @@ public class RootPMTest {
         //then
         assertNotNull(pm.getAllCountries());
         assertEquals(206, pm.getAllCountries().size());
+        //Does it get countriesSource.csv?
+        assertEquals("Abchasien$", service.findAll().get(0).getNAME());
     }
 
     @Test
     public void testGetContinentArea(){
         //given
-        CountryServiceFileBased service =  new CountryServiceFileBased();
+        //see @Before setUp()
 
         //when
         RootPM pm = new RootPM(service);
@@ -44,7 +59,7 @@ public class RootPMTest {
     @Test
     public void testGetContinentPopulation(){
         //given
-        CountryServiceFileBased service =  new CountryServiceFileBased();
+        //see @Before setUp()
 
         //when
         RootPM pm = new RootPM(service);
@@ -57,7 +72,7 @@ public class RootPMTest {
     @Test
     public void testGetContinentAmountOfCountries(){
         //given
-        CountryServiceFileBased service =  new CountryServiceFileBased();
+        //see @Before setUp()
 
         //when
         RootPM pm = new RootPM(service);
@@ -70,8 +85,9 @@ public class RootPMTest {
     @Test
     public void testAddValueChangeListener(){
         //given
+        //see @Before setUp()
 
-        CountryServiceFileBased service =  new CountryServiceFileBased();
+        //CountryServiceFileBased service =  new CountryServiceFileBased();
         RootPM pm = new RootPM(service);
         //the country which will be changed
         CountryPM currentCountry = pm.getCurrentCountry();
@@ -108,7 +124,7 @@ public class RootPMTest {
     @Test
     public void testcreateNewCountry(){
         //given
-        CountryServiceFileBased service =  new CountryServiceFileBased();
+        //see @Before setUp()
         RootPM pm = new RootPM(service);
         int oldSize = pm.getAllCountries().size();
 
@@ -124,10 +140,10 @@ public class RootPMTest {
     public void testRemoveSelectedCountry(){
         /*** removeFirstElement ***/
         //given
-        CountryServiceFileBased service =  new CountryServiceFileBased();
+        //see @Before setUp()
         RootPM pm = new RootPM(service);
         int oldSize = pm.getAllCountries().size();
-        assertEquals("Abchasien", pm.getAllCountries().get(0).getName());
+        assertEquals("Abchasien$", pm.getAllCountries().get(0).getName());
 
         //when
         pm.removeSelectedCountry(); //selectedCountryId == 1 (default)

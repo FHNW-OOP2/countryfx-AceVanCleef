@@ -36,7 +36,7 @@ public class CountryServiceFileBased implements CountryService {
 
 
 
-    private Stream<String> getStreamOfLines(String fileName) {
+    Stream<String> getStreamOfLines(String fileName) {
         try {
             return Files.lines(getPath(fileName), StandardCharsets.UTF_8);
         } catch (IOException e) {
