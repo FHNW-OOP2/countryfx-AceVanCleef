@@ -46,8 +46,51 @@ public class RootPM {
 
         //Hinweis 1: allCountries.get(int index) könnte auch klappen, WENN die IDs == der Reihenfolge der Elemente wäre.
         //Hinweis 2: man könnte auch mit foreach(), aber gäbe mehr code und erweiterungen sind aufwändiger.
-
     }
+
+    /**
+     * returns the countries of a continent.
+     *
+     * [collecting to ObservableList]
+     * Source: http://stackoverflow.com/questions/33849538/collectors-lambda-return-observable-list
+     * @param continent
+     * @return
+     */
+    public ObservableList<CountryPM> getCountriesOf(String continent){
+        return allCountries.stream()
+                            .filter(countryPM -> countryPM.getContinent().equals(continent))        // Filtern und vergleichen
+                            .collect(Collectors.toCollection(FXCollections::observableArrayList));
+
+        /* How it works
+         * ---------------
+         * [FXCollections::observableArrayList]:
+         * observableArrayList() Creates a new empty observable list that is backed by an arraylist.
+         *
+         * [Collectors.toCollection(Supplier<C> collectionFactory)]:
+         * toCollection() Returns a Collector that accumulates the input elements into a new Collection, in encounter order.
+         *
+         * [Stream's .collect(Collector<? super T,A,R> collector)]:
+         * .collect() uses a Collector in order to gather and return a collection.
+         */
+    }
+
+    public Double getContinentArea(String continent){
+        return getCountriesOf(continent).stream()
+                                        .mapToDouble(countryPM -> countryPM.getArea())
+                                        .sum();
+    }
+
+    public Integer getContinentPopulation(String continent){
+        return getCountriesOf(continent).stream()
+                                        .mapToInt(countryPM -> countryPM.getPopulation())
+                                        .sum();
+    }
+
+    public Integer getContinentAmountOfCountries(String continent){
+        return (int)getCountriesOf(continent).stream()
+                .count();
+    }
+
 
     /********************* getters and setters ***********************/
 

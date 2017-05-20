@@ -10,7 +10,7 @@ public class RootPane extends BorderPane implements ViewMixin{
 
     private Header menuBar;             // ToolBar
     private Content mainSplitPane;      // Ist die SplitPane :)
-    //private Footer continentsInfo;    // TableView
+    private Footer continentsInfo;      // TableView
 
     public RootPane(RootPM model) {
         this.pm = model;
@@ -30,11 +30,13 @@ public class RootPane extends BorderPane implements ViewMixin{
     public void initializeParts() {
         menuBar = new Header(pm);           // pm übergeben, damit Binding möglich wird
         mainSplitPane = new Content(pm);    // pm übergeben, damit Binding möglich wird
+        continentsInfo = new Footer(pm);    // == table = new TableView();
     }
 
     @Override
     public void layoutParts() {
         setTop(menuBar);
         setCenter(mainSplitPane);
+        setBottom(continentsInfo);
     }
 }
