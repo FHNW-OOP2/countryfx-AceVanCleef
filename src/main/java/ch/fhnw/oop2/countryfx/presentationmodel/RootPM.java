@@ -1,11 +1,14 @@
 package ch.fhnw.oop2.countryfx.presentationmodel;
 
 import ch.fhnw.oop2.countryfx.service.CountryService;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
 import java.util.stream.Collectors;
@@ -123,6 +126,31 @@ public class RootPM {
                 .count();
     }
 
+
+    private void addValueChangeListener(){
+        allCountries.addListener((ListChangeListener) change -> {
+            allContinents.clear();
+            for(String contName : this.getAllContinentNames()){
+                allContinents.add(new ContinentPM(contName,
+                        getContinentArea(contName),
+                        getContinentPopulation(contName),
+                        getContinentAmountOfCountries(contName)));
+            }
+        });
+
+//        allCountries.addListener(new ListChangeListener<CountryPM>() {
+//            @Override
+//            public void onChanged(Change<? extends CountryPM> c) {
+        //          allContinents.clear();
+//                for(String contName : getAllContinentNames()){
+//                    allContinents.add(new ContinentPM(contName,
+//                            getContinentArea(contName),
+//                            getContinentPopulation(contName),
+//                            getContinentAmountOfCountries(contName)));
+//                }
+//            }
+//        });
+    }
     /************************** END of TableView continentInfo / ContinentPM **************************/
 
 

@@ -1,8 +1,11 @@
 package ch.fhnw.oop2.countryfx.presentationmodel;
 
 import ch.fhnw.oop2.countryfx.service.serviceimpl.CountryServiceFileBased;
+import javafx.collections.ObservableList;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 
@@ -64,4 +67,41 @@ public class RootPMTest {
         assertEquals(number,(int) pm.getContinentAmountOfCountries(TEST_CONTINENT));
     }
 
+    @Test
+    public void testAddValueChangeListener(){
+        //given
+
+        CountryServiceFileBased service =  new CountryServiceFileBased();
+        RootPM pm = new RootPM(service);
+        //the country which will be changed
+        CountryPM currentCountry = pm.getCurrentCountry();
+        //get the affected continent
+        ContinentPM currentContinent = pm.getAllContinents()
+                .stream()
+                .filter(continentPM ->  continentPM.getContinentName().equals(currentCountry.getContinent()))
+                .distinct()
+                .findFirst()
+                .get();
+
+        //when
+        int oldPopulation = currentCountry.getPopulation();
+        int oldContinentPopulation = currentContinent.getPopulation();
+
+        //then
+        assertEquals(oldPopulation, currentCountry.getPopulation());
+        assertEquals(oldContinentPopulation, currentContinent.getPopulation());
+
+        //given (ValueChange)
+        int newPopulation = oldPopulation + 1;
+
+        //when
+        currentCountry.setPopulation(newPopulation);    //should trigger value change listener of allCountries
+
+        //then
+        assertEquals(newPopulation, currentCountry.getPopulation());
+        assertEquals(oldContinentPopulation + 1 ,currentContinent.getPopulation());
+
+
+        //todo: reagiert auf .remove()? (=löschen)
+    }
 }
