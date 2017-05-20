@@ -70,7 +70,7 @@ public class Content extends SplitPane implements ViewMixin{
         editorScroller.setFitToWidth(true);
         editorScroller.setFitToHeight(true);
         infoContainer.getChildren().addAll(countryOverview, editorScroller);
-        //this.getItems().addAll(countryList, infoContainer);
-        this.getItems().addAll(new VBox(new Button("Test")), infoContainer);
+        this.getItems().addAll(countryList, infoContainer);
+        //this.getItems().addAll(new VBox(new Button("Test")), infoContainer);
     }
 }

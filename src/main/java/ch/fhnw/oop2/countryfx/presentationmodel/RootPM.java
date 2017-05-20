@@ -18,7 +18,7 @@ public class RootPM {
     private final CountryService service;
 
     //#SelectionHandling
-    private final IntegerProperty selectedCountryId = new SimpleIntegerProperty(1); //Statusinformation
+    private final IntegerProperty selectedCountryId = new SimpleIntegerProperty(1); //Statusinformation: Welches Country angezeigt wird.
 
 
     public RootPM(CountryService service){
