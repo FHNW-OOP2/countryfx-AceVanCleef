@@ -25,6 +25,9 @@ public class CountryPM {
     private final StringProperty    name_local      = new SimpleStringProperty();
     private final StringProperty    continent       = new SimpleStringProperty();
 
+    public CountryPM(int id){
+        setId(id);
+    }
 
     public CountryPM(CountryDTO dto){
         setId(dto.getID());

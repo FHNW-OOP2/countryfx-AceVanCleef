@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 public class RootPM {
     private final StringProperty applicationTitle = new SimpleStringProperty("CountryFX");
 
-
     private final ObservableList<CountryPM> allCountries = FXCollections.observableArrayList(); // Alle PMs in einer Collection/Liste
     private final CountryService service;
 
@@ -42,7 +41,66 @@ public class RootPM {
                     getContinentAmountOfCountries(contName)));
         }
     }
-    /************************** END of Constructors **************************/
+
+    /************************** Add New Country **************************/
+    public void createNewCountry(){
+        int index = allCountries.size() + 1;
+        allCountries.add(new CountryPM(index));
+        setSelectedCountryId(index);
+    }
+
+    /************************** Remove Selected Country **************************/
+    public void removeSelectedCountry(){
+        // .csv - Index:    starts at 1
+        // ListIndex:       starts at 0
+        // List.size():     1 to n elements.
+
+        if (getSelectedCountryId() == 1) {
+            removeFirstCountry();
+        } else if (getSelectedCountryId() == allCountries.size()){
+            removeLastCountry();
+        } else {
+            removeCountryInBetween();
+        }
+
+        for(CountryPM c : allCountries){
+            System.out.println(c.getName() + "\t- oldId:\t" +  c.getId());
+        }
+
+        /* 2,3,4
+        *  2,4
+        * */
+    }
+
+    private void removeLastCountry(){
+        System.out.println( getSelectedCountryId());
+        int deleteIndex = getSelectedCountryId() - 1; //.csv index -> ObservableList - index (d.h. 1 -> 0)
+        System.out.println( allCountries.get(deleteIndex).getName());
+
+        allCountries.remove(deleteIndex);
+        setSelectedCountryId(deleteIndex); //last element's index
+
+        for(int i = deleteIndex; i < allCountries.size(); i++){
+            allCountries.get(i).setId(i + 1); // ListIndex -> .csv - Index
+        }
+    }
+
+    private void removeCountryInBetween(){
+        removeFirstCountry();
+    }
+
+    private void removeFirstCountry(){
+        System.out.println( getSelectedCountryId());
+        int deleteIndex = getSelectedCountryId() - 1; //.csv index -> ObservableList - index (d.h. 1 -> 0)
+        System.out.println( allCountries.get(deleteIndex).getName());
+
+        allCountries.remove(deleteIndex);
+        setSelectedCountryId(deleteIndex + 1);
+
+        for(int i = deleteIndex; i < allCountries.size(); i++){
+            allCountries.get(i).setId(i + 1); // ListIndex -> .csv - Index
+        }
+    }
 
     /************************** #SelectionHandling **************************/
 
@@ -64,7 +122,6 @@ public class RootPM {
         //Hinweis 2: man könnte auch mit foreach(), aber gäbe mehr code und erweiterungen sind aufwändiger.
     }
 
-    /************************** END of #SelectionHandling **************************/
 
     /************************** TableView continentInfo / ContinentPM **************************/
 
@@ -151,7 +208,6 @@ public class RootPM {
 //            }
 //        });
     }
-    /************************** END of TableView continentInfo / ContinentPM **************************/
 
 
     /********************* getters and setters ***********************/

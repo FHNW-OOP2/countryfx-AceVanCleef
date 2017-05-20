@@ -104,4 +104,79 @@ public class RootPMTest {
 
         //todo: reagiert auf .remove()? (=löschen)
     }
+
+    @Test
+    public void testcreateNewCountry(){
+        //given
+        CountryServiceFileBased service =  new CountryServiceFileBased();
+        RootPM pm = new RootPM(service);
+        int oldSize = pm.getAllCountries().size();
+
+        //when
+        pm.createNewCountry();
+
+        //then
+        assertEquals(oldSize + 1 ,pm.getAllCountries().size());
+
+    }
+
+    @Test
+    public void testRemoveSelectedCountry(){
+        /*** removeFirstElement ***/
+        //given
+        CountryServiceFileBased service =  new CountryServiceFileBased();
+        RootPM pm = new RootPM(service);
+        int oldSize = pm.getAllCountries().size();
+        assertEquals("Abchasien", pm.getAllCountries().get(0).getName());
+
+        //when
+        pm.removeSelectedCountry(); //selectedCountryId == 1 (default)
+
+        //then
+        assertEquals(oldSize - 1 ,pm.getAllCountries().size());
+        assertEquals("Afghanistan", pm.getAllCountries().get(0).getName());
+
+
+        /*** removeLastElement ***/
+        //given
+        pm = new RootPM(service);
+        oldSize = pm.getAllCountries().size();
+        assertEquals("Zypern mit Nordzypern", pm.getAllCountries().get(oldSize - 1).getName());
+
+        //when
+        pm.setSelectedCountryId(oldSize);
+        pm.removeSelectedCountry(); //Zypern mit Nordzypern
+
+        //then
+        assertEquals(oldSize - 1 ,pm.getAllCountries().size());
+        int newSize = oldSize - 1;
+        assertEquals("Zentralafrikanische Republik", pm.getAllCountries().get(newSize - 1).getName());
+
+
+        /*** removeElementInBetween ***/
+        //given
+        pm = new RootPM(service);
+        int deleteIndex = 200;
+        assertEquals("Vereinigte Staaten ohne Außengebiete", pm.getAllCountries().get(deleteIndex - 1).getName());
+
+        //when
+        pm.setSelectedCountryId(deleteIndex);
+        pm.removeSelectedCountry(); //Vereinigte Staaten ohne Außengebiete
+
+        //then
+        assertEquals(oldSize - 1 ,pm.getAllCountries().size());
+        int newIndex = deleteIndex - 1;
+        assertEquals("Vereinigte Arabische Emirate", pm.getAllCountries().get(newIndex - 1).getName());
+
+        //delete a second time:
+
+        //when
+        pm.setSelectedCountryId(newIndex);
+        pm.removeSelectedCountry(); //Vereinigte Arabische Emirate
+
+        //then
+        assertEquals(oldSize - 2 ,pm.getAllCountries().size());
+        assertEquals("Vereinigtes Königreich ohne Überseegebiete und Kronbesitzungen",
+                pm.getAllCountries().get(newIndex - 1).getName());
+    }
 }

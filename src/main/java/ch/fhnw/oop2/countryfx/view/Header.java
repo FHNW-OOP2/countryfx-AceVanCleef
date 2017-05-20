@@ -20,7 +20,7 @@ public class Header extends ToolBar implements ViewMixin{
     private static final String UK_ICON     = "\ue000";
 
     private Button saveButton;
-    private Button plusButton;
+    private Button createButton;
     private Button removeButton;
     private Button undoButton;
     private Button redoButton;
@@ -44,8 +44,8 @@ public class Header extends ToolBar implements ViewMixin{
         saveButton = new Button(SAVE_ICON);
         saveButton.getStyleClass().add("fontawesome");
 
-        plusButton = new Button(PLUS_ICON);
-        plusButton.getStyleClass().add("fontawesome");
+        createButton = new Button(PLUS_ICON);
+        createButton.getStyleClass().add("fontawesome");
 
         redoButton = new Button(REDO_ICON);
         redoButton.getStyleClass().add("fontawesome");
@@ -68,7 +68,12 @@ public class Header extends ToolBar implements ViewMixin{
         HBox spacer = new HBox();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        getItems().addAll(saveButton, plusButton, removeButton, undoButton, redoButton, spacer, languageDEButton, languageUKButton);
+        getItems().addAll(saveButton, createButton, removeButton, undoButton, redoButton, spacer, languageDEButton, languageUKButton);
     }
 
+    @Override
+    public void addEventHandlers() {
+        createButton.setOnAction(event -> pm.createNewCountry());
+        removeButton.setOnAction(event -> pm.removeSelectedCountry());
+    }
 }
