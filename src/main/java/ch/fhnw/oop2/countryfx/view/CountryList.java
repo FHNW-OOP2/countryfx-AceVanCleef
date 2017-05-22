@@ -19,12 +19,12 @@ import javafx.util.Callback;
 /**
  * Created by Degonas on 29.04.2017.
  */
-public class CountryList<CountryPM> extends ListView<CountryPM> implements ViewMixin{
+public class CountryList extends ListView<CountryPM> implements ViewMixin{
 
     private RootPM pm;
 
-    private final ListProperty<CountryPM> listProperty = new SimpleListProperty<>();
-    private ObservableList<CountryPM> countries = FXCollections.observableArrayList();
+    //private final ListProperty<CountryPM> listProperty = new SimpleListProperty<>();
+    //private ObservableList<CountryPM> countries = FXCollections.observableArrayList();
 
 
     public CountryList(RootPM pm){
@@ -36,13 +36,13 @@ public class CountryList<CountryPM> extends ListView<CountryPM> implements ViewM
 */
         this.pm = pm;
         init();
-        countries = (ObservableList<CountryPM>) pm.getAllCountries();   //Does not work. How to get pm's allCountries?
     }
 
 
     @Override
     public void initializeSelf() {
-        //this.setCellFactory(v -> new CountryListCell());
+        setItems(pm.getAllCountries());
+        this.setCellFactory(v -> new CountryListCell());
     }
 
     @Override
@@ -53,7 +53,6 @@ public class CountryList<CountryPM> extends ListView<CountryPM> implements ViewM
     @Override
     public void layoutParts() {
         //listProperty.set();
-        this.setItems(countries);
     }
 }
 
