@@ -21,23 +21,20 @@ import javafx.util.Callback;
  */
 public class CountryList extends ListView<CountryPM> implements ViewMixin{
 
+    //#lessonLearned:
+    //Before: CountryList<CountryPM> extends ListView<CountryPM>
+    //After: CountryList extends ListView<CountryPM>
+    //Issue was: CountryList<CountryPM> ist überflüssig, da es auch z.B. als CountryList<T> geschrieben werden kann
+    //Wenn in der Klassendeklaration (class CountryList) ein Typparameter eingeführt wird , dann kann er heissen, wie er will (z.B. T).
+    //Erst wenn eine Instanz von CountryList gemäss "CountryList<CountryPM> list = new CountryList<>()" erzeugt wird, ist die
+    //CountryList auf Elemente vom Typ CountryPM begrenzt.
+    //In other words: Der Name im Generics hat nichts mit der CountryPM Klasse zu tun, bei der ListView<> jedoch schon, da CountryList von der LiestView erbt
     private RootPM pm;
 
-    //private final ListProperty<CountryPM> listProperty = new SimpleListProperty<>();
-    //private ObservableList<CountryPM> countries = FXCollections.observableArrayList();
-
-
     public CountryList(RootPM pm){
- /*
-        names.add((String) "01");
-        names.add((String) "02");
-        names.add((String) "03");
-        names.add((String) "04");
-*/
         this.pm = pm;
         init();
     }
-
 
     @Override
     public void initializeSelf() {
@@ -46,22 +43,16 @@ public class CountryList extends ListView<CountryPM> implements ViewMixin{
     }
 
     @Override
-    public void initializeParts() {
-
-    }
+    public void initializeParts() {}
 
     @Override
-    public void layoutParts() {
-        //listProperty.set();
-    }
+    public void layoutParts() {}
 }
 
 /************************** List Cell *********************************/
 
-
 //multiple classes can be within one file, but only one as public.
 class CountryListCell<CountryPM> extends ListCell<CountryPM> {
-
 
     @Override
     protected void updateItem(CountryPM item, boolean empty) {
@@ -82,8 +73,6 @@ class CountryListCell<CountryPM> extends ListCell<CountryPM> {
 class CustomListItem<CountryPM> extends GridPane implements ViewMixin{
 
     private static String imagePath = "https://dieterholz.github.io/StaticResources/flags_iso/64/";
-
-
     private CountryPM country;
 
     private TextField countryNameField;
@@ -91,7 +80,6 @@ class CustomListItem<CountryPM> extends GridPane implements ViewMixin{
 
     private ImageView flag;
     private Image img;
-
 
     public CustomListItem(CountryPM country){
         this.country = country;
@@ -116,7 +104,6 @@ class CustomListItem<CountryPM> extends GridPane implements ViewMixin{
 
     @Override
     public void setupBindings() {
-
         //countryNameField.textProperty().bindBidirectional(country.nameProperty()); //it can't find nameProperty(). Why?
     }
 }
