@@ -3,6 +3,13 @@ Todo list of CountryFX:
         must have:
         //Todo: Bindings @CountryOverview, CountryEditor (and ListView) (still relevant?)
 
+        Important lvl1)
+            RootPM:
+                - refractoring to selection handling with CountryPM proxyCountry and binding in RootPM
+                - add ObservableList<ContinentPM> selectedContinents //Covering multiple cases: Europa; Europa,Asien; Asien,Europa;
+                - add value change listener to proxyCountry in order to recalculate the property values of selectedContinents
+                  (The value change listener on allCountries is fine since it reacts on add(Country) remove(country) )
+
         1) ListView
             a) Custom Cell Factory ''//Does not work. How to get pm's allCountries?'
             b) setupBindings(): //countryNameField.textProperty().bindBidirectional(country.nameProperty()); //it can't find nameProperty(). Why?
