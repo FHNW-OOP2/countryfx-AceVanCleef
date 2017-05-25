@@ -19,7 +19,8 @@ Todo list of CountryFX:
             a) bindings / value change updates (see RootPM's allContinent)
         3) CountryOverview
             a) connection / binding to selectedCountryIdProperty
-            b) flag (use iso_2 + url-string)
+            b) flag (use iso_2 + url-string) -> image = new Image(imagePath + pm.getProxyCountry().getIso_2() + ".png");
+            Tipp: Centralize it + move logic to PM: write helper method getFlagImgUrl(int imgSize) within RootPM using StringBuilder and move imagePath constant to RootPM
         4) CountryEditor
             a) connection / binding to selectedCountryIdProperty
         5) Header

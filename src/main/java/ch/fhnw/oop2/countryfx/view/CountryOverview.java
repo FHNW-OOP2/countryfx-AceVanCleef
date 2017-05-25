@@ -78,6 +78,8 @@ public class CountryOverview extends GridPane implements ViewMixin{
 
     @Override
     public void setupBindings() {
+        //old selection handling
+        /*
         CountryPM currentCountry = pm.getCurrentCountry();
         //initial binding
         country.textProperty().bind(currentCountry.nameProperty());
@@ -85,10 +87,20 @@ public class CountryOverview extends GridPane implements ViewMixin{
         capital.textProperty().bind(currentCountry.capitalProperty());
         area.textProperty().bind(currentCountry.areaProperty().asString());
         //todo: flag
+        */
+
+        //#stableSelection (Advanced Selection Handling)
+        country.textProperty().bind(pm.getCountryProxy().nameProperty());
+        continent.textProperty().bind(pm.getCountryProxy().continentProperty());
+        capital.textProperty().bind(pm.getCountryProxy().capitalProperty());
+        area.textProperty().bind(pm.getCountryProxy().areaProperty().asString());
+        //todo: flag
     }
 
     @Override
     public void addValueChangedListeners() {
+        //old selection handling
+        /*
         pm.selectedCountryIdProperty().addListener((observable, oldValue, newValue) -> {
             //unbding old CountryPM
             CountryPM previousCountryPM = pm.getCountry(oldValue.intValue());
@@ -106,5 +118,6 @@ public class CountryOverview extends GridPane implements ViewMixin{
             area.textProperty().bind(currentCountryPM.areaProperty().asString());
             //todo: flag
         });
+        */
     }
 }

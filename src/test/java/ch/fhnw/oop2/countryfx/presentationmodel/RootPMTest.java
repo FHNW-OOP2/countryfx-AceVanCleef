@@ -83,7 +83,7 @@ public class RootPMTest {
     }
 
     @Test
-    public void testAddValueChangeListener(){
+    public void AddValueChangeListenerForContinentInfo(){
         //given
         //see @Before setUp()
 
@@ -194,5 +194,30 @@ public class RootPMTest {
         assertEquals(oldSize - 2 ,pm.getAllCountries().size());
         assertEquals("Vereinigtes Königreich ohne Überseegebiete und Kronbesitzungen",
                 pm.getAllCountries().get(newIndex - 1).getName());
+    }
+
+    @Test
+    public void testAddSelectionChangeListener(){
+        /* setup check */
+        //given
+        //see @Before setUp()
+        RootPM pm = new RootPM(service);
+
+        //when
+        CountryPM firstCountry = pm.getCurrentCountry();
+
+        //then
+        assertEquals(firstCountry.getName(), pm.getCountryProxy().getName());
+
+        /* when changing selection */
+        //given
+        int newSelectionId = 2;
+
+        //when
+        pm.setSelectedCountryId(newSelectionId);
+
+        //then
+        assertNotEquals(firstCountry.getName_long(), pm.getCountryProxy().getName_long());
+        assertEquals(pm.getCurrentCountry().getName_long(), pm.getCountryProxy().getName_long());
     }
 }

@@ -138,18 +138,35 @@ public class CountryEditor extends GridPane implements ViewMixin{
 
     @Override
     public void setupBindings() {
-        bind();
+        //old selection handling
+        //bind();
+
+        //#stableSelection (Advanced Selection Handling)
+        nameField.textProperty().bindBidirectional(pm.getCountryProxy().nameProperty());
+        nameLongField.textProperty().bindBidirectional(pm.getCountryProxy().name_longProperty());
+        areaField.textProperty().bindBidirectional(pm.getCountryProxy().areaProperty(),             new NumberStringConverter());
+        capitalField.textProperty().bindBidirectional(pm.getCountryProxy().capitalProperty());
+        populationField.textProperty().bindBidirectional(pm.getCountryProxy().populationProperty(), new NumberStringConverter());
+        //topLevelDomainField.textProperty().bindBidirectional(pm.getCountryProxy().());
+        continentField.textProperty().bindBidirectional(pm.getCountryProxy().continentProperty());
+        populationPerAreaField.textProperty().bindBidirectional(pm.getCountryProxy().population_km2Property(), new NumberStringConverter());
+
+        iso_3Field.textProperty().bindBidirectional(pm.getCountryProxy().iso_3Property());
+        iso_2Field.textProperty().bindBidirectional(pm.getCountryProxy().iso_2Property());
+        tldField.textProperty().bindBidirectional(pm.getCountryProxy().tldProperty());
+        name_englishField.textProperty().bindBidirectional(pm.getCountryProxy().name_englishProperty());
+        name_localField.textProperty().bindBidirectional(pm.getCountryProxy().name_longProperty());
     }
 
     @Override
     public void addValueChangedListeners() {
-        pm.selectedCountryIdProperty().addListener((observable, oldValue, newValue) -> {
-            //unbind
-            CountryPM previousCountry = pm.getCountry(oldValue.intValue());
-            unbind(previousCountry);
-            //rebinding
-            bind();
-        });
+//        pm.selectedCountryIdProperty().addListener((observable, oldValue, newValue) -> {
+//            //unbind
+//            CountryPM previousCountry = pm.getCountry(oldValue.intValue());
+//            unbind(previousCountry);
+//            //rebinding
+//            bind();
+//        });
 
     }
 

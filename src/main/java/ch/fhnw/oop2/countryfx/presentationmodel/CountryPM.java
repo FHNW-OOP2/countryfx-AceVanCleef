@@ -29,6 +29,10 @@ public class CountryPM {
         setId(id);
     }
 
+    //#stableSelection (Advanced Selection Handling)
+    public CountryPM(){
+    }
+
     public CountryPM(CountryDTO dto){
         setId(dto.getID());
         setName(dto.getNAME());

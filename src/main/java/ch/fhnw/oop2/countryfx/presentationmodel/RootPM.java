@@ -1,8 +1,6 @@
 package ch.fhnw.oop2.countryfx.presentationmodel;
 
 import ch.fhnw.oop2.countryfx.service.CountryService;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -25,6 +23,10 @@ public class RootPM {
     //#SelectionHandling
     private final IntegerProperty selectedCountryId = new SimpleIntegerProperty(1); //Statusinformation: Welches Country angezeigt wird.
 
+    //#stableSelection (Advanced Selection Handling)
+    private final CountryPM countryProxy = new CountryPM();
+
+
     /************************** Constructors **************************/
 
     public RootPM(CountryService service){
@@ -40,6 +42,108 @@ public class RootPM {
                     getContinentPopulation(contName),
                     getContinentAmountOfCountries(contName)));
         }
+
+        setupBindings();
+        addValueChangeListener();
+    }
+
+    /**
+     * sets up the initial values for CountryPM countryProxy
+     * @LessonLearned: required because value change listeners are passive. They only act when a value has been changed.
+     */
+    private void setupBindings(){
+        //#stableSelection (Advanced Selection Handling)
+        CountryPM currentCountry = getCurrentCountry();
+        if (currentCountry != null) {
+            countryProxy.idProperty().bindBidirectional(currentCountry.idProperty());
+            countryProxy.nameProperty().bindBidirectional(currentCountry.nameProperty());
+            countryProxy.name_longProperty().bindBidirectional(currentCountry.name_longProperty());
+            countryProxy.capitalProperty().bindBidirectional(currentCountry.capitalProperty());
+            countryProxy.populationProperty().bindBidirectional(currentCountry.populationProperty());
+            countryProxy.areaProperty().bindBidirectional(currentCountry.areaProperty());
+            countryProxy.population_km2Property().bindBidirectional(currentCountry.population_km2Property());
+            countryProxy.flagProperty().bindBidirectional(currentCountry.flagProperty());
+            countryProxy.iso_3Property().bindBidirectional(currentCountry.iso_3Property());
+            countryProxy.iso_2Property().bindBidirectional(currentCountry.iso_2Property());
+            countryProxy.tldProperty().bindBidirectional(currentCountry.tldProperty());
+            countryProxy.name_englishProperty().bindBidirectional(currentCountry.name_englishProperty());
+            countryProxy.name_localProperty().bindBidirectional(currentCountry.name_localProperty());
+            countryProxy.continentProperty().bindBidirectional(currentCountry.continentProperty());
+        }
+    }
+
+    private void addValueChangeListener(){
+        //#stableSelection (Advanced Selection Handling)
+        AddSelectionChangeListener();
+
+        // TableView continentInfo / ContinentPM
+        AddValueChangeListenerForContinentInfo();
+
+    }
+
+    private void AddValueChangeListenerForContinentInfo(){
+        //Todo: react upon value change in selectedCountryPM which is stored in CountryPM proxyCountry
+
+        //allContinents reacts upon allCountries.remove() and allCountries.add()
+        allCountries.addListener((ListChangeListener) change -> {
+            allContinents.clear();
+            for(String contName : this.getAllContinentNames()){
+                allContinents.add(new ContinentPM(contName,
+                        getContinentArea(contName),
+                        getContinentPopulation(contName),
+                        getContinentAmountOfCountries(contName)));
+            }
+        });
+    }
+
+
+    /**
+     * #stableSelection (Advanced Selection Handling)
+     *
+     * updates CountryPM proxyCountry.
+     */
+    private void AddSelectionChangeListener(){
+        selectedCountryId.addListener((observable, oldValue, newValue) -> {
+            CountryPM oldSelection = this.getCountry(oldValue.intValue()); //unbind from old CountryPM
+            CountryPM newSelection = this.getCountry(newValue.intValue()); //rebind to newly selected CountryPM
+
+            //unbind from old CountryPM
+            if (oldSelection != null) {
+                countryProxy.idProperty().unbindBidirectional(oldSelection.idProperty());
+                countryProxy.nameProperty().unbindBidirectional(oldSelection.nameProperty());
+                countryProxy.name_longProperty().unbindBidirectional(oldSelection.name_longProperty());
+                countryProxy.capitalProperty().unbindBidirectional(oldSelection.capitalProperty());
+                countryProxy.populationProperty().unbindBidirectional(oldSelection.populationProperty());
+                countryProxy.areaProperty().unbindBidirectional(oldSelection.areaProperty());
+                countryProxy.population_km2Property().unbindBidirectional(oldSelection.population_km2Property());
+                countryProxy.flagProperty().unbindBidirectional(oldSelection.flagProperty());
+                countryProxy.iso_3Property().unbindBidirectional(oldSelection.iso_3Property());
+                countryProxy.iso_2Property().unbindBidirectional(oldSelection.iso_2Property());
+                countryProxy.tldProperty().unbindBidirectional(oldSelection.tldProperty());
+                countryProxy.name_englishProperty().unbindBidirectional(oldSelection.name_englishProperty());
+                countryProxy.name_localProperty().unbindBidirectional(oldSelection.name_localProperty());
+                countryProxy.continentProperty().unbindBidirectional(oldSelection.continentProperty());
+            }
+
+            //rebind to newly selected CountryPM
+            if (newSelection != null) {
+                countryProxy.idProperty().bindBidirectional(newSelection.idProperty());
+                countryProxy.nameProperty().bindBidirectional(newSelection.nameProperty());
+                countryProxy.name_longProperty().bindBidirectional(newSelection.name_longProperty());
+                countryProxy.capitalProperty().bindBidirectional(newSelection.capitalProperty());
+                countryProxy.populationProperty().bindBidirectional(newSelection.populationProperty());
+                countryProxy.areaProperty().bindBidirectional(newSelection.areaProperty());
+                countryProxy.population_km2Property().bindBidirectional(newSelection.population_km2Property());
+                countryProxy.flagProperty().bindBidirectional(newSelection.flagProperty());
+                countryProxy.iso_3Property().bindBidirectional(newSelection.iso_3Property());
+                countryProxy.iso_2Property().bindBidirectional(newSelection.iso_2Property());
+                countryProxy.tldProperty().bindBidirectional(newSelection.tldProperty());
+                countryProxy.name_englishProperty().bindBidirectional(newSelection.name_englishProperty());
+                countryProxy.name_localProperty().bindBidirectional(newSelection.name_localProperty());
+                countryProxy.continentProperty().bindBidirectional(newSelection.continentProperty());
+            }
+
+        });
     }
 
     /************************** Add New Country **************************/
@@ -122,6 +226,10 @@ public class RootPM {
         //Hinweis 2: man könnte auch mit foreach(), aber gäbe mehr code und erweiterungen sind aufwändiger.
     }
 
+    //#stableSelection (Advamced Selection Handling)
+    public CountryPM getCountryProxy(){
+        return countryProxy;
+    }
 
     /************************** TableView continentInfo / ContinentPM **************************/
 
@@ -181,32 +289,6 @@ public class RootPM {
     public Integer getContinentAmountOfCountries(String continent){
         return (int)getCountriesOf(continent).stream()
                 .count();
-    }
-
-
-    private void addValueChangeListener(){
-        allCountries.addListener((ListChangeListener) change -> {
-            allContinents.clear();
-            for(String contName : this.getAllContinentNames()){
-                allContinents.add(new ContinentPM(contName,
-                        getContinentArea(contName),
-                        getContinentPopulation(contName),
-                        getContinentAmountOfCountries(contName)));
-            }
-        });
-
-//        allCountries.addListener(new ListChangeListener<CountryPM>() {
-//            @Override
-//            public void onChanged(Change<? extends CountryPM> c) {
-        //          allContinents.clear();
-//                for(String contName : getAllContinentNames()){
-//                    allContinents.add(new ContinentPM(contName,
-//                            getContinentArea(contName),
-//                            getContinentPopulation(contName),
-//                            getContinentAmountOfCountries(contName)));
-//                }
-//            }
-//        });
     }
 
 
