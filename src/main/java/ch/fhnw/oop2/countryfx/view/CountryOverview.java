@@ -19,7 +19,7 @@ public class CountryOverview extends GridPane implements ViewMixin{
 
     private RootPM pm;
 
-    private static String imagePath = "https://dieterholz.github.io/StaticResources/flags_iso/128/";
+    private static String imageSize = "128/";
 
     private Label country;
     private Label continent;
@@ -43,7 +43,7 @@ public class CountryOverview extends GridPane implements ViewMixin{
         continent = new Label();
         capital = new Label();
         area = new Label();
-        image = new Image(imagePath+"ch.png");
+        image = new Image(pm.getCurrentFlagURL(imageSize));
         flag = new ImageView();
 
     }
@@ -108,7 +108,6 @@ public class CountryOverview extends GridPane implements ViewMixin{
             continent.textProperty().unbindBidirectional(previousCountryPM.continentProperty());
             capital.textProperty().unbindBidirectional(previousCountryPM.capitalProperty());
             area.textProperty().unbindBidirectional(previousCountryPM.areaProperty());
-            //todo: flag
 
             //rebinding new CountryPM
             CountryPM currentCountryPM = pm.getCurrentCountry();
@@ -116,8 +115,28 @@ public class CountryOverview extends GridPane implements ViewMixin{
             continent.textProperty().bind(currentCountryPM.continentProperty());
             capital.textProperty().bind(currentCountryPM.capitalProperty());
             area.textProperty().bind(currentCountryPM.areaProperty().asString());
-            //todo: flag
         });
         */
+
+        //#Flagge
+        //todo: Flagge anzeigen lassen zum laufen bringen.
+        //Auf neues selected Country reagieren:
+        pm.selectedCountryIdProperty().addListener((observable, oldValue, newValue) -> {
+            //update flag image:
+            image = new Image(pm.getCurrentFlagURL(imageSize));
+            flag.setImage(image);   //todo: nowändig?
+        });
+        //Auf Wertänderung der iso_2Property im proxyCountry reagieren:
+        pm.getCountryProxy().iso_2Property().addListener((observable, oldValue, newValue) -> {
+            //update flag image:
+            image = new Image(pm.getCurrentFlagURL(imageSize));
+            flag.setImage(image);
+        });
+        //Auf Wertänderung der iso_2Property im proxyCountry reagieren:
+        continent.textProperty().addListener((observable, oldValue, newValue) -> {
+            //update flag image:
+            image = new Image(pm.getCurrentFlagURL(imageSize));
+            flag.setImage(image);
+        });
     }
 }

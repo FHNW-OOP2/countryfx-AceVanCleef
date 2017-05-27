@@ -31,6 +31,11 @@ public class RootPM {
     //private final ContinentPM proxyContinent = new ContinentPM(); //todo
 
 
+    //#Flagge
+    private static String FLAGS_IMGAGE_PATH = "https://dieterholz.github.io/StaticResources/flags_iso/";
+    private static String IMAGE_FORMAT_PNG = ".png";
+
+
     /************************** Constructors **************************/
 
     public RootPM(CountryService service){
@@ -310,6 +315,26 @@ public class RootPM {
                 .count();
     }
 
+    /********************* #Flagge ***********************/
+
+    public String getCurrentFlagURL(String flagSize){
+        if("".equals(flagSize) || flagSize == null){
+            flagSize = "24/";                       //fallback size
+        }
+
+        String iso_2 = this.getCountryProxy().getIso_2();
+        if ("".equals(iso_2) || iso_2 == null){
+            iso_2 = "_United-Nations";              // bei CreateNewCountry()
+        } else {
+            iso_2 = iso_2.toLowerCase(); //from "CH" to "ch"
+        }
+
+        String url = FLAGS_IMGAGE_PATH +  // "https://dieterholz.github.io/StaticResources/flags_iso/";
+                flagSize +          // "128/" oder "64/" usw.
+                iso_2 +             // "ch" oder "de" usw.
+                IMAGE_FORMAT_PNG;   // ".png"
+        return url;
+    }
 
     /********************* getters and setters ***********************/
 

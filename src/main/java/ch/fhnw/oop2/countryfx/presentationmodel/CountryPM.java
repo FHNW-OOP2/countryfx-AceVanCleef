@@ -27,6 +27,17 @@ public class CountryPM {
 
     public CountryPM(int id){
         setId(id);
+                                setName("");        setName_long("");
+        setCapital("");         setPopulation(0);   setArea(0);
+        setPopulation_km2(0);   setFlag("");        setIso_3("");
+        setIso_2("");           setTld("");         setName_english("");
+        setName_local("");      setContinent("");
+        /*  Hinweis:
+         *  Properties müssen mit Defaultwerten initialisiert werden, damit nach pm.createNewCountry() keine
+         *  NullPointerExceptions geworfen werden: Die NPE wird geworfen, sobald getCountriesOf(), getContinentArea(),
+         *  getContinentPopulation und getContinentAmountOfCountries() aufgerufen werden. Diese Methoden werden ausgelöst,
+         *  um continentInfo zu aktualisieren.
+         */
     }
 
     //#stableSelection (Advanced Selection Handling)

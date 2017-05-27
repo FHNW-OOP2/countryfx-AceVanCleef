@@ -14,6 +14,6 @@ Die Features im Code wurden mit @Tags markiert, um sie leichter zu finden.
 
 ##Extra Features
 
-***#Flagge
+### #Flagge
 In den Klassen _CountryOverview_ und _CountryList_ werden die Nationalfahnen angezeigt, wobei in der _CountryOverview_ 
 immer nur diejenige des aktuell ausgewählten Landes.

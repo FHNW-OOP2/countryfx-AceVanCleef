@@ -221,10 +221,69 @@ public class RootPMTest {
         assertEquals(pm.getCurrentCountry().getName_long(), pm.getCountryProxy().getName_long());
     }
 
+    /**
+     * Just trying out how String.contains() works.
+     */
     @Test
-    public void testContians(){
+    public void testStringContians(){
         String test = "Asien, Europa";
         assertTrue(test.contains("Asien"));
         assertTrue(test.contains("Europa"));
+    }
+
+    @Test
+    public void testGetCurrentFlagURL(){
+        //given
+        //see @Before setUp()
+        RootPM pm = new RootPM(service);
+        String flagImgSize = "64/";
+
+        //when
+        String imgURL = pm.getCurrentFlagURL(flagImgSize);
+
+        //then
+        String desiredURL = "https://dieterholz.github.io/StaticResources/flags_iso/" + flagImgSize +
+                pm.getCountryProxy().getIso_2().toLowerCase() + ".png";
+        assertEquals(desiredURL, imgURL);
+
+
+        /*--- Spezialfälle: imgSize == null oder "" ---*/
+        //given
+        flagImgSize = "";
+
+        //when
+        imgURL = pm.getCurrentFlagURL(flagImgSize);
+
+        //then
+        String standInSize = "24/";
+        desiredURL = "https://dieterholz.github.io/StaticResources/flags_iso/" + standInSize +
+                pm.getCountryProxy().getIso_2().toLowerCase() + ".png";
+        assertEquals(desiredURL, imgURL);
+
+        //given
+        flagImgSize = null;
+
+        //when
+        imgURL = pm.getCurrentFlagURL(flagImgSize);
+
+        //then
+        standInSize = "24/";
+        desiredURL = "https://dieterholz.github.io/StaticResources/flags_iso/" + standInSize +
+                pm.getCountryProxy().getIso_2().toLowerCase() + ".png";
+        assertEquals(desiredURL, imgURL);
+
+
+        /*--- Spezialfall: countryProxy hat keinen iso_2 - Wert ---*/
+        //given
+        flagImgSize = "128/";
+        pm.createNewCountry();  //hat noch keinen iso_2 Wert
+
+        //when
+        imgURL = pm.getCurrentFlagURL(flagImgSize);
+
+        //then
+        desiredURL = "https://dieterholz.github.io/StaticResources/flags_iso/" + flagImgSize +
+                "_United-Nations" + ".png";
+        assertEquals(desiredURL, imgURL);
     }
 }
