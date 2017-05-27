@@ -220,4 +220,11 @@ public class RootPMTest {
         assertNotEquals(firstCountry.getName_long(), pm.getCountryProxy().getName_long());
         assertEquals(pm.getCurrentCountry().getName_long(), pm.getCountryProxy().getName_long());
     }
+
+    @Test
+    public void testContians(){
+        String test = "Asien, Europa";
+        assertTrue(test.contains("Asien"));
+        assertTrue(test.contains("Europa"));
+    }
 }

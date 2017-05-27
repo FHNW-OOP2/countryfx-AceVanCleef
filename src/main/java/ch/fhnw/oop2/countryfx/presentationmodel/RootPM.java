@@ -26,6 +26,10 @@ public class RootPM {
     //#stableSelection (Advanced Selection Handling)
     private final CountryPM countryProxy = new CountryPM();
 
+    //#CountriesToContinentBinding
+    //private final ObservableList<ContinentPM> continentProxy = FXCollections.observableArrayList();
+    //private final ContinentPM proxyContinent = new ContinentPM(); //todo
+
 
     /************************** Constructors **************************/
 
@@ -45,6 +49,20 @@ public class RootPM {
 
         setupBindings();
         addValueChangeListener();
+
+//        continentProxy.addAll(allContinents.stream()
+//                     //.filter(continentPM -> countryProxy.getContinent().equals(continentPM.getContinentName()))
+//                     .filter(continentPM -> ))
+//                     .collect(Collectors.toCollection(FXCollections::observableArrayList)));
+
+            /* What is the difference?
+             * .collect(Collectors.toList()) --> List<T> => keine Listeners anwendbar :(
+             *                                      [vs.]
+             * .collect(Collectors.toCollection(FXCollections::observableArrayList)) --> ObservableList<T> => Listeners? Ja, geht.
+             *
+             * Was bedeutet <class>::<Function>?
+             * FXCollections::observableArrayList == FXCollections.observableArrayList()
+             */
     }
 
     /**
@@ -182,7 +200,7 @@ public class RootPM {
         System.out.println( allCountries.get(deleteIndex).getName());
 
         allCountries.remove(deleteIndex);
-        setSelectedCountryId(deleteIndex); //last element's index
+        setSelectedCountryId(deleteIndex); //previous element's index
 
         for(int i = deleteIndex; i < allCountries.size(); i++){
             allCountries.get(i).setId(i + 1); // ListIndex -> .csv - Index
@@ -260,6 +278,7 @@ public class RootPM {
         return allCountries.stream()
                             .filter(countryPM -> countryPM.getContinent().equals(continent))        // Filtern und vergleichen
                             .collect(Collectors.toCollection(FXCollections::observableArrayList));
+
 
         /* How it works
          * ---------------
