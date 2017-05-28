@@ -5,35 +5,34 @@ Todo list of CountryFX:
 
         Important (lvl01)
             RootPM:
-                - refractoring to selection handling with CountryPM proxyCountry and binding in RootPM                                      [done]
                 - add ObservableList<ContinentPM> selectedContinents //Covering multiple cases: Europa; Europa,Asien; Asien,Europa;
                 - add value change listener to proxyCountry in order to recalculate the property values of selectedContinents
                   (The value change listener on allCountries is fine since it reacts on add(Country) remove(country) )
         Important (lvl02)
-            Bug spotted at pm.createNewCountry()
-            Reason: Since the new CountryPM-Obj. has null values, stream methods and their lambdas will throw a NullPointerException.
-            Easiest solution: Initialize the new CountryPM-Obj with "" instead of null for their string properties. That means:
-                public CountryPM(){
-                    setContinent("");
-                }
+
 
 
         1) ListView
-            a) Custom Cell Factory ''//Does not work. How to get pm's allCountries?'
-            b) setupBindings(): //countryNameField.textProperty().bindBidirectional(country.nameProperty()); //it can't find nameProperty(). Why?
-            c) flag by url
             d) current selected item (to RootPM's selectedCountryId)
         2) Footer
             a) bindings / value change updates (see RootPM's allContinent)
         3) CountryOverview
             a) connection / binding to selectedCountryIdProperty
-            b) flag (use iso_2 + url-string) -> image = new Image(imagePath + pm.getProxyCountry().getIso_2() + ".png");
-            Tipp: Centralize it + move logic to PM: write helper method getFlagImgUrl(int imgSize) within RootPM using StringBuilder and move imagePath constant to RootPM
-                todo:
-                I) Verlinkung zum CountryOverview klappt noch nicht optimal. Reagiert weder auf selectionId - Wechsel noch auf Wertänderungen im TextField continent bzw. im countryProxy
         4) CountryEditor
             a) connection / binding to selectedCountryIdProperty
         5) Header
             a) Save to File (incl. save() @RootPM and @Service)
+        6) Basic Features
+            a)  Save to File !important
 
         nice to have:
+        1) UI schön machen
+
+
+        fixed:
+            -Bug spotted at pm.createNewCountry()
+                         Reason: Since the new CountryPM-Obj. has null values, stream methods and their lambdas will throw a NullPointerException.
+                         Easiest solution: Initialize the new CountryPM-Obj with "" instead of null for their string properties. That means:
+                             public CountryPM(){
+                                 setContinent("");
+                             }
