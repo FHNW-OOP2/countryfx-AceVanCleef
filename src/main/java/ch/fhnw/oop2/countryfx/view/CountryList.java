@@ -29,6 +29,8 @@ public class CountryList extends ListView<CountryPM> implements ViewMixin{
     //Erst wenn eine Instanz von CountryList gemäss "CountryList<CountryPM> list = new CountryList<>()" erzeugt wird, ist die
     //CountryList auf Elemente vom Typ CountryPM begrenzt.
     //In other words: Der Name im Generics hat nichts mit der CountryPM Klasse zu tun, bei der ListView<> jedoch schon, da CountryList von der LiestView erbt
+
+
     private RootPM pm;
 
     public CountryList(RootPM pm){
@@ -52,7 +54,7 @@ public class CountryList extends ListView<CountryPM> implements ViewMixin{
 /************************** List Cell *********************************/
 
 //multiple classes can be within one file, but only one as public.
-class CountryListCell<CountryPM> extends ListCell<CountryPM> {
+class CountryListCell extends ListCell<CountryPM> {
 
     @Override
     protected void updateItem(CountryPM item, boolean empty) {
@@ -60,8 +62,9 @@ class CountryListCell<CountryPM> extends ListCell<CountryPM> {
         setGraphic(null);
         setText(null);
         if (item != null && !empty) {
-            //setGraphic(new CustomListItem(item));
-            setGraphic(new TextField("Hallo"));
+            setGraphic(new CustomListItem(item));
+            //setGraphic(new TextField("Hallo"));
+            //setGraphic();
             //setGraphic(...); <- Kann mit beliebigem JavaFX Node bestückt werden (z.B. GridPane
         }
     }
@@ -70,9 +73,11 @@ class CountryListCell<CountryPM> extends ListCell<CountryPM> {
 
 /************************** List Item *********************************/
 
-class CustomListItem<CountryPM> extends GridPane implements ViewMixin{
+class CustomListItem extends GridPane implements ViewMixin{
 
-    private static String imagePath = "https://dieterholz.github.io/StaticResources/flags_iso/64/";
+    private static String FLAGS_IMGAGE_PATH = "https://dieterholz.github.io/StaticResources/flags_iso/";
+    private static String FLAGS_SIZE = "64/";
+    private static String IMAGE_FORMAT_PNG = ".png";
     private CountryPM country;
 
     private TextField countryNameField;
@@ -89,7 +94,7 @@ class CustomListItem<CountryPM> extends GridPane implements ViewMixin{
 
     @Override
     public void initializeParts() {
-        img = new Image(imagePath + "ch.png");
+        img = new Image(getFlagURL(FLAGS_SIZE));
         flag = new ImageView(img);
         countryNameField = new TextField();
         capitalField = new TextField();
@@ -98,13 +103,42 @@ class CustomListItem<CountryPM> extends GridPane implements ViewMixin{
     @Override
     public void layoutParts() {
         add(flag, 0,0,1,2);
-        add(countryNameField, 1, 0, 0, 0);
-        add(capitalField, 1, 1, 0, 0);
+        add(countryNameField, 1, 0);
+        add(capitalField, 1, 1);
     }
 
     @Override
     public void setupBindings() {
+        countryNameField.textProperty().bindBidirectional(country.nameProperty());
+        capitalField.textProperty().bindBidirectional(country.capitalProperty());
         //countryNameField.textProperty().bindBidirectional(country.nameProperty()); //it can't find nameProperty(). Why?
+    }
+
+    @Override
+    public void addValueChangedListeners() {
+        country.iso_2Property().addListener((observable, oldValue, newValue) -> {
+            img = new Image(getFlagURL(FLAGS_SIZE));
+            flag.setImage(img);                       // MUST HAVE !! Sonst wird die Flagge in der ListView nicht aktualisiert
+        });
+    }
+
+    private String getFlagURL(String flagSize){
+        if("".equals(flagSize) || flagSize == null){
+            flagSize = "24/";                       //fallback size
+        }
+
+        String iso_2 = country.getIso_2();
+        if ("".equals(iso_2) || iso_2 == null){     // Falls kein iso2 Wert vorhanden, dann Default Wert
+            return "http://icons.iconarchive.com/icons/gosquared/flag/64/United-Nations-icon.png";  // bei CreateNewCountry()
+        } else {
+            iso_2 = iso_2.toLowerCase(); //from "CH" to "ch"
+        }
+//_United-Nations.png
+        String url = FLAGS_IMGAGE_PATH +  // "https://dieterholz.github.io/StaticResources/flags_iso/";
+                flagSize +          // "128/" oder "64/" usw.
+                iso_2 +             // "ch" oder "de" usw.
+                IMAGE_FORMAT_PNG;   // ".png"
+        return url;
     }
 }
 

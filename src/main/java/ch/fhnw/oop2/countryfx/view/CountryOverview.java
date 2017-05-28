@@ -121,19 +121,13 @@ public class CountryOverview extends GridPane implements ViewMixin{
         //#Flagge
         //todo: Flagge anzeigen lassen zum laufen bringen.
         //Auf neues selected Country reagieren:
-        pm.selectedCountryIdProperty().addListener((observable, oldValue, newValue) -> {
-            //update flag image:
-            image = new Image(pm.getCurrentFlagURL(imageSize));
-            flag.setImage(image);   //todo: nowändig?
-        });
+//        pm.selectedCountryIdProperty().addListener((observable, oldValue, newValue) -> {
+//            //update flag image:
+//            image = new Image(pm.getCurrentFlagURL(imageSize));
+//            flag.setImage(image);   //todo: nowändig?
+//        });
         //Auf Wertänderung der iso_2Property im proxyCountry reagieren:
         pm.getCountryProxy().iso_2Property().addListener((observable, oldValue, newValue) -> {
-            //update flag image:
-            image = new Image(pm.getCurrentFlagURL(imageSize));
-            flag.setImage(image);
-        });
-        //Auf Wertänderung der iso_2Property im proxyCountry reagieren:
-        continent.textProperty().addListener((observable, oldValue, newValue) -> {
             //update flag image:
             image = new Image(pm.getCurrentFlagURL(imageSize));
             flag.setImage(image);
