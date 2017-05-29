@@ -43,7 +43,7 @@ public class CountryOverview extends GridPane implements ViewMixin{
         continent = new Label();
         capital = new Label();
         area = new Label();
-        image = new Image(pm.getCurrentFlagURL(imageSize));
+        image = new Image(pm.getCurrentFlagURL(imageSize), true);
         flag = new ImageView();
 
     }
@@ -129,7 +129,7 @@ public class CountryOverview extends GridPane implements ViewMixin{
         //Auf Wertänderung der iso_2Property im proxyCountry reagieren:
         pm.getCountryProxy().iso_2Property().addListener((observable, oldValue, newValue) -> {
             //update flag image:
-            image = new Image(pm.getCurrentFlagURL(imageSize));
+            image = new Image(pm.getCurrentFlagURL(imageSize), true);
             flag.setImage(image);
         });
     }

@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class RootPM {
@@ -17,7 +18,7 @@ public class RootPM {
     private final ObservableList<CountryPM> allCountries = FXCollections.observableArrayList(); // Alle PMs in einer Collection/Liste
     private final CountryService service;
 
-    //for TableView<ContinentPM
+    //for TableView<ContinentPM>
     private final ObservableList<ContinentPM> allContinents = FXCollections.observableArrayList();
 
     //#SelectionHandling
@@ -35,6 +36,8 @@ public class RootPM {
     private static String FLAGS_IMGAGE_PATH = "https://dieterholz.github.io/StaticResources/flags_iso/";
     private static String IMAGE_FORMAT_PNG = ".png";
 
+    //for createNewCountry: in order to add always at the end of the list with correct CountryPM.idProperty
+    private int idOfNextNewCountry;
 
     /************************** Constructors **************************/
 
@@ -44,6 +47,8 @@ public class RootPM {
         allCountries.addAll(service.findAll().stream()
                 .map(dto -> new CountryPM(dto))         //Mapping von DTOs zu PMs
                 .collect(Collectors.toList()));         //Alle PMs zur ObservableList
+
+        idOfNextNewCountry = allCountries.size() + 1;
 
         for(String contName : this.getAllContinentNames()){
             allContinents.add(new ContinentPM(contName,
@@ -68,6 +73,7 @@ public class RootPM {
              * Was bedeutet <class>::<Function>?
              * FXCollections::observableArrayList == FXCollections.observableArrayList()
              */
+
     }
 
     /**
@@ -171,63 +177,25 @@ public class RootPM {
 
     /************************** Add New Country **************************/
     public void createNewCountry(){
-        int index = allCountries.size() + 1;
-        allCountries.add(new CountryPM(index));
-        setSelectedCountryId(index);
+        //Wenn Index schon vergeben...
+        if(getCountry(idOfNextNewCountry) != null) {
+            //..finde mir einen, der noch nicht vergeben ist.
+            idOfNextNewCountry = allCountries.stream().mapToInt(CountryPM::getId).max().getAsInt();
+            idOfNextNewCountry++;
+        }
+
+        allCountries.add(new CountryPM(idOfNextNewCountry));
+        setSelectedCountryId(idOfNextNewCountry);
+        idOfNextNewCountry++;
     }
 
     /************************** Remove Selected Country **************************/
     public void removeSelectedCountry(){
-        // .csv - Index:    starts at 1
-        // ListIndex:       starts at 0
-        // List.size():     1 to n elements.
+        CountryPM selected = getCountry(getSelectedCountryId());
+        allCountries.remove(selected);
 
-        if (getSelectedCountryId() == 1) {
-            removeFirstCountry();
-        } else if (getSelectedCountryId() == allCountries.size()){
-            removeLastCountry();
-        } else {
-            removeCountryInBetween();
-        }
-
-        for(CountryPM c : allCountries){
-            System.out.println(c.getName() + "\t- oldId:\t" +  c.getId());
-        }
-
-        /* 2,3,4
-        *  2,4
-        * */
     }
 
-    private void removeLastCountry(){
-        System.out.println( getSelectedCountryId());
-        int deleteIndex = getSelectedCountryId() - 1; //.csv index -> ObservableList - index (d.h. 1 -> 0)
-        System.out.println( allCountries.get(deleteIndex).getName());
-
-        allCountries.remove(deleteIndex);
-        setSelectedCountryId(deleteIndex); //previous element's index
-
-        for(int i = deleteIndex; i < allCountries.size(); i++){
-            allCountries.get(i).setId(i + 1); // ListIndex -> .csv - Index
-        }
-    }
-
-    private void removeCountryInBetween(){
-        removeFirstCountry();
-    }
-
-    private void removeFirstCountry(){
-        System.out.println( getSelectedCountryId());
-        int deleteIndex = getSelectedCountryId() - 1; //.csv index -> ObservableList - index (d.h. 1 -> 0)
-        System.out.println( allCountries.get(deleteIndex).getName());
-
-        allCountries.remove(deleteIndex);
-        setSelectedCountryId(deleteIndex + 1);
-
-        for(int i = deleteIndex; i < allCountries.size(); i++){
-            allCountries.get(i).setId(i + 1); // ListIndex -> .csv - Index
-        }
-    }
 
     /************************** #SelectionHandling **************************/
 
@@ -243,7 +211,7 @@ public class RootPM {
         return allCountries.stream()
                 .filter(countryPM -> countryPM.getId() == searchId)
                 .findAny()
-                .orElseThrow(IllegalArgumentException::new);
+                .orElse(null);
 
         //Hinweis 1: allCountries.get(int index) könnte auch klappen, WENN die IDs == der Reihenfolge der Elemente wäre.
         //Hinweis 2: man könnte auch mit foreach(), aber gäbe mehr code und erweiterungen sind aufwändiger.

@@ -34,8 +34,8 @@ public class CountryList extends ListView<CountryPM> implements ViewMixin{
     private RootPM pm;
 
     public CountryList(RootPM pm){
-        this.pm = pm;
-        init();
+            this.pm = pm;
+            init();
     }
 
     @Override
@@ -49,6 +49,27 @@ public class CountryList extends ListView<CountryPM> implements ViewMixin{
 
     @Override
     public void layoutParts() {}
+
+    @Override
+    public void addValueChangedListeners() {
+        getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            pm.setSelectedCountryId(newValue.getId());         // damit ist keine synchrone Nummerierung zwischen der Liste und dem File nötig
+            // pm.selectedCountryIdProperty()                  // im gegensatz zum Binding, bei dem die fortlaufende Nummerierung zwingend wird => BAD!
+            //  .bind(this.getSelectionModel()
+            //  .selectedIndexProperty().add(1));
+        });
+    }
+
+    @Override
+    public void setupBindings() {
+        /* #LessonLearned:
+        *   [A.bind(B)]
+        *   To bind a property to another property, call the bind() method which binds values in one direction.
+        *   For instance, when property A binds to property B, the change in property B will update property A,
+        *   but not the other way around.
+        * */
+    }
+
 }
 
 /************************** List Cell *********************************/
@@ -94,7 +115,7 @@ class CustomListItem extends GridPane implements ViewMixin{
 
     @Override
     public void initializeParts() {
-        img = new Image(getFlagURL(FLAGS_SIZE));
+        img = new Image(getFlagURL(FLAGS_SIZE), true);
         flag = new ImageView(img);
         countryNameField = new TextField();
         capitalField = new TextField();
@@ -117,7 +138,7 @@ class CustomListItem extends GridPane implements ViewMixin{
     @Override
     public void addValueChangedListeners() {
         country.iso_2Property().addListener((observable, oldValue, newValue) -> {
-            img = new Image(getFlagURL(FLAGS_SIZE));
+            img = new Image(getFlagURL(FLAGS_SIZE), true); //true: backgroundloading
             flag.setImage(img);                       // MUST HAVE !! Sonst wird die Flagge in der ListView nicht aktualisiert
         });
     }

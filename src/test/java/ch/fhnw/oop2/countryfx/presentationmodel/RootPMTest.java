@@ -133,7 +133,6 @@ public class RootPMTest {
 
         //then
         assertEquals(oldSize + 1 ,pm.getAllCountries().size());
-
     }
 
     @Test
