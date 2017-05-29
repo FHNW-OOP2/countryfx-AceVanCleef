@@ -44,8 +44,8 @@ public class Content extends SplitPane implements ViewMixin{
     @Override
     public void initializeSelf() {
         this.setOrientation(Orientation.HORIZONTAL);
-        //this.setDividerPositions(0.7, 0.3);
-        this.setPrefSize(200, 200);
+        //this.setDividerPositions(0.3, 0.7);
+        //this.setPrefSize(200, 200);
     }
 
     @Override

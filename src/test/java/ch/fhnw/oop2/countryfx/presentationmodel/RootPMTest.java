@@ -84,41 +84,18 @@ public class RootPMTest {
 
     @Test
     public void AddValueChangeListenerForContinentInfo(){
+        fail();
+    }
+
+    @Test
+    public void AddContinentSelectionListener(){
         //given
-        //see @Before setUp()
-
-        //CountryServiceFileBased service =  new CountryServiceFileBased();
         RootPM pm = new RootPM(service);
-        //the country which will be changed
-        CountryPM currentCountry = pm.getCurrentCountry();
-        //get the affected continent
-        ContinentPM currentContinent = pm.getAllContinents()
-                .stream()
-                .filter(continentPM ->  continentPM.getContinentName().equals(currentCountry.getContinent()))
-                .distinct()
-                .findFirst()
-                .get();
-
+        //todo
         //when
-        int oldPopulation = currentCountry.getPopulation();
-        int oldContinentPopulation = currentContinent.getPopulation();
 
         //then
-        assertEquals(oldPopulation, currentCountry.getPopulation());
-        assertEquals(oldContinentPopulation, currentContinent.getPopulation());
 
-        //given (ValueChange)
-        int newPopulation = oldPopulation + 1;
-
-        //when
-        currentCountry.setPopulation(newPopulation);    //should trigger value change listener of allCountries
-
-        //then
-        assertEquals(newPopulation, currentCountry.getPopulation());
-        assertEquals(oldContinentPopulation + 1 ,currentContinent.getPopulation());
-
-
-        //todo: reagiert auf .remove()? (=löschen)
     }
 
     @Test
@@ -285,4 +262,5 @@ public class RootPMTest {
                 "_United-Nations" + ".png";
         assertEquals(desiredURL, imgURL);
     }
+
 }

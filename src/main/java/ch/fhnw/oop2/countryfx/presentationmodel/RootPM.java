@@ -28,8 +28,7 @@ public class RootPM {
     private final CountryPM countryProxy = new CountryPM();
 
     //#CountriesToContinentBinding
-    //private final ObservableList<ContinentPM> continentProxy = FXCollections.observableArrayList();
-    //private final ContinentPM proxyContinent = new ContinentPM(); //todo
+    private final ContinentPM proxyContinent = new ContinentPM(); //todo
 
 
     //#Flagge
@@ -57,14 +56,23 @@ public class RootPM {
                     getContinentAmountOfCountries(contName)));
         }
 
+
         setupBindings();
         addValueChangeListener();
 
-//        continentProxy.addAll(allContinents.stream()
-//                     //.filter(continentPM -> countryProxy.getContinent().equals(continentPM.getContinentName()))
-//                     .filter(continentPM -> ))
-//                     .collect(Collectors.toCollection(FXCollections::observableArrayList)));
+        //populate proxyContinent for the 1st time:
+        ContinentPM temp = allContinents.stream()
+                        .filter(continentPM -> continentPM.getContinentName().equals(countryProxy.getContinent()))
+                        .findFirst()
+                        .get();
+        proxyContinent.setContinentName(temp.getContinentName());
+        proxyContinent.setPopulation(temp.getPopulation());
+        proxyContinent.setArea(temp.getArea());
+        proxyContinent.setAmountOfCountries(temp.getAmountOfCountries());
 
+
+
+            //  .collect(Collectors.toCollection(FXCollections::observableArrayList)));
             /* What is the difference?
              * .collect(Collectors.toList()) --> List<T> => keine Listeners anwendbar :(
              *                                      [vs.]
@@ -111,6 +119,15 @@ public class RootPM {
     }
 
     private void AddValueChangeListenerForContinentInfo(){
+        // 1) selected countryProxy changes:
+        AddContinentSelectionListener();
+
+        // 2) wenn countryProxy-Werte geändert, dann Werte in proxyContinent anpassen
+        //todo: continentInfo updaten
+        countryProxy.populationProperty().addListener((observable, oldValue, newValue) -> {
+            proxyContinent.setPopulation(getContinentPopulation(countryProxy.getContinent()));
+        });
+
         //Todo: react upon value change in selectedCountryPM which is stored in CountryPM proxyCountry
 
         //allContinents reacts upon allCountries.remove() and allCountries.add()
@@ -122,6 +139,20 @@ public class RootPM {
                         getContinentPopulation(contName),
                         getContinentAmountOfCountries(contName)));
             }
+        });
+    }
+
+    //todo: continentInfo updaten
+    private void AddContinentSelectionListener(){
+        countryProxy.continentProperty().addListener((observable, oldValue, newValue) -> {
+            ContinentPM newproxyContinent = allContinents.stream()
+                    .filter(continentPM -> continentPM.getContinentName().equals(newValue))
+                    .findFirst()
+                    .get();
+            proxyContinent.setContinentName(newproxyContinent.getContinentName());
+            proxyContinent.setPopulation(newproxyContinent.getPopulation());
+            proxyContinent.setArea(newproxyContinent.getArea());
+            proxyContinent.setAmountOfCountries(newproxyContinent.getAmountOfCountries());
         });
     }
 

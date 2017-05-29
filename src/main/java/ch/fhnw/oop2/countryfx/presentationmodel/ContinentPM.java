@@ -20,6 +20,10 @@ public class ContinentPM {
         setAmountOfCountries(amountOfCountries);
     }
 
+    //für proxyContinent
+    public ContinentPM() {
+    }
+
     public String getContinentName() {
         return continentName.get();
     }

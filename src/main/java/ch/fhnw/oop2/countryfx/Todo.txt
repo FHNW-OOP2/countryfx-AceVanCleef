@@ -12,14 +12,8 @@ Todo list of CountryFX:
 
 
 
-        1) ListView
-            d) current selected item (to RootPM's selectedCountryId)
         2) Footer
             a) bindings / value change updates (see RootPM's allContinent)
-        3) CountryOverview
-            a) connection / binding to selectedCountryIdProperty
-        4) CountryEditor
-            a) connection / binding to selectedCountryIdProperty
         5) Header
             a) Save to File (incl. save() @RootPM and @Service)
         6) Basic Features
@@ -27,6 +21,8 @@ Todo list of CountryFX:
 
         nice to have:
         1) UI schön machen
+        2) Caching in der ListView mit HashMap
+        3) JUnit Tests
 
 
         fixed:
