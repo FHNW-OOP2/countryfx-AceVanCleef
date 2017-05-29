@@ -54,7 +54,7 @@ public class CountryEditor extends GridPane implements ViewMixin{
         init();
 
         //for debuggin
-        this.gridLinesVisibleProperty().set(true);
+        //this.gridLinesVisibleProperty().set(true);    //for debugging (makes gridlines visible)
     }
 
     @Override

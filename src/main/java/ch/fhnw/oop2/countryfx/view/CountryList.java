@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.shape.Circle;
 import javafx.util.Callback;
 
@@ -111,7 +112,7 @@ class CustomListItem extends GridPane implements ViewMixin{
     public CustomListItem(CountryPM country){
         this.country = country;
         init();
-        this.setGridLinesVisible(true);
+        //this.setGridLinesVisible(true);  //for debugging (makes gridlines visible)
     }
 
     @Override
@@ -127,13 +128,15 @@ class CustomListItem extends GridPane implements ViewMixin{
         add(flag, 0,0,1,2);
         add(countryNameField, 1, 0);
         add(capitalField, 1, 1);
+
+        GridPane.setHgrow(countryNameField, Priority.ALWAYS); //TextField wächst zusammen mit der Fensterbreite
+        GridPane.setHgrow(capitalField, Priority.ALWAYS);
     }
 
     @Override
     public void setupBindings() {
         countryNameField.textProperty().bindBidirectional(country.nameProperty());
         capitalField.textProperty().bindBidirectional(country.capitalProperty());
-        //countryNameField.textProperty().bindBidirectional(country.nameProperty()); //it can't find nameProperty(). Why?
     }
 
     @Override
@@ -155,7 +158,7 @@ class CustomListItem extends GridPane implements ViewMixin{
         } else {
             iso_2 = iso_2.toLowerCase(); //from "CH" to "ch"
         }
-//_United-Nations.png
+
         String url = FLAGS_IMGAGE_PATH +  // "https://dieterholz.github.io/StaticResources/flags_iso/";
                 flagSize +          // "128/" oder "64/" usw.
                 iso_2 +             // "ch" oder "de" usw.

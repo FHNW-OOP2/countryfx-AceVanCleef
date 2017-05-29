@@ -44,8 +44,7 @@ public class Content extends SplitPane implements ViewMixin{
     @Override
     public void initializeSelf() {
         this.setOrientation(Orientation.HORIZONTAL);
-        //this.setDividerPositions(0.3, 0.7);
-        //this.setPrefSize(200, 200);
+        this.setDividerPositions(0.3);
     }
 
     @Override
@@ -71,6 +70,12 @@ public class Content extends SplitPane implements ViewMixin{
         editorScroller.setFitToHeight(true);
         infoContainer.getChildren().addAll(countryOverview, editorScroller);
         this.getItems().addAll(countryList, infoContainer);
-        //this.getItems().addAll(new VBox(new Button("Test")), infoContainer);
     }
+
+    @Override
+    public void setupBindings() {
+        //Begrenzt die Maximalgrösse der linken Splitpaneseite auf die 50% (optional)
+        countryList.maxWidthProperty().bind(this.widthProperty().multiply(0.5));
+    }
+
 }
