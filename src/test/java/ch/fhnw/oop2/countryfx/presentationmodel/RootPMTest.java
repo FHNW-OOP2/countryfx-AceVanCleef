@@ -1,5 +1,6 @@
 package ch.fhnw.oop2.countryfx.presentationmodel;
 
+import ch.fhnw.oop2.countryfx.service.CountryDTO;
 import ch.fhnw.oop2.countryfx.service.serviceimpl.CountryServiceFileBased;
 import ch.fhnw.oop2.countryfx.service.serviceimpl.CountryServiceFileBasedJunit;
 import javafx.collections.ObservableList;
@@ -13,7 +14,7 @@ import static org.junit.Assert.*;
 
 public class RootPMTest {
 
-    private static  CountryServiceFileBased service;
+    private static  CountryServiceFileBasedJunit service;
 
     private final static String TEST_CONTINENT = "Australien/Ozeanien";
 
@@ -263,4 +264,20 @@ public class RootPMTest {
         assertEquals(desiredURL, imgURL);
     }
 
+    @Test
+    public void testSaveToFile(){
+        //given
+        RootPM pm = new RootPM(service);
+
+        //when
+        String query = "Pluto";
+        pm.getCurrentCountry().setName(query);
+        pm.saveToFile();
+
+        //then
+        CountryDTO first = service.findAllFromTarget().get(1);
+        assertEquals(query, first);
+
+
+    }
 }

@@ -8,4 +8,6 @@ import java.util.List;
 public interface CountryService {
 
     List<CountryDTO> findAll();
+
+    void save(List<CountryDTO> dtos);
 }

@@ -23,6 +23,7 @@ Todo list of CountryFX:
         1) UI schön machen
         2) Caching in der ListView mit HashMap
         3) JUnit Tests
+        4) Fix united nations flag 128px
 
 
         fixed:

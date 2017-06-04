@@ -1,5 +1,6 @@
 package ch.fhnw.oop2.countryfx.presentationmodel;
 
+import ch.fhnw.oop2.countryfx.service.CountryDTO;
 import ch.fhnw.oop2.countryfx.service.CountryService;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -9,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
+import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -227,6 +229,18 @@ public class RootPM {
 
     }
 
+    /************************** Save Countries To File **************************/
+    public void saveToFile(){
+        List<CountryDTO> allCountryDTOs = allCountries.stream()
+                .map(countryPM -> new CountryDTO(countryPM))
+                .collect(Collectors.toList());
+
+        for (CountryDTO dto : allCountryDTOs){
+            System.out.println(dto.getNAME());
+        }
+        service.save(allCountryDTOs);
+    }
+
 
     /************************** #SelectionHandling **************************/
 
@@ -316,6 +330,11 @@ public class RootPM {
 
     /********************* #Flagge ***********************/
 
+    /**
+     *
+     * @param flagSize Form: "64/"
+     * @return
+     */
     public String getCurrentFlagURL(String flagSize){
         if("".equals(flagSize) || flagSize == null){
             flagSize = "24/";                       //fallback size
@@ -323,7 +342,7 @@ public class RootPM {
 
         String iso_2 = this.getCountryProxy().getIso_2();
         if ("".equals(iso_2) || iso_2 == null){
-            iso_2 = "_United-Nations";              // bei CreateNewCountry()
+            return "http://icons.iconarchive.com/icons/gosquared/flag/64/United-Nations-icon.png";  // bei CreateNewCountry()
         } else {
             iso_2 = iso_2.toLowerCase(); //from "CH" to "ch"
         }

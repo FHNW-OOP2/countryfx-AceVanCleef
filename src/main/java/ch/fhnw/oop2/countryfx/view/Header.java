@@ -75,5 +75,6 @@ public class Header extends ToolBar implements ViewMixin{
     public void addEventHandlers() {
         createButton.setOnAction(event -> pm.createNewCountry());
         removeButton.setOnAction(event -> pm.removeSelectedCountry());
+        saveButton.setOnAction(event -> pm.saveToFile());
     }
 }

@@ -1,5 +1,7 @@
 package ch.fhnw.oop2.countryfx.service;
 
+import ch.fhnw.oop2.countryfx.presentationmodel.CountryPM;
+
 /**
  *  1 DTO = eine Zeile im .csv
  */
@@ -20,6 +22,10 @@ public class CountryDTO {
     private final String    NAME_LOCAL;
     private final String    CONTINENT;
 
+    /**
+     * for sending Data to Service when reading from file.
+     * @param args
+     */
     public CountryDTO(String... args){
         ID = Integer.parseInt(args[0]);
         NAME = args[1];
@@ -35,6 +41,27 @@ public class CountryDTO {
         NAME_ENGLISH = args[11];
         NAME_LOCAL = args[12];
         CONTINENT = args[13];
+    }
+
+    /**
+     * for sending Data to Service when writing to file.
+     * @param country
+     */
+    public CountryDTO(CountryPM country){
+        ID = country.getId();
+        NAME = country.getName();
+        NAME_LONG = country.getName_long();
+        CAPITAL = country.getCapital();
+        POPULATION = country.getPopulation();
+        AREA = country.getArea();
+        POPULATION_KM2 = country.getPopulation_km2();
+        FLAG = country.getFlag();
+        ISO_3 = country.getIso_3();
+        ISO_2 = country.getIso_2();
+        TLD = country.getTld();
+        NAME_ENGLISH = country.getName_english();
+        NAME_LOCAL = country.getName_local();
+        CONTINENT = country.getContinent();
     }
 
     /******************** getters *****************************/
