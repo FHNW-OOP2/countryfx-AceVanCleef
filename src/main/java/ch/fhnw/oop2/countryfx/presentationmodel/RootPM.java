@@ -154,6 +154,7 @@ public class RootPM {
         //todo: continentInfo updaten
         countryProxy.populationProperty().addListener((observable, oldValue, newValue) -> {
             proxyContinent.setPopulation(getContinentPopulation(countryProxy.getContinent()));
+            System.out.println(getContinentPopulation(countryProxy.getContinent()));
         });
 
         //Todo: react upon value change in selectedCountryPM which is stored in CountryPM proxyCountry
@@ -177,6 +178,7 @@ public class RootPM {
                     .filter(continentPM -> continentPM.getContinentName().equals(newValue))
                     .findFirst()
                     .get();
+            //proxyContinent = newproxyContinent:
             proxyContinent.setContinentName(newproxyContinent.getContinentName());
             proxyContinent.setPopulation(newproxyContinent.getPopulation());
             proxyContinent.setArea(newproxyContinent.getArea());
@@ -406,5 +408,9 @@ public class RootPM {
 
     public void setSelectedCountryId(int selectedCountryId) {
         this.selectedCountryId.set(selectedCountryId);
+    }
+
+    public ContinentPM getProxyContinent() {
+        return proxyContinent;
     }
 }

@@ -65,6 +65,7 @@ public class Footer extends TableView<ContinentPM> implements ViewMixin {
 
     @Override
     public void setupBindings() {
-
+        //Todo: Wie auf eine Zelle binden?
+        //pm.getProxyContinent().continentNameProperty().bind();
     }
 }
