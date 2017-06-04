@@ -11,11 +11,9 @@ Todo list of CountryFX:
         Important (lvl02)
 
 
-
+        1) Änderung von ‘Einwohner’ und ‘Fläche’ berechnet ‘Einwohner pro km2’ neu
         2) Footer
             a) bindings / value change updates (see RootPM's allContinent)
-        5) Header
-            a) Save to File (incl. save() @RootPM and @Service)
         6) Basic Features
             a)  Save to File !important
 
@@ -24,6 +22,7 @@ Todo list of CountryFX:
         2) Caching in der ListView mit HashMap
         3) JUnit Tests
         4) Fix united nations flag 128px
+        5) Undo/Redo
 
 
         fixed:

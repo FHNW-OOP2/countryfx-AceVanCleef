@@ -199,6 +199,65 @@ public class RootPMTest {
     }
 
     /**
+     * Population / Area in km2 = Population/km2
+     */
+    @Test
+    public void AddPopulationPerKM2Updater(){
+        //given
+        //see @Before setUp()
+        RootPM pm = new RootPM(service);
+        CountryPM current = pm.getCurrentCountry();
+
+        int newPopulation = 5000;
+        double newArea = 5.5;   //in km2
+
+        //when
+        current.setPopulation(newPopulation);
+        current.setArea(newArea);
+
+        //then
+        assertEquals(newPopulation / newArea, current.getPopulation_km2(), 0.5);
+
+
+        /** negative values **/
+        //given
+        newPopulation = -1;
+        newArea = 5.5;   //in km2
+
+        //when
+        current.setPopulation(newPopulation);
+        current.setArea(newArea);
+
+        //then
+        assertEquals(Math.abs(newPopulation) / newArea, current.getPopulation_km2(), 0.5);
+
+        //given
+        newPopulation = 5000;
+        newArea = -1.5;   //in km2
+
+        //when
+        current.setPopulation(newPopulation);
+        current.setArea(newArea);
+
+        //then
+        assertEquals(newPopulation / Math.abs(newArea), current.getPopulation_km2(), 0.5);
+
+        /** Division durch 0 **/
+        //given
+        newPopulation = 5000;
+        newArea = 0;   //in km2
+
+        //when
+        current.setPopulation(newPopulation);
+        current.setArea(newArea);
+
+        //then
+        assertEquals(newPopulation / 1, current.getPopulation_km2(), 0.5);
+
+
+    }
+
+    /**
      * Just trying out how String.contains() works.
      */
     @Test
@@ -280,4 +339,5 @@ public class RootPMTest {
 
 
     }
+
 }

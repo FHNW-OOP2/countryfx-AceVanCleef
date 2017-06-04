@@ -118,6 +118,32 @@ public class RootPM {
         // TableView continentInfo / ContinentPM
         AddValueChangeListenerForContinentInfo();
 
+        //Änderungen von "Einwohner" und "Fläche" berechnet "Einwohner pro km2" neu
+        AddPopulationPerKM2Updater();
+    }
+
+    private void AddPopulationPerKM2Updater(){
+        countryProxy.populationProperty().addListener((observable, oldValue, newValue) -> {             // In case the population value is changed by the user
+            int newPopulation = newValue.intValue();
+            if(newPopulation < 0){
+                newPopulation = Math.abs(newPopulation);
+                countryProxy.setPopulation(newPopulation);
+            }
+            countryProxy.setPopulation_km2(newPopulation / countryProxy.getArea());      // then recalculate the populationPerSquaremeter
+        });
+
+        countryProxy.areaProperty().addListener((observable, oldValue, newValue) -> {                   // In case the area value is changed by the user
+            double newArea = newValue.doubleValue();
+            if (newArea == 0){  //keine Division durch 0.
+                newArea = 1;
+                countryProxy.setArea(newArea);
+            }
+            if(newArea < 0){
+                newArea = Math.abs(newArea);
+                countryProxy.setArea(newArea);
+            }
+            countryProxy.setPopulation_km2(countryProxy.getPopulation() / newArea);      // then recalculate the populationPerSquaremeter
+        });
     }
 
     private void AddValueChangeListenerForContinentInfo(){
