@@ -147,15 +147,23 @@ public class RootPM {
     }
 
     private void AddValueChangeListenerForContinentInfo(){
-        // 1) selected countryProxy changes:
+        // 1) selected countryProxy changes -> updates which continent is currently selected
         AddContinentSelectionListener();
 
         // 2) wenn countryProxy-Werte geändert, dann Werte in proxyContinent anpassen
-        //todo: continentInfo updaten
         countryProxy.populationProperty().addListener((observable, oldValue, newValue) -> {
-            proxyContinent.setPopulation(getContinentPopulation(countryProxy.getContinent()));
-            System.out.println(getContinentPopulation(countryProxy.getContinent()));
+            ContinentPM currentContinent = getCurrentContinent();
+            currentContinent.setPopulation(getContinentPopulation(countryProxy.getContinent()));
+            //synchronising - just in case:
+            proxyContinent.setPopulation(currentContinent.getPopulation());
         });
+        countryProxy.areaProperty().addListener((observable, oldValue, newValue) -> {
+            ContinentPM currentContinent = getCurrentContinent();
+            currentContinent.setArea(getContinentArea(countryProxy.getContinent()));
+            //synchronising - just in case:
+            proxyContinent.setArea(currentContinent.getArea());
+        });
+
 
         //Todo: react upon value change in selectedCountryPM which is stored in CountryPM proxyCountry
 
@@ -171,21 +179,59 @@ public class RootPM {
         });
     }
 
-    //todo: continentInfo updaten
+
+
+    /**
+     * checks to which continent the countryProxy belongs and updates the proxyContinent according
+     * to to which continent countryProxy belongs.
+     */
     private void AddContinentSelectionListener(){
         countryProxy.continentProperty().addListener((observable, oldValue, newValue) -> {
-            ContinentPM newproxyContinent = allContinents.stream()
-                    .filter(continentPM -> continentPM.getContinentName().equals(newValue))
-                    .findFirst()
-                    .get();
-            //proxyContinent = newproxyContinent:
-            proxyContinent.setContinentName(newproxyContinent.getContinentName());
-            proxyContinent.setPopulation(newproxyContinent.getPopulation());
-            proxyContinent.setArea(newproxyContinent.getArea());
-            proxyContinent.setAmountOfCountries(newproxyContinent.getAmountOfCountries());
+            if(doesContinentExist(oldValue)) {
+                //substract from old
+                ContinentPM previousContinent = allContinents.stream()
+                        .filter(continentPM -> continentPM.getContinentName().equals(oldValue))
+                        .findFirst()
+                        .get();
+                // previousContinent.setContinentName(newproxyContinent.getContinentName());
+                previousContinent.setPopulation(previousContinent.getPopulation() - countryProxy.getPopulation());
+                previousContinent.setArea(previousContinent.getArea() - countryProxy.getArea());
+                previousContinent.setAmountOfCountries(previousContinent.getAmountOfCountries() - 1);
+            }
+            if(doesContinentExist(newValue)){
+
+                //add to new
+                ContinentPM newSelectedContinent = allContinents.stream()
+                        .filter(continentPM -> continentPM.getContinentName().equals(newValue))
+                        .findFirst()
+                        .get();
+                newSelectedContinent.setPopulation(newSelectedContinent.getPopulation() + countryProxy.getPopulation());
+                newSelectedContinent.setArea(newSelectedContinent.getArea() + countryProxy.getArea());
+                newSelectedContinent.setAmountOfCountries(newSelectedContinent.getAmountOfCountries() + 1);
+
+                //synchronisation - proxyContinent = newproxyContinent:
+                proxyContinent.setContinentName(newSelectedContinent.getContinentName());
+                proxyContinent.setPopulation(newSelectedContinent.getPopulation());
+                proxyContinent.setArea(newSelectedContinent.getArea());
+                proxyContinent.setAmountOfCountries(newSelectedContinent.getAmountOfCountries());
+            }
+            //todo: if new country created and a new continent name has been given, the new continent will receive any new changes
+            //todo: what is missing: substract from old continent AND update current continent
+
         });
+        //todo: what if country has been deleted?
+        //todo: what if continent value changes? -> doesContinentExist()
     }
 
+    private boolean doesContinentExist(){
+        return allContinents.stream()
+                .anyMatch(continentPM -> countryProxy.getContinent().equals(continentPM.getContinentName()));
+    }
+
+    private boolean doesContinentExist(String country){
+        return allContinents.stream()
+                .anyMatch(continentPM -> continentPM.getContinentName().equals(country));
+    }
 
     /**
      * #stableSelection (Advanced Selection Handling)
@@ -299,6 +345,14 @@ public class RootPM {
 
     public ObservableList<ContinentPM> getAllContinents(){
         return allContinents;
+    }
+
+    public ContinentPM getCurrentContinent(){
+        return allContinents.stream()
+                .filter(continentPM -> continentPM.getContinentName().equals(proxyContinent.getContinentName()))
+                .distinct()
+                .findAny()
+                .get();
     }
 
     /**

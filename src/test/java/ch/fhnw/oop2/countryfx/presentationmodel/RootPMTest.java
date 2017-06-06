@@ -92,10 +92,41 @@ public class RootPMTest {
     public void AddContinentSelectionListener(){
         //given
         RootPM pm = new RootPM(service);
-        //todo
+
         //when
+        CountryPM currentCountry = pm.getCurrentCountry();
+        ContinentPM currentContinent = pm.getCurrentContinent();
+        ContinentPM firstContinent = currentContinent;
 
         //then
+        assertEquals(currentCountry.getContinent(), currentContinent.getContinentName());
+
+        /* when changing selection */
+        //given
+        int newSelectionId = 2;
+
+        //when
+        pm.setSelectedCountryId(newSelectionId);
+
+        //then
+        currentCountry = pm.getCurrentCountry();
+        currentContinent = pm.getCurrentContinent();
+        assertEquals(currentCountry.getContinent(), currentContinent.getContinentName());
+
+        /*When deleting an existing country */
+        //given
+        ContinentPM previousContinent = firstContinent;
+
+        //when
+        pm.removeSelectedCountry();
+
+        //then
+        currentCountry = pm.getCurrentCountry();
+        currentContinent = pm.getCurrentContinent();
+        //assertEquals(currentCountry.getContinent(), currentContinent.getContinentName()); //todo: warum NullPointerExc?
+
+
+        /*When creating a new country */
 
     }
 
