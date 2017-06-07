@@ -85,7 +85,7 @@ public class RootPMTest {
 
     @Test
     public void AddValueChangeListenerForContinentInfo(){
-        fail();
+        fail(); //todo
     }
 
     @Test
@@ -127,6 +127,7 @@ public class RootPMTest {
 
 
         /*When creating a new country */
+        fail(); //todo: define test specification
 
     }
 
@@ -341,6 +342,7 @@ public class RootPMTest {
 
 
         /*--- Spezialfall: countryProxy hat keinen iso_2 - Wert ---*/
+
         //given
         flagImgSize = "128/";
         pm.createNewCountry();  //hat noch keinen iso_2 Wert
@@ -349,8 +351,7 @@ public class RootPMTest {
         imgURL = pm.getCurrentFlagURL(flagImgSize);
 
         //then
-        desiredURL = "https://dieterholz.github.io/StaticResources/flags_iso/" + flagImgSize +
-                "_United-Nations" + ".png";
+        desiredURL = "http://icons.iconarchive.com/icons/gosquared/flag/64/United-Nations-icon.png";
         assertEquals(desiredURL, imgURL);
     }
 

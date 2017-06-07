@@ -30,7 +30,7 @@ public class RootPM {
     private final CountryPM countryProxy = new CountryPM();
 
     //#CountriesToContinentBinding
-    private final ContinentPM proxyContinent = new ContinentPM(); //todo
+    private final StringProperty selectedContinentID = new SimpleStringProperty();
 
 
     //#Flagge
@@ -62,15 +62,12 @@ public class RootPM {
         setupBindings();
         addValueChangeListener();
 
-        //populate proxyContinent for the 1st time:
+        //set intial selectedContinentID:
         ContinentPM temp = allContinents.stream()
                         .filter(continentPM -> continentPM.getContinentName().equals(countryProxy.getContinent()))
                         .findFirst()
                         .get();
-        proxyContinent.setContinentName(temp.getContinentName());
-        proxyContinent.setPopulation(temp.getPopulation());
-        proxyContinent.setArea(temp.getArea());
-        proxyContinent.setAmountOfCountries(temp.getAmountOfCountries());
+        setSelectedContinentID(temp.getContinentName());
 
 
 
@@ -154,18 +151,12 @@ public class RootPM {
         countryProxy.populationProperty().addListener((observable, oldValue, newValue) -> {
             ContinentPM currentContinent = getCurrentContinent();
             currentContinent.setPopulation(getContinentPopulation(countryProxy.getContinent()));
-            //synchronising - just in case:
-            proxyContinent.setPopulation(currentContinent.getPopulation());
         });
         countryProxy.areaProperty().addListener((observable, oldValue, newValue) -> {
             ContinentPM currentContinent = getCurrentContinent();
             currentContinent.setArea(getContinentArea(countryProxy.getContinent()));
-            //synchronising - just in case:
-            proxyContinent.setArea(currentContinent.getArea());
         });
 
-
-        //Todo: react upon value change in selectedCountryPM which is stored in CountryPM proxyCountry
 
         //allContinents reacts upon allCountries.remove() and allCountries.add()
         allCountries.addListener((ListChangeListener) change -> {
@@ -182,7 +173,7 @@ public class RootPM {
 
 
     /**
-     * checks to which continent the countryProxy belongs and updates the proxyContinent according
+     * checks to which continent the countryProxy belongs and updates the previousContinent and newSelectedContinent according
      * to to which continent countryProxy belongs.
      */
     private void AddContinentSelectionListener(){
@@ -193,7 +184,6 @@ public class RootPM {
                         .filter(continentPM -> continentPM.getContinentName().equals(oldValue))
                         .findFirst()
                         .get();
-                // previousContinent.setContinentName(newproxyContinent.getContinentName());
                 previousContinent.setPopulation(previousContinent.getPopulation() - countryProxy.getPopulation());
                 previousContinent.setArea(previousContinent.getArea() - countryProxy.getArea());
                 previousContinent.setAmountOfCountries(previousContinent.getAmountOfCountries() - 1);
@@ -209,18 +199,10 @@ public class RootPM {
                 newSelectedContinent.setArea(newSelectedContinent.getArea() + countryProxy.getArea());
                 newSelectedContinent.setAmountOfCountries(newSelectedContinent.getAmountOfCountries() + 1);
 
-                //synchronisation - proxyContinent = newproxyContinent:
-                proxyContinent.setContinentName(newSelectedContinent.getContinentName());
-                proxyContinent.setPopulation(newSelectedContinent.getPopulation());
-                proxyContinent.setArea(newSelectedContinent.getArea());
-                proxyContinent.setAmountOfCountries(newSelectedContinent.getAmountOfCountries());
+                //update selection
+                setSelectedContinentID(newSelectedContinent.getContinentName());
             }
-            //todo: if new country created and a new continent name has been given, the new continent will receive any new changes
-            //todo: what is missing: substract from old continent AND update current continent
-
         });
-        //todo: what if country has been deleted?
-        //todo: what if continent value changes? -> doesContinentExist()
     }
 
     private boolean doesContinentExist(){
@@ -349,7 +331,7 @@ public class RootPM {
 
     public ContinentPM getCurrentContinent(){
         return allContinents.stream()
-                .filter(continentPM -> continentPM.getContinentName().equals(proxyContinent.getContinentName()))
+                .filter(continentPM -> continentPM.getContinentName().equals(getSelectedContinentID()))
                 .distinct()
                 .findAny()
                 .get();
@@ -464,7 +446,16 @@ public class RootPM {
         this.selectedCountryId.set(selectedCountryId);
     }
 
-    public ContinentPM getProxyContinent() {
-        return proxyContinent;
+
+    public String getSelectedContinentID() {
+        return selectedContinentID.get();
+    }
+
+    public StringProperty selectedContinentIDProperty() {
+        return selectedContinentID;
+    }
+
+    public void setSelectedContinentID(String selectedContinentID) {
+        this.selectedContinentID.set(selectedContinentID);
     }
 }
