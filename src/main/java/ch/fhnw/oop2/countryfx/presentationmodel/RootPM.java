@@ -210,9 +210,9 @@ public class RootPM {
                 .anyMatch(continentPM -> countryProxy.getContinent().equals(continentPM.getContinentName()));
     }
 
-    private boolean doesContinentExist(String country){
+    private boolean doesContinentExist(String continent){
         return allContinents.stream()
-                .anyMatch(continentPM -> continentPM.getContinentName().equals(country));
+                .anyMatch(continentPM -> continentPM.getContinentName().equals(continent));
     }
 
     /**
