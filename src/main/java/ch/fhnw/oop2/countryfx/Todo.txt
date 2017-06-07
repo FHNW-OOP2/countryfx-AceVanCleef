@@ -11,9 +11,7 @@ Todo list of CountryFX:
         Important (lvl02)
 
 
-        1) Änderung von ‘Einwohner’ und ‘Fläche’ berechnet ‘Einwohner pro km2’ neu
-        2) Footer
-            a) bindings / value change updates (see RootPM's allContinent)
+        1) cuie custom control einbauen.
         6) Basic Features
             a)  Save to File !important
 
