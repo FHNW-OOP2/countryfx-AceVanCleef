@@ -1,0 +1,43 @@
+.root {
+    -fx-font-size: 2em;
+}
+
+/* RootPane: the wrapper around the cloud control */
+#rootPane {
+    -fx-background-color: burlywood;
+}
+
+/* The Cloud Control inside RootPane */
+.cloud-control {
+    -fx-background-color: coral;
+}
+
+/* The circle behind the target cloud */
+.skybackground {
+    /* Note that when trying to change its colour and it doesn't work through css,
+    consider changing its value in the SKY_BLUE_SAVED, SKY_BLUE_UNSAVED and SKY_BLUE_HOVER
+    found in the sub classes of CloudPane. */
+}
+
+/* Note: target and source cloud aren't supported inside css due to the .svg format.
+You can exchange the files using the given names in the folder "sketch". Otherwise,
+hard coded changes have to be done. */
+
+
+/*  For DemoPane */
+
+.simpleControl {
+    -fx-padding: 5;
+    -fx-background-color: rgb(12, 12, 12);
+    -base-color: rgb(2, 138, 204);
+}
+
+.simpleControl .backgroundCircle {
+    -fx-fill: -base-color;
+}
+
+.simpleControl .display {
+    -fx-font-family: 'DS-Digital';
+    -fx-font-size: 32;
+    -fx-fill: derive(-base-color, 95%);
+}

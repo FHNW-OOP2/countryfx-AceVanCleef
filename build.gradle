@@ -19,4 +19,16 @@ sourceSets {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile project(':CloudControl')
+}
+
+
+
+subprojects {
+    apply plugin: 'java'
+    project(':CloudControl'){
+        dependencies {
+            compile project(':FranzXaver')
+        }
+    }
 }

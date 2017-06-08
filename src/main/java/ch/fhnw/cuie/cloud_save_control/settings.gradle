@@ -1,0 +1,6 @@
+package ch.fhnw.cuie.cloud_save_control
+
+rootProject.name = 'Custom-Control-Master'
+include ':FranzXaver'
+project(':FranzXaver').projectDir = new File(settingsDir, '/libs/svgloader/FranzXaver')
+

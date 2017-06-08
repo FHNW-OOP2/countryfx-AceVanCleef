@@ -1,1 +1,5 @@
 rootProject.name = 'CountryFX-Master'
+include ':CloudControl'
+project(':CloudControl').projectDir = new File(settingsDir, 'src/main/java/ch/fhnw/cuie/project/cloud_save_control')
+include ':FranzXaver'
+project(':FranzXaver').projectDir = new File(settingsDir, '/libs/svgloader/FranzXaver')

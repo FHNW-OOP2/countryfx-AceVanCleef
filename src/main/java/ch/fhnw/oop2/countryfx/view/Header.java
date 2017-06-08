@@ -1,11 +1,14 @@
 package ch.fhnw.oop2.countryfx.view;
 
+import ch.fhnw.cuie.cloud_save_control.src.main.java.ch.fhnw.cuie.project.template_simplecontrol.helpers.Orientation;
+import ch.fhnw.cuie.cloud_save_control.src.main.java.ch.fhnw.cuie.project.template_simplecontrol.view.CloudRootPane;
 import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
 import ch.fhnw.oop2.countryfx.view.util.ViewMixin;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+
 
 /**
  * Created by Degonas on 29.04.2017.
@@ -19,13 +22,17 @@ public class Header extends ToolBar implements ViewMixin{
     private static final String CH_ICON     = "\ue001";
     private static final String UK_ICON     = "\ue000";
 
-    private Button saveButton;
+    //private Button saveButton;
     private Button createButton;
     private Button removeButton;
     private Button undoButton;
     private Button redoButton;
     private Button languageDEButton;
     private Button languageUKButton;
+
+    /* CUIE custom control (Cloud Save Button */
+    private CloudRootPane cloudControl;
+
 
     private final RootPM pm;
 
@@ -41,8 +48,11 @@ public class Header extends ToolBar implements ViewMixin{
 
     @Override
     public void initializeParts() {
-        saveButton = new Button(SAVE_ICON);
-        saveButton.getStyleClass().add("fontawesome");
+        //cuie custom control "cloud save button"
+        cloudControl = CloudRootPane.createCloudControlWithOrientationOf(Orientation.HORIZONTAL);
+
+        //saveButton = new Button(SAVE_ICON);
+        //saveButton.getStyleClass().add("fontawesome");
 
         createButton = new Button(PLUS_ICON);
         createButton.getStyleClass().add("fontawesome");
@@ -68,13 +78,21 @@ public class Header extends ToolBar implements ViewMixin{
         HBox spacer = new HBox();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        getItems().addAll(saveButton, createButton, removeButton, undoButton, redoButton, spacer, languageDEButton, languageUKButton);
+        //getItems().addAll(saveButton, createButton, removeButton, undoButton, redoButton, spacer, languageDEButton, languageUKButton);
+        getItems().addAll(cloudControl, createButton, removeButton, undoButton, redoButton, spacer, languageDEButton, languageUKButton);
     }
 
     @Override
     public void addEventHandlers() {
         createButton.setOnAction(event -> pm.createNewCountry());
         removeButton.setOnAction(event -> pm.removeSelectedCountry());
-        saveButton.setOnAction(event -> pm.saveToFile());
+        //saveButton.setOnAction(event -> pm.saveToFile());
+    }
+
+    @Override
+    public void addValueChangedListeners() {
+        cloudControl.saveItProperty().addListener((observable, oldValue, newValue) -> {
+            pm.saveToFile();;
+        });
     }
 }
