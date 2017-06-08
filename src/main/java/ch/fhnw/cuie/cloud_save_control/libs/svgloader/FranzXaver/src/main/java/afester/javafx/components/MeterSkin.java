@@ -16,7 +16,7 @@
 
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components;
 
-import afester.javafx.svg.SvgLoader;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.svg.SvgLoader;
 
 import javafx.scene.Node;
 import javafx.scene.control.SkinBase;

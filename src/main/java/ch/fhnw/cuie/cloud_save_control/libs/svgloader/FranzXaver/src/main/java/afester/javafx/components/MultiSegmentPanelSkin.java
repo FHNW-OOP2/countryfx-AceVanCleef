@@ -16,8 +16,8 @@
 
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components;
 
-import afester.javafx.components.DigitChangeEvent;
-import afester.javafx.components.MultiSegment;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.DigitChangeEvent;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.MultiSegment;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.EventHandler;
@@ -30,7 +30,7 @@ import java.io.CharConversionException;
 
 public class MultiSegmentPanelSkin extends SkinBase<MultiSegmentPanel> {
 
-    private afester.javafx.components.MultiSegment[] digits;
+    private ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.MultiSegment[] digits;
 
     // TODO: why do we need to duplicate the properties here and synchronize
     // them with the control's properties through bind()?
@@ -79,19 +79,19 @@ public class MultiSegmentPanelSkin extends SkinBase<MultiSegmentPanel> {
         final HBox displayGroup = new HBox();
         displayGroup.setId("segments");
 
-        digits = new afester.javafx.components.MultiSegment[numberOfDigits];
+        digits = new ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.MultiSegment[numberOfDigits];
         for (idx = 0;  idx < numberOfDigits;  idx++) {
             //digits[i] = new SevenSegment();
-            digits[idx] = new afester.javafx.components.MultiSegment(displayType);
+            digits[idx] = new ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.MultiSegment(displayType);
             digits[idx].setId("seg" + idx);
 
             digits[idx].getCurrentMaskProperty().addListener(new InvalidationListener() {
 
-                private afester.javafx.components.MultiSegment source = digits[idx];
+                private ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.MultiSegment source = digits[idx];
 
                 @Override
                 public void invalidated(Observable observable) {
-                    EventHandler<afester.javafx.components.DigitChangeEvent> handler =
+                    EventHandler<ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.DigitChangeEvent> handler =
                             MultiSegmentPanelSkin.this.getSkinnable().getOnDigitChanged();
                     if (handler != null) {
                         handler.handle(new DigitChangeEvent(source));
@@ -118,13 +118,13 @@ public class MultiSegmentPanelSkin extends SkinBase<MultiSegmentPanel> {
 
 
     private void setOnColor(Color col) {
-        for (afester.javafx.components.MultiSegment s : digits) {
+        for (ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.MultiSegment s : digits) {
             s.setOnColor(col);
         }
     }
 
     private void setOffColor(Color col) {
-        for (afester.javafx.components.MultiSegment s : digits) {
+        for (ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.MultiSegment s : digits) {
             s.setOffColor(col);
         }
     }

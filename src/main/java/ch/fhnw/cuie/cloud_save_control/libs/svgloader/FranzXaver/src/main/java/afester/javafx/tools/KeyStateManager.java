@@ -16,7 +16,8 @@
 
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools;
 
-import afester.javafx.tools.*;
+
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools.*;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.EventHandler;
@@ -56,7 +57,7 @@ public class KeyStateManager {
     private KeyCode previousKey = null;
 
     // The property which holds the event handler.
-    private ObjectProperty<EventHandler<afester.javafx.tools.KeyStateEvent>> keyChangedProperty =
+    private ObjectProperty<EventHandler<ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools.KeyStateEvent>> keyChangedProperty =
                                                     new SimpleObjectProperty<>();
 
     /**
@@ -64,7 +65,7 @@ public class KeyStateManager {
      *
      * @param handler The event handler to set.
      */
-    public void setOnKeyChangeEvent(EventHandler<afester.javafx.tools.KeyStateEvent> handler) {
+    public void setOnKeyChangeEvent(EventHandler<ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools.KeyStateEvent> handler) {
         onKeyChangedProperty().set(handler);
     }
 
@@ -72,7 +73,7 @@ public class KeyStateManager {
     /**
      * @return The current event handler for key state events.
      */
-    public final EventHandler<afester.javafx.tools.KeyStateEvent> getOnKeyChanged() {
+    public final EventHandler<ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools.KeyStateEvent> getOnKeyChanged() {
         return onKeyChangedProperty().get();
     }
 
@@ -80,7 +81,7 @@ public class KeyStateManager {
     /**
      * @return The property object which holds the key state event handler.
      */
-    public final ObjectProperty<EventHandler<afester.javafx.tools.KeyStateEvent>> onKeyChangedProperty() {
+    public final ObjectProperty<EventHandler<ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools.KeyStateEvent>> onKeyChangedProperty() {
         return keyChangedProperty;
     }
 
@@ -98,7 +99,7 @@ public class KeyStateManager {
 
             KeyCode pressedKey = e.getCode();
             if (!keys.contains(pressedKey)) {
-                getOnKeyChanged().handle(new afester.javafx.tools.KeyStateEvent(pressedKey));
+                getOnKeyChanged().handle(new ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools.KeyStateEvent(pressedKey));
                 keys.push(pressedKey);
                 previousKey = pressedKey;
             }
@@ -112,12 +113,12 @@ public class KeyStateManager {
             keys.remove(releasedKey);
 
             if (keys.empty()) {
-                getOnKeyChanged().handle(new afester.javafx.tools.KeyStateEvent(null));
+                getOnKeyChanged().handle(new ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools.KeyStateEvent(null));
                 previousKey = null;
             } else {
                 KeyCode topKey = keys.peek();
                 if (topKey != null && !topKey.equals(previousKey)) {
-                    getOnKeyChanged().handle(new afester.javafx.tools.KeyStateEvent(topKey));
+                    getOnKeyChanged().handle(new ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools.KeyStateEvent(topKey));
                     previousKey = topKey;
                 }
             }

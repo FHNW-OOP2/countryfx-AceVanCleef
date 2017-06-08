@@ -1,6 +1,6 @@
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.Examples.src.main.java.afester.javafx.examples.table.dynamic;
 
-import afester.javafx.components.DynamicTable;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.DynamicTable;
 
 import ch.fhnw.cuie.cloud_save_control.libs.svgloader.Examples.src.main.java.afester.javafx.examples.Example;
 import javafx.application.Application;

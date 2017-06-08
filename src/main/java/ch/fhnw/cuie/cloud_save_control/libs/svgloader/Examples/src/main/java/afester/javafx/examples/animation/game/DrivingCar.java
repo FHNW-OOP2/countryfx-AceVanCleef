@@ -16,8 +16,8 @@
 
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.Examples.src.main.java.afester.javafx.examples.animation.game;
 
-import afester.javafx.svg.SvgLoader;
-import afester.javafx.tools.KeyStateManager;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.svg.SvgLoader;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools.KeyStateManager;
 
 import ch.fhnw.cuie.cloud_save_control.libs.svgloader.Examples.src.main.java.afester.javafx.examples.Example;
 import javafx.animation.Animation;

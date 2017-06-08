@@ -16,7 +16,7 @@
 
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.Examples.src.main.java.afester.javafx.examples.svg;
 
-import afester.javafx.svg.SvgLoader;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.svg.SvgLoader;
 import ch.fhnw.cuie.cloud_save_control.libs.svgloader.Examples.src.main.java.afester.javafx.examples.Example;
 import javafx.application.Application;
 import javafx.geometry.Insets;

@@ -16,7 +16,7 @@
 
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.Examples.src.main.java.afester.javafx.examples.colorchannels;
 
-import afester.javafx.tools.ColorSeparator;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.tools.ColorSeparator;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

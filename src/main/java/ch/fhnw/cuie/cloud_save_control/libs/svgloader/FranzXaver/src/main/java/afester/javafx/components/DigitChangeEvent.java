@@ -16,7 +16,7 @@
 
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components;
 
-import afester.javafx.components.*;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.*;
 import javafx.event.Event;
 import javafx.event.EventType;
 
@@ -27,7 +27,7 @@ public class DigitChangeEvent extends Event {
     private static final EventType<DigitChangeEvent> EVENT_TYPE = 
                                             new EventType<>("DIGIT_CHANGE_EVENT");
 
-    public DigitChangeEvent(afester.javafx.components.MultiSegment digit) {
+    public DigitChangeEvent(ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.MultiSegment digit) {
         super(digit, null, EVENT_TYPE);
     }
 }

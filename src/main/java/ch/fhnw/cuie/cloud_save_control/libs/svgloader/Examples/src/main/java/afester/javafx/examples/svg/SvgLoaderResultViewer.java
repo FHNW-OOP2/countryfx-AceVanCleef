@@ -16,9 +16,9 @@
 
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.Examples.src.main.java.afester.javafx.examples.svg;
 
-import afester.javafx.components.SnapSlider;
-import afester.javafx.svg.GradientPolicy;
-import afester.javafx.svg.SvgLoader;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.SnapSlider;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.svg.GradientPolicy;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.svg.SvgLoader;
 import ch.fhnw.cuie.cloud_save_control.libs.svgloader.Examples.src.main.java.afester.javafx.examples.Example;
 import javafx.application.Application;
 import javafx.collections.FXCollections;

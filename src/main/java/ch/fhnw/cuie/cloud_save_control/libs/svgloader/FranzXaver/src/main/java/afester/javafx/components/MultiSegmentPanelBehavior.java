@@ -16,7 +16,7 @@
 
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components;
 
-import afester.javafx.components.*;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.*;
 import com.sun.javafx.scene.control.behavior.BehaviorBase;  // TODO: Private API!
 import com.sun.javafx.scene.control.behavior.KeyBinding;
 
@@ -25,9 +25,9 @@ import java.util.List;
 // Behavior is the controller for a control - means, how the control internally
 // behaves when some action is performed.
 // Example: enable/disable a segment of a multi segment digit  when clicking on it!
-public class MultiSegmentPanelBehavior extends BehaviorBase<afester.javafx.components.MultiSegmentPanel> {
+public class MultiSegmentPanelBehavior extends BehaviorBase<ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.MultiSegmentPanel> {
 
-    public MultiSegmentPanelBehavior(afester.javafx.components.MultiSegmentPanel control, List<KeyBinding> keyBindings) {
+    public MultiSegmentPanelBehavior(ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.MultiSegmentPanel control, List<KeyBinding> keyBindings) {
         super(control, keyBindings);
         // control.setOnMouseClicked(value);
     }

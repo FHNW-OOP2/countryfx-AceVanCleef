@@ -2,7 +2,7 @@ package ch.fhnw.cuie.cloud_save_control.src.main.java.ch.fhnw.cuie.project.templ
 
 import java.io.InputStream;
 
-import afester.javafx.svg.SvgLoader;
+import ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.svg.SvgLoader;
 import javafx.scene.Group;
 
 /**

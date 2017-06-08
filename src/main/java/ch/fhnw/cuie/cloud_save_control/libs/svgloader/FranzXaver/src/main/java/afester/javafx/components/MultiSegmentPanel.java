@@ -120,18 +120,18 @@ public class MultiSegmentPanel extends Control {
 
 
     /* Event handler handling for digit changes */
-    private ObjectProperty<EventHandler<afester.javafx.components.DigitChangeEvent>> digitChangedProperty =
+    private ObjectProperty<EventHandler<ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.DigitChangeEvent>> digitChangedProperty =
             new SimpleObjectProperty<>();
 
-    public void setOnDigitChanged(EventHandler<afester.javafx.components.DigitChangeEvent> handler) {
+    public void setOnDigitChanged(EventHandler<ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.DigitChangeEvent> handler) {
         onDigitChangedProperty().set(handler);
     }
 
-    public final EventHandler<afester.javafx.components.DigitChangeEvent> getOnDigitChanged() {
+    public final EventHandler<ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.DigitChangeEvent> getOnDigitChanged() {
         return onDigitChangedProperty().get();
     }
 
-    public final ObjectProperty<EventHandler<afester.javafx.components.DigitChangeEvent>> onDigitChangedProperty() {
+    public final ObjectProperty<EventHandler<ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.components.DigitChangeEvent>> onDigitChangedProperty() {
         return digitChangedProperty;
     }
 
