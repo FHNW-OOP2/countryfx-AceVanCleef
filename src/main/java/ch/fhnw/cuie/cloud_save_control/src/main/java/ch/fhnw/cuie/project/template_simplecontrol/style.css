@@ -4,12 +4,12 @@
 
 /* RootPane: the wrapper around the cloud control */
 #rootPane {
-    -fx-background-color: burlywood;
+    /*-fx-background-color: burlywood;*/
 }
 
 /* The Cloud Control inside RootPane */
 .cloud-control {
-    -fx-background-color: coral;
+    /*-fx-background-color: coral;*/
 }
 
 /* The circle behind the target cloud */

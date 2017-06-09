@@ -16,7 +16,8 @@
 
 package ch.fhnw.cuie.cloud_save_control.libs.svgloader.FranzXaver.src.main.java.afester.javafx.svg;
 
-import javafx.geometry.Point2D;
+import
+        javafx.geometry.Point2D;
 import javafx.scene.transform.Affine;
 
 import org.w3c.dom.svg.SVGMatrix;
