@@ -66,7 +66,7 @@ public class CountryServiceFileBased implements CountryService {
 
             dtosAsString.add(0, HEADLINE);      // Add Headline to List at the beginning
 
-            Files.write(getPath(FILE_NAME), dtosAsString, StandardCharsets.UTF_8, StandardOpenOption.WRITE);    // Write everything into file
+            Files.write(getPath(FILE_NAME), dtosAsString, StandardCharsets.UTF_8, StandardOpenOption.TRUNCATE_EXISTING);    // Write everything into file
 
         }catch (IOException e){
             throw new IllegalStateException(e);
