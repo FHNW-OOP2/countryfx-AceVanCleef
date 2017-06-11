@@ -41,11 +41,11 @@ public class NumberRange extends Region {
 
     //declare all Properties
     private final DoubleProperty minValue1 = new SimpleDoubleProperty(0);
-    private final DoubleProperty maxValue1 = new SimpleDoubleProperty(200);
+    private final DoubleProperty maxValue1 = new SimpleDoubleProperty(Integer.MAX_VALUE);
     private final DoubleProperty currentValue1 = new SimpleDoubleProperty();
 
     private final DoubleProperty minValue2 = new SimpleDoubleProperty(0);
-    private final DoubleProperty maxValue2 = new SimpleDoubleProperty(200);
+    private final DoubleProperty maxValue2 = new SimpleDoubleProperty(Integer.MAX_VALUE);
     private final DoubleProperty currentValue2 = new SimpleDoubleProperty();
 
     // needed for resizing
@@ -220,8 +220,20 @@ public class NumberRange extends Region {
 
     //Aded by Stefan Wohlgensinger
     private void updateDivision(){
-        valueDisplay1.textProperty().setValue(String.valueOf(currentValue1.intValue() / currentValue2.intValue()));
+        double population   = getCurrentValue1(); //Population : Area
+        double area         = getCurrentValue2();
+        if(population < 0){
+            population = 0;
+        }
+        if(area == 0){
+            area = 1;
+        } else if(area < 0){
+            area = Math.abs(area);
+        }
+
+        valueDisplay1.textProperty().setValue(String.valueOf( (int)(population / area) ));
     }
+
 
     private void updateTickLabels1() {
             int labelCount = tickLabels1.size();

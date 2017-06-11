@@ -12,8 +12,7 @@ Todo list of CountryFX:
 
 
         1) cuie custom control einbauen.
-        6) Basic Features
-            a)  Save to File !important
+
 
         nice to have:
         1) UI schön machen
@@ -21,6 +20,9 @@ Todo list of CountryFX:
         3) JUnit Tests
         4) Fix united nations flag 128px
         5) Undo/Redo
+        6) eliminating CSS warning
+            "WARNUNG: Could not resolve '-base-color' while resolving lookups for '-fx-text-fill' from rule '*.chooserButton' in stylesheet file:/C:/Files/Programming_Workspace/oop2_FS17-workspace/countryfx-AceVanCleef/build/resources/main/ch/fhnw/oop2/countryfx/view/components/dropdownchooser.css
+"
 
 
         fixed:
