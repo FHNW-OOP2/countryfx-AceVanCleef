@@ -1,0 +1,13 @@
+.drawingFigure{
+    -fx-fill: -base-color;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 4.0, 25, 25);
+}
+.backgroundPane{
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+.figurePane{
+      -fx-background-color: rgba(255,255,255,0.3);
+}

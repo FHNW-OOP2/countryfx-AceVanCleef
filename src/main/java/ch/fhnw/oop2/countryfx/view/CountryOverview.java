@@ -1,5 +1,6 @@
 package ch.fhnw.oop2.countryfx.view;
 
+import ch.fhnw.cuie.population_simplecontrol.PopulationControl;
 import ch.fhnw.oop2.countryfx.presentationmodel.CountryPM;
 import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
 import ch.fhnw.oop2.countryfx.view.util.ViewMixin;
@@ -28,6 +29,8 @@ public class CountryOverview extends GridPane implements ViewMixin{
     private ImageView flag;
     private Image image;
 
+    //#cuiePopulationControl from Lukas Marchesi and Jennifer Müller
+    private PopulationControl populationControl;
 
     public CountryOverview(RootPM pm){
         this.pm = pm;
@@ -46,6 +49,8 @@ public class CountryOverview extends GridPane implements ViewMixin{
         image = new Image(pm.getCurrentFlagURL(imageSize), true);
         flag = new ImageView();
 
+        //#cuiePopulationControl
+        populationControl = new PopulationControl();
     }
 
     @Override
@@ -74,6 +79,8 @@ public class CountryOverview extends GridPane implements ViewMixin{
         add(flag, 2,0, 1, 4);
         GridPane.setHalignment(flag, HPos.RIGHT);
 
+        //#cuiePopulationControl
+        add(populationControl, 1,0,1,3);
     }
 
     @Override
