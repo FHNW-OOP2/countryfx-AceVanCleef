@@ -183,7 +183,8 @@ public class NumberRange extends Region {
     private void setupValueChangeListeners() {
         currentValue1.addListener((observable, oldValue, newValue) -> {
             updateThumbAndBar(1);
-            uppdateSum();
+            //uppdateSum();
+            updateDivision();
         });
 
         minValue1.addListener((observable, oldValue, newValue) -> {
@@ -198,7 +199,8 @@ public class NumberRange extends Region {
 
         currentValue2.addListener((observable, oldValue, newValue) -> {
             updateThumbAndBar(2);
-            uppdateSum();
+            //uppdateSum();
+            updateDivision();
         });
 
         minValue2.addListener((observable, oldValue, newValue) -> {
@@ -214,6 +216,11 @@ public class NumberRange extends Region {
 
     private void uppdateSum(){
         valueDisplay1.textProperty().setValue(String.valueOf(currentValue1.intValue()+currentValue2.intValue()));
+    }
+
+    //Aded by Stefan Wohlgensinger
+    private void updateDivision(){
+        valueDisplay1.textProperty().setValue(String.valueOf(currentValue1.intValue() / currentValue2.intValue()));
     }
 
     private void updateTickLabels1() {
