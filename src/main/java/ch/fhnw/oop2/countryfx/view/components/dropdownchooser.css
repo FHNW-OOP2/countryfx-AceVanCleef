@@ -1,0 +1,34 @@
+
+/* #integrateCuieControlWithDropDownChooser */
+.dropDownChooser {
+    -fx-background-color: rgb(250, 250, 250);
+    -fx-background-radius: 4;
+    -fx-effect: dropshadow(gaussian, rgb(200, 200, 200), 5.0, 0.0, 2, 2);
+
+    -fx-pref-width: 150;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-border-color: rgb(200, 200, 200);
+    -fx-spacing: 10;
+    -fx-padding: 5;
+}
+.chooserButton {
+    -fx-font-family: 'FontAwesome';
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-min-width: 26;
+    -fx-min-height: 26;
+    -fx-font-size: 14;
+    -fx-text-fill: derive(-base-color, -30%);
+    -fx-padding: 5;
+    -fx-content-display: text-only;
+    -fx-cursor: hand;
+}
+.chooserButton:hover {
+    -fx-background-color: derive(-base-color, 70%);
+    -fx-background-radius: 1024;
+    -fx-background-insets: 4;
+}
+.drawingPane {
+    -fx-background-color: transparent;
+}

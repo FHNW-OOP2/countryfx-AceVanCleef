@@ -2,14 +2,18 @@ package ch.fhnw.oop2.countryfx.view;
 
 import ch.fhnw.oop2.countryfx.presentationmodel.CountryPM;
 import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
+import ch.fhnw.oop2.countryfx.view.components.DropDownChooser;
 import ch.fhnw.oop2.countryfx.view.util.ViewMixin;
+import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.*;
+import javafx.stage.Popup;
 import javafx.util.converter.NumberStringConverter;
+
+import java.util.Arrays;
 
 /**
  * Created by Degonas on 29.04.2017.
@@ -49,12 +53,26 @@ public class CountryEditor extends GridPane implements ViewMixin{
     private TextField    name_localField;
 
 
+    ////#integrateCuieControlWithDropDownChooser: "graded" mit Dropdown in PopulationPerAreaField
+    private StackPane drawingPane;
+    private Popup popup;
+    private Pane dropDownChooser;
+    private Button chooserButton;
+    private static final String ANGLE_DOWN = "\uf107";
+    private static final String ANGLE_UP   = "\uf106";
+
     public CountryEditor(RootPM pm){
         this.pm = pm;
         init();
 
         //for debuggin
         //this.gridLinesVisibleProperty().set(true);    //for debugging (makes gridlines visible)
+    }
+
+    @Override
+    public void initializeSelf() {
+        String stylesheet = getClass().getResource("components/dropdownchooser.css").toExternalForm();
+        getStylesheets().add(stylesheet);
     }
 
     @Override
@@ -88,6 +106,19 @@ public class CountryEditor extends GridPane implements ViewMixin{
         tldField            = new TextField();
         name_englishField   = new TextField();
         name_localField     = new TextField();
+
+
+        ////#integrateCuieControlWithDropDownChooser: "graded"
+        chooserButton = new Button(ANGLE_DOWN);
+        chooserButton.getStyleClass().add("chooserButton");
+
+        dropDownChooser = new DropDownChooser(pm);
+
+        popup = new Popup();
+        popup.getContent().addAll(dropDownChooser);
+
+        drawingPane = new StackPane();
+        drawingPane.getStyleClass().add("drawingPane");
     }
 
     @Override
@@ -123,7 +154,8 @@ public class CountryEditor extends GridPane implements ViewMixin{
         add(nameLongField, 1,1, 3,1);
         add(continentField, 1,2);
         add(areaField, 1,3);
-        add(populationPerAreaField, 1,4);
+        //add(populationPerAreaField, 1,4);
+        add(drawingPane, 1,4); //replaces populationPerAreaField to integrate cuie business control
         add(capitalField, 3,2);
         add(populationField, 3,3);
         add(topLevelDomainField, 3,4);
@@ -134,6 +166,46 @@ public class CountryEditor extends GridPane implements ViewMixin{
         add(name_englishField, 3,6);
         add(name_localField, 1,7, 3,1);
 
+
+        ////#integrateCuieControlWithDropDownChooser: "graded"
+        StackPane.setAlignment(chooserButton, Pos.CENTER_RIGHT);
+        drawingPane.getChildren().addAll(populationPerAreaField, chooserButton);
+
+//        Arrays.stream(State.values())
+//                .map(state -> state.imageView)
+//                .forEach(imageView -> {
+//                    imageView.setManaged(false);
+//                    drawingPane.getChildren().add(imageView);
+//                });
+//
+//        StackPane.setAlignment(populationPerAreaLabel, Pos.CENTER_LEFT);
+//        StackPane.setAlignment(readOnlyNode, Pos.CENTER_LEFT);
+
+
+    }
+
+
+    //#integrateCuieControlWithDropDownChooser
+    @Override
+    public void addEventHandlers() {
+        chooserButton.setOnAction(event -> {
+            if (popup.isShowing()) {
+                popup.hide();
+            } else {
+                popup.show(populationPerAreaField.getScene().getWindow());
+            }
+        });
+
+        popup.setOnHidden(event -> chooserButton.setText(ANGLE_DOWN));
+
+        popup.setOnShown(event -> {
+            chooserButton.setText(ANGLE_UP);
+            Point2D location = populationPerAreaField.localToScreen(populationPerAreaField.getWidth() - dropDownChooser.getPrefWidth() - 3,
+                    populationPerAreaField.getHeight() -3);
+
+            popup.setX(location.getX());
+            popup.setY(location.getY());
+        });
     }
 
     @Override

@@ -1,0 +1,42 @@
+NumberRange {
+    -fx-padding: 5;
+    -fx-background-color: rgb(12, 12, 12);
+}
+
+.numberRange .backgroundCircle1 {
+    -fx-stroke-width: 30;
+    -fx-stroke: rgb(217, 218, 31);
+    -fx-fill: transparent;
+}
+
+.numberRange .bar1 {
+    -fx-stroke-width: 30;
+    -fx-stroke: rgb(58, 233, 6);
+    -fx-stroke-line-cap: round;
+    -fx-fill: transparent;
+}
+
+.numberRange .thumb1 {
+    -fx-fill: rgb(40, 138, 196);
+    -fx-cursor: hand;
+
+}
+
+.numberRange .valueDisplay1 {
+    -fx-font-family: 'Lato Light';
+    -fx-font-size: 40;
+    -fx-fill: white;
+}
+
+.numberRange .tick1 {
+    -fx-stroke: rgb(87, 87, 87);
+    -fx-stroke-width: 2;
+}
+
+.numberRange .tickLabel1 {
+    -fx-font-family: 'Lato Light';
+    -fx-font-size: 12;
+    -fx-fill: rgb(87, 87, 87);
+}
+
+
