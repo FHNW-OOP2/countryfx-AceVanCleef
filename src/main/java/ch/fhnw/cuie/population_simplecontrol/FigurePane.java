@@ -2,9 +2,11 @@ package ch.fhnw.cuie.population_simplecontrol;
 
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -26,15 +28,16 @@ public class FigurePane extends GridPane {
 
   private FadeTransition fadeTransition;
 
-  private DoubleProperty maxPopulation = new SimpleDoubleProperty(100);
-  private DoubleProperty currentPopulation = new SimpleDoubleProperty(72);
+  private DoubleProperty maxPopulation = new SimpleDoubleProperty();
+  private DoubleProperty currentPopulation = new SimpleDoubleProperty();
   private IntegerProperty figuresWidth = new SimpleIntegerProperty(NUMBER_OF_FIGURES_WIDTH);
   private IntegerProperty figuresHeight = new SimpleIntegerProperty(NUMBER_OF_FIGURES_HEIGHT);
+  private BooleanProperty logScaling = new SimpleBooleanProperty();
 
   private final ObjectProperty<Color> baseColor = new SimpleObjectProperty<>();
 
-  private static final int NUMBER_OF_FIGURES_WIDTH = 16;
-  private static final int NUMBER_OF_FIGURES_HEIGHT = 12;
+  private static final int NUMBER_OF_FIGURES_WIDTH = 8;
+  private static final int NUMBER_OF_FIGURES_HEIGHT = 10;
   private static final int FADE_DURATION = 500;
 
   private static int totalFigures = NUMBER_OF_FIGURES_WIDTH * NUMBER_OF_FIGURES_HEIGHT;
@@ -96,6 +99,12 @@ public class FigurePane extends GridPane {
   }
 
   private int calcVisibleFigures() {
+    // check if the user wishes to use logarithmic scaling
+    if (logScaling.get()) {
+      return (int) ((Math.log(currentPopulationProperty().get()) / Math.log(maxPopulationProperty().get()))
+          * getFiguresWidth() * getFiguresHeight());
+    }
+    // no logarithmic calculation
     return (int) ((currentPopulationProperty().get() / maxPopulationProperty().get())
         * getFiguresWidth() * getFiguresHeight());
   }
@@ -179,6 +188,18 @@ public class FigurePane extends GridPane {
 
   public void setBaseColor(Color baseColor) {
     this.baseColor.set(baseColor);
+  }
+
+  public boolean isLogScaling() {
+    return logScaling.get();
+  }
+
+  public BooleanProperty logScalingProperty() {
+    return logScaling;
+  }
+
+  public void setLogScaling(boolean logScaling) {
+    this.logScaling.set(logScaling);
   }
 }
 

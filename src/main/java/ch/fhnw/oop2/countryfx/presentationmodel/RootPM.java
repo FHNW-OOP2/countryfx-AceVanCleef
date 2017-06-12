@@ -2,7 +2,10 @@ package ch.fhnw.oop2.countryfx.presentationmodel;
 
 import ch.fhnw.oop2.countryfx.service.CountryDTO;
 import ch.fhnw.oop2.countryfx.service.CountryService;
+import javafx.beans.InvalidationListener;
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -32,6 +35,8 @@ public class RootPM {
     //#CountriesToContinentBinding
     private final StringProperty selectedContinentID = new SimpleStringProperty();
 
+    //#Property for highest population
+    private final DoubleProperty maxCountryPopulationKM2 = new SimpleDoubleProperty();
 
     //#Flagge
     private static String FLAGS_IMGAGE_PATH = "https://dieterholz.github.io/StaticResources/flags_iso/";
@@ -48,6 +53,8 @@ public class RootPM {
         allCountries.addAll(service.findAll().stream()
                 .map(dto -> new CountryPM(dto))         //Mapping von DTOs zu PMs
                 .collect(Collectors.toList()));         //Alle PMs zur ObservableList
+
+        setMaxCountryPopulationKM2(getHighestCountryPopulationValue());
 
         idOfNextNewCountry = allCountries.size() + 1;
 
@@ -117,6 +124,11 @@ public class RootPM {
 
         //Änderungen von "Einwohner" und "Fläche" berechnet "Einwohner pro km2" neu
         AddPopulationPerKM2Updater();
+
+        // falls ein zusätzliches, grösseres Land hinzugefügt wird
+        allCountries.addListener((InvalidationListener)observable -> {
+            setMaxCountryPopulationKM2(getHighestCountryPopulationValue());
+        });
     }
 
     private void AddPopulationPerKM2Updater(){
@@ -297,6 +309,14 @@ public class RootPM {
         service.save(allCountryDTOs);
     }
 
+    /********************* CUIE Get highest Countrypopulation *********************/
+    private double getHighestCountryPopulationValue() {
+        return allCountries.stream()
+            .mapToDouble(value -> value.getPopulation_km2())
+            .max()
+            .getAsDouble();
+    }
+
 
     /************************** #SelectionHandling **************************/
 
@@ -457,5 +477,17 @@ public class RootPM {
 
     public void setSelectedContinentID(String selectedContinentID) {
         this.selectedContinentID.set(selectedContinentID);
+    }
+
+    public double getMaxCountryPopulationKM2() {
+        return maxCountryPopulationKM2.get();
+    }
+
+    public DoubleProperty maxCountryPopulationKM2Property() {
+        return maxCountryPopulationKM2;
+    }
+
+    public void setMaxCountryPopulationKM2(double maxCountryPopulationKM2) {
+        this.maxCountryPopulationKM2.set(maxCountryPopulationKM2);
     }
 }

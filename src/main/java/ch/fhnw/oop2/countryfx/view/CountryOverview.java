@@ -1,5 +1,6 @@
 package ch.fhnw.oop2.countryfx.view;
 
+import ch.fhnw.cuie.population_simplecontrol.BackgroundPane;
 import ch.fhnw.cuie.population_simplecontrol.PopulationControl;
 import ch.fhnw.oop2.countryfx.presentationmodel.CountryPM;
 import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
@@ -29,8 +30,8 @@ public class CountryOverview extends GridPane implements ViewMixin{
     private ImageView flag;
     private Image image;
 
-    //#cuiePopulationControl from Lukas Marchesi and Jennifer Müller
-    private PopulationControl populationControl;
+    //#cuiePopulationControl from Lukas Marchesi and Jenny Müller
+    private BackgroundPane populationControl;
 
     public CountryOverview(RootPM pm){
         this.pm = pm;
@@ -56,13 +57,12 @@ public class CountryOverview extends GridPane implements ViewMixin{
         flag = new ImageView();
 
         //#cuiePopulationControl
-        populationControl = new PopulationControl();
+        populationControl = new BackgroundPane();
     }
 
     @Override
     public void layoutParts() {
         flag.setImage(image);
-
 
         // Growth vertically (Höhe)
         RowConstraints rc = new RowConstraints();
@@ -107,6 +107,9 @@ public class CountryOverview extends GridPane implements ViewMixin{
         continent.textProperty().bind(pm.getCountryProxy().continentProperty());
         capital.textProperty().bind(pm.getCountryProxy().capitalProperty());
         area.textProperty().bind(pm.getCountryProxy().areaProperty().asString());
+        populationControl.backgroundUrlProperty().bindBidirectional(pm.getCountryProxy().iso_2Property());
+        populationControl.getFigurePane().currentPopulationProperty().bindBidirectional(pm.getCountryProxy().population_km2Property());
+        populationControl.getFigurePane().maxPopulationProperty().bindBidirectional(pm.maxCountryPopulationKM2Property());
         //todo: flag
     }
 
