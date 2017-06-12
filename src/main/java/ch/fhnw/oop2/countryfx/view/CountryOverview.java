@@ -114,7 +114,7 @@ public class CountryOverview extends GridPane implements ViewMixin{
 
 
         //#cuiePopulationControl
-        populationControl.maxWidthProperty().bind(this.widthProperty().multiply(0.25));
+        populationControl.maxWidthProperty().bind(this.widthProperty().multiply(0.15));
         populationControl.maxHeightProperty().bind(this.heightProperty().multiply(0.15));
     }
 
