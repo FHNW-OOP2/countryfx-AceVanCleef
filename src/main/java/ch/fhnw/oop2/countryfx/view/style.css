@@ -196,7 +196,3 @@
     -fx-vgap: 0.3333333em;
 }
 
-#continentInfo {
-    /* Abstand zwischen Gridpanerand und dessen Kinder/Elemente */
-    -fx-padding: 20px;
-}

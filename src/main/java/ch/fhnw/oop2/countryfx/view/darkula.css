@@ -13,6 +13,8 @@
     font...
     icon/font base: #3c3f41
     font yellow:    #3c3f41
+    tableview...
+    header:         #424d5f
 */
 
 .root {
@@ -20,10 +22,25 @@
     -fx-text-base-color: #6ea1c5;
 }
 
-#countryOverview, #countryEditor, #rootPane, #countryList, .countryListItem {
+#countryOverview, #countryEditor, #countryList {
     -fx-background-color: #3c3f41;
 }
 
+/* ************************ Header ************************   */
+#header {
+    -fx-background-color: #6ea1c5;
+}
+.cloudControl{
+    -fx-background-color: #6ea1c5;
+    -fx-text-base-color: #3c3f41;
+    -fx-text-fill: #3c3f41;
+}
+
+/* ************************ Footer ************************   */
+
+#continentInfo {
+    -fx-background-color: #3c3f41;
+}
 
 /* ************************ CountryList ************************   */
 /* Source: https://stackoverflow.com/questions/18694447/how-can-we-set-a-particular-color-for-selected-item-on-listview-in-java-fx */

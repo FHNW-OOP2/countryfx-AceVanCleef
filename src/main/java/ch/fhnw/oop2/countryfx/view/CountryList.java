@@ -118,11 +118,6 @@ class CustomListItem extends GridPane implements ViewMixin{
         //this.setGridLinesVisible(true);  //for debugging (makes gridlines visible)
     }
 
-    @Override
-    public void initializeSelf() {
-        //css
-        getStyleClass().addAll("countryListItem");
-    }
 
     @Override
     public void initializeParts() {

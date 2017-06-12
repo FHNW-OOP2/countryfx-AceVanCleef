@@ -44,12 +44,14 @@ public class Header extends ToolBar implements ViewMixin{
     @Override
     public void initializeSelf() {
         getStyleClass().add("header");
+        setId("header");
     }
 
     @Override
     public void initializeParts() {
         //cuie custom control "cloud save button"
         cloudControl = CloudRootPane.createCloudControlWithOrientationOf(Orientation.HORIZONTAL);
+        cloudControl.getStyleClass().add("cloudControl");
 
         //saveButton = new Button(SAVE_ICON);
         //saveButton.getStyleClass().add("fontawesome");
