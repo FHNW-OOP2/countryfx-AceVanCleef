@@ -111,6 +111,11 @@ public class CountryOverview extends GridPane implements ViewMixin{
         populationControl.getFigurePane().currentPopulationProperty().bindBidirectional(pm.getCountryProxy().population_km2Property());
         populationControl.getFigurePane().maxPopulationProperty().bindBidirectional(pm.maxCountryPopulationKM2Property());
         //todo: flag
+
+
+        //#cuiePopulationControl
+        populationControl.maxWidthProperty().bind(this.widthProperty().multiply(0.25));
+        populationControl.maxHeightProperty().bind(this.heightProperty().multiply(0.15));
     }
 
     @Override

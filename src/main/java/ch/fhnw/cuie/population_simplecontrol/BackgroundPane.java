@@ -34,7 +34,6 @@ public class BackgroundPane extends StackPane {
   }
 
   private void setBackground() {
-//    this.setStyle("-fx-background-image: url('" + getBackgroundUrl() + "')");
     String backgroundUrl = getBackgroundUrl();
     if(backgroundUrl != null && !backgroundUrl.isEmpty()) {
       this.setStyle("-fx-background-image: url('" + "https://dieterholz.github.io/StaticResources/flags_iso/550/" + backgroundUrl.toLowerCase() + ".png')");
