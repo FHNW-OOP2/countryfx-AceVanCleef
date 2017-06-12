@@ -28,7 +28,7 @@
 }
 
 .header .button:hover {
-    -fx-background-color: -fx-basic-color;
+    -fx-background-color: -fx-lightest-gray-color;
 }
 
 .header .button .text {

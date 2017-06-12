@@ -81,7 +81,7 @@ public class Header extends ToolBar implements ViewMixin{
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
         //getItems().addAll(saveButton, createButton, removeButton, undoButton, redoButton, spacer, languageDEButton, languageUKButton);
-        getItems().addAll(cloudControl, createButton, removeButton, undoButton, redoButton, spacer, languageDEButton, languageUKButton);
+        getItems().addAll(cloudControl, createButton, removeButton);
     }
 
     @Override

@@ -10,7 +10,7 @@ Dieses Projekt wurde in Zusammenarbeit von...
 Von folgenden Teams wurden die Custom Controls aus dem CUIE - Modul eingebaut:
 - Ramona Mäder und Biraveenmaks Ponnu
 - Lukas Marchesi und Jennifer Müller
-- ?
+- Dominique Tschumi und Roman Thiede
 - Stefan Wohlgensinger und Stefan Wehrli (also wir selbst :D )
 
 
