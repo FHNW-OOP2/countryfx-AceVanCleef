@@ -1,5 +1,6 @@
 package ch.fhnw.oop2.countryfx.view;
 
+import ch.fhnw.cuie.yacp.ContinentTextField;
 import ch.fhnw.oop2.countryfx.presentationmodel.CountryPM;
 import ch.fhnw.oop2.countryfx.presentationmodel.RootPM;
 import ch.fhnw.oop2.countryfx.view.components.DropDownChooser;
@@ -98,7 +99,7 @@ public class CountryEditor extends GridPane implements ViewMixin{
         capitalField            = new TextField();
         populationField         = new TextField();
         topLevelDomainField     = new TextField();
-        continentField          = new TextField();
+        continentField          = new ContinentTextField("Europa", "Asien", "Nordamerika", "Afrika", "Südamerika", "Australien/Ozeanien");
         populationPerAreaField  = new TextField();
 
         iso_3Field          = new TextField();
