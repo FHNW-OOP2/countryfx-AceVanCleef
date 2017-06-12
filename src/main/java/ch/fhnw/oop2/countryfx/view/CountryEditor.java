@@ -74,6 +74,9 @@ public class CountryEditor extends GridPane implements ViewMixin{
     public void initializeSelf() {
         String stylesheet = getClass().getResource("components/dropdownchooser.css").toExternalForm();
         getStylesheets().add(stylesheet);
+
+        //css
+        setId("countryEditor");
     }
 
     @Override
@@ -100,6 +103,7 @@ public class CountryEditor extends GridPane implements ViewMixin{
         populationField         = new TextField();
         topLevelDomainField     = new TextField();
         continentField          = new ContinentTextField("Europa", "Asien", "Nordamerika", "Afrika", "Südamerika", "Australien/Ozeanien");
+        //continentField          = new TextField();
         populationPerAreaField  = new TextField();
 
         iso_3Field          = new TextField();

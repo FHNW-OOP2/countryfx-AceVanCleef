@@ -182,7 +182,21 @@
     -fx-stroke: darkolivegreen;
 }
 
-
 .invalid .text {
     -fx-stroke: red;
+}
+
+
+/* ************************ Beautifying step ************************   */
+#countryOverview, #countryEditor {
+    /* Abstand zwischen Gridpanerand und dessen Kinder/Elemente */
+    -fx-padding: 20px;
+    /* Abstand zwischen Kolonnen und Spalten */
+    -fx-hgap: 0.4166667em;
+    -fx-vgap: 0.3333333em;
+}
+
+#continentInfo {
+    /* Abstand zwischen Gridpanerand und dessen Kinder/Elemente */
+    -fx-padding: 20px;
 }

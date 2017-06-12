@@ -24,6 +24,9 @@ public class Footer extends TableView<ContinentPM> implements ViewMixin {
         this.setItems(pm.getAllContinents());                               // armed with data
         this.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);    // Verteile die Spalten regelmässig in der TabelView
         this.setPrefHeight(300);                                            // Maximale Höhe der TableView
+
+        //css
+        setId("continentInfo");
     }
 
     @Override

@@ -41,6 +41,12 @@ public class CountryOverview extends GridPane implements ViewMixin{
     }
 
     @Override
+    public void initializeSelf() {
+        //css
+        this.setId("countryOverview");
+    }
+
+    @Override
     public void initializeParts() {
         country = new Label();
         continent = new Label();

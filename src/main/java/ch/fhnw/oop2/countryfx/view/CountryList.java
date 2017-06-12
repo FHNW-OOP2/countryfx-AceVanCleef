@@ -44,6 +44,9 @@ public class CountryList extends ListView<CountryPM> implements ViewMixin{
     public void initializeSelf() {
         setItems(pm.getAllCountries());
         this.setCellFactory(v -> new CountryListCell());
+
+        //css
+        setId("countryList");
     }
 
     @Override
