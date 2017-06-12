@@ -1,5 +1,19 @@
 # OOP2 Programmierprojekt
 
+## Das Projektteam
+Dieses Projekt wurde in Zusammenarbeit von...
+- Stefan Wehrli
+- Stefan Wohlgensinger
+...erarbeitet. ca. 90% des Codes sind im Pair Programming (vor Ort / TeamViewer) entsanden.
+
+## Eingebaute CUIE Custom Controls
+Von folgenden Teams wurden die Custom Controls aus dem CUIE - Modul eingebaut:
+- Ramona Mäder und Biraveenmaks Ponnu
+- Lukas Marchesi und Jennifer Müller
+- ?
+- Stefan Wohlgensinger und Stefan Wehrli (also wir selbst :D )
+
+
 ## CountryFX
 
 Implementieren Sie eine Applikation auf Basis JavaFX gemäss der Aufgabenbeschreibung auf dem AD. 
