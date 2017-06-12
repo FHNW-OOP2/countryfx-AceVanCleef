@@ -92,7 +92,9 @@ public class Header extends ToolBar implements ViewMixin{
     @Override
     public void addValueChangedListeners() {
         cloudControl.saveItProperty().addListener((observable, oldValue, newValue) -> {
-            pm.saveToFile();;
+            if(newValue){
+                pm.saveToFile();
+            }
         });
     }
 }
