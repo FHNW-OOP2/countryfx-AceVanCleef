@@ -119,6 +119,12 @@ class CustomListItem extends GridPane implements ViewMixin{
     }
 
     @Override
+    public void initializeSelf() {
+        //css
+        getStyleClass().addAll("countryListItem");
+    }
+
+    @Override
     public void initializeParts() {
         img = new Image(getFlagURL(FLAGS_SIZE), true);
         flag = new ImageView(img);

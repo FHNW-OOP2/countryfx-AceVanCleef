@@ -20,10 +20,13 @@ public class RootPane extends BorderPane implements ViewMixin{
     @Override
     public void initializeSelf() {
         String stylesheet = getClass().getResource("style.css").toExternalForm();
-        getStylesheets().add(stylesheet);
+        String darkulaTheme = getClass().getResource("darkula.css").toExternalForm();
+        getStylesheets().addAll(stylesheet, darkulaTheme);
 
         String fonts = getClass().getResource("fonts.css").toExternalForm();
         getStylesheets().add(fonts);
+
+        setId("rootPane");
     }
 
     @Override

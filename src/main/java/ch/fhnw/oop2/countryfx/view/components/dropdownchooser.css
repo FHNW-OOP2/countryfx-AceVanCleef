@@ -19,7 +19,7 @@
     -fx-min-width: 26;
     -fx-min-height: 26;
     -fx-font-size: 14;
-    -fx-text-fill: derive(-base-color, -30%);
+    /*-fx-text-fill: derive(-base-color, -30%);*/
     -fx-padding: 5;
     -fx-content-display: text-only;
     -fx-cursor: hand;

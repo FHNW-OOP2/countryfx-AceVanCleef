@@ -8,7 +8,7 @@
     -fx-text-color: rgb(67.0, 72.0, 77.0);
     -fx-light-gray-color: rgb(200.0, 200.0, 200.0);
     -fx-lightest-gray-color: rgb(230.0, 230.0, 230.0);
-    -fx-background-color: white;
+    /*-fx-background-color: white;*/ /* removed due to darkula.css */
 }
 
 .header {
