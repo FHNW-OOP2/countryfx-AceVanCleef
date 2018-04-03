@@ -18,7 +18,7 @@ Von folgenden Teams wurden die Custom Controls aus dem CUIE - Modul eingebaut:
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=TDzeqDoEy_0
 " target="_blank"><img src="http://img.youtube.com/vi/TDzeqDoEy_0/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
-
+**Hint**: Click on the image to watch its video demonstration.
 
 ## CountryFX
 
